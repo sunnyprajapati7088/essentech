@@ -1,0 +1,11 @@
+.features {
+    --card-radius: 18px;
+    --shadow-soft: 0 10px 30px
+ color-mix(in srgb, var(--default-color), transparent 88%);
+    --shadow-hover: 0 16px 44px
+ color-mix(in srgb, var(--default-color), transparent 82%);
+    --ring-color: 
+ color-mix(in srgb, var(--accent-color), transparent 75%);
+    --muted: 
+ color-mix(in srgb, var(--default-color), transparent 35%);
+}
