@@ -1,0 +1,55 @@
+#!/usr/bin/env php
+<?php
+
+define('LARAVEL_START', microtime(true));
+
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll require it into the
+| script here so we can in turn require the files needed by the application.
+|
+*/
+
+$__composer_autoload_path__ = __DIR__.'/vendor/autoload.php';
+if (file_exists($__composer_autoload_path__)) {
+    require $__composer_autoload_path__;
+} else {
+    require __DIR__.'/../../autoload.php';
+}
+
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+/*
+|--------------------------------------------------------------------------
+| Run The Artisan Application
+|--------------------------------------------------------------------------
+|
+| When we run the console application, the bootstrap file will have already
+| set up the application and prepared it for receiving console commands.
+| We'll pass in the console input to the application's handle method.
+|
+*/
+
+$status = $app->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+/*
+|--------------------------------------------------------------------------
+| Shutdown The Application
+|--------------------------------------------------------------------------
+|
+| Once Artisan has finished running, we want to call the shutdown method
+| on the application so it has the opportunity to gracefully shut itself
+| down and call any terminating callbacks registered with the container.
+|
+*/
+
+$app->terminate($input, $status);
+
+exit($status);
