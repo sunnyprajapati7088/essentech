@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PageSectionController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\SrnController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -36,6 +37,11 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 // Blog Routes
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [PageController::class, 'blogDetails'])->name('blog.details');
+
+// Brand Routes (3-level SEO navigation)
+Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
+Route::get('/brands/{brandSlug}', [BrandController::class, 'brand'])->name('brands.show');
+Route::get('/brands/{brandSlug}/{applianceSlug}', [BrandController::class, 'brandAppliance'])->name('brands.appliance');
 Route::get('/contact/success', function () {
     return view('success');
 })->name('contact.success');

@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-@php
+<?php
     use App\Models\Menu;
 
     // Fetch top-level menus with pages only (limit 2 for footer)
@@ -12,7 +12,7 @@
     ->orderBy('order', 'asc')
     ->take(2)
     ->get();
-@endphp
+?>
 
 <div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
@@ -20,7 +20,7 @@
         <div class="row mb-5">
             <div class="col-6">
                 <h1 class="text-white mb-4">
-                    <img class="img-fluid me-3" src="{{ asset('img/icon/icon-02-light.png') }}" alt="">
+                    <img class="img-fluid me-3" src="<?php echo e(asset('img/icon/icon-02-light.png')); ?>" alt="">
                     EssenTechs
                 </h1>
                 <p class="text-white">
@@ -55,39 +55,40 @@
             <!-- Our Services -->
             <div class="col-lg-2 col-md-6">
                 <h5 class="text-light mb-4">Our Services</h5>
-                <a class="btn btn-link" href="{{ route('acServices') }}">Air Conditioner (AC) Repair</a>
-                <a class="btn btn-link" href="{{ route('washingMachine') }}">Washing Machine Repair</a>
-                <a class="btn btn-link" href="{{ route('refrigerator') }}">Refrigerator Repair & Service</a>
-                <a class="btn btn-link" href="{{ route('microWaveOpen') }}">Microwave Oven Repair</a>
-                <a class="btn btn-link" href="{{ route('installationUninstallation') }}">Installation & Uninstallation</a>
-                <a class="btn btn-link" href="{{ route('amc') }}">Annual Maintenance Contracts (AMC)</a>
+                <a class="btn btn-link" href="<?php echo e(route('acServices')); ?>">Air Conditioner (AC) Repair</a>
+                <a class="btn btn-link" href="<?php echo e(route('washingMachine')); ?>">Washing Machine Repair</a>
+                <a class="btn btn-link" href="<?php echo e(route('refrigerator')); ?>">Refrigerator Repair & Service</a>
+                <a class="btn btn-link" href="<?php echo e(route('microWaveOpen')); ?>">Microwave Oven Repair</a>
+                <a class="btn btn-link" href="<?php echo e(route('installationUninstallation')); ?>">Installation & Uninstallation</a>
+                <a class="btn btn-link" href="<?php echo e(route('amc')); ?>">Annual Maintenance Contracts (AMC)</a>
             </div>
 
             <!-- Quick Links -->
             <div class="col-lg-2 col-md-6">
                 <h5 class="text-light mb-4">Quick Links</h5>
-                <a class="btn btn-link" href="{{ url('/about') }}">About Us</a>
-                <a class="btn btn-link" href="{{ url('/blog') }}" target="_blank">Blog</a>
-                <a class="btn btn-link" href="{{ route('brands.index') }}">Repair by Brand</a>
-                <a class="btn btn-link" href="{{ url('/contact') }}">Contact Us</a>
-                <a class="btn btn-link" href="{{ url('/gallery') }}">Gallery</a>
-                <a class="btn btn-link" href="{{ url('/services') }}">Our Services</a>
-                <a class="btn btn-link" href="{{ url('/terms') }}">Terms & Condition</a>
+                <a class="btn btn-link" href="<?php echo e(url('/about')); ?>">About Us</a>
+                <a class="btn btn-link" href="<?php echo e(url('/blog')); ?>" target="_blank">Blog</a>
+                <a class="btn btn-link" href="<?php echo e(route('brands.index')); ?>">Repair by Brand</a>
+                <a class="btn btn-link" href="<?php echo e(url('/contact')); ?>">Contact Us</a>
+                <a class="btn btn-link" href="<?php echo e(url('/gallery')); ?>">Gallery</a>
+                <a class="btn btn-link" href="<?php echo e(url('/services')); ?>">Our Services</a>
+                <a class="btn btn-link" href="<?php echo e(url('/terms')); ?>">Terms & Condition</a>
             </div>
 
             <!-- Dynamic Menus -->
-            @foreach($footerMenus as $menu)
+            <?php $__currentLoopData = $footerMenus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">{{ $menu->title }}</h5>
-                    @foreach($menu->page as $page)
+                    <h5 class="text-light mb-4"><?php echo e($menu->title); ?></h5>
+                    <?php $__currentLoopData = $menu->page; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <a class="btn btn-link"
-                           href="{{ route('pages.show', ['menu_slug' => $menu->slug, 'page_slug' => $page->slug]) }}"
+                           href="<?php echo e(route('pages.show', ['menu_slug' => $menu->slug, 'page_slug' => $page->slug])); ?>"
                            target="_blank">
-                            {{ $page->title }}
+                            <?php echo e($page->title); ?>
+
                         </a>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </div>
     </div>
@@ -117,30 +118,30 @@
             <div class="modal-body">
                 <div class="row text-center">
                     <div class="col-4">
-                        <img src="{{ asset('img/air-conditioner.png') }}" alt="Refrigerator"
+                        <img src="<?php echo e(asset('img/air-conditioner.png')); ?>" alt="Refrigerator"
                             style="width: 40px; height: 40px;">
                         <div class="small mt-2">AC Repair</div>
                     </div>
                     <div class="col-4">
-                        <img src="{{ asset('img/fridge-repair.png') }}" alt="Washing Machine"
+                        <img src="<?php echo e(asset('img/fridge-repair.png')); ?>" alt="Washing Machine"
                             style="width: 40px; height: 40px;">
                         <div class="small mt-2">Refrigerator Repair & Service</div>
                     </div>
                     <div class="col-4">
-                        <img src="{{ asset('img/washer.png') }}" alt="Microwave Oven"
+                        <img src="<?php echo e(asset('img/washer.png')); ?>" alt="Microwave Oven"
                             style="width: 40px; height: 40px;">
                         <div class="small mt-2">Washing Machine Repair</div>
                     </div>
                     <div class="col-2">
                     </div>
                     <div class="col-4">
-                        <img src="{{ asset('img/microwave-oven.png') }}" alt="AC Repair"
+                        <img src="<?php echo e(asset('img/microwave-oven.png')); ?>" alt="AC Repair"
                             style="width: 40px; height: 40px;">
                         <div class="small mt-2">Microwave Oven Repair</div>
                     </div>
 
                      <div class="col-4">
-                        <img src="{{ asset('img/wrench.png') }}" alt="AC Repair"
+                        <img src="<?php echo e(asset('img/wrench.png')); ?>" alt="AC Repair"
                             style="width: 40px; height: 40px;">
                         <div class="small mt-2">Installation & Uninstallation</div>
                     </div>
@@ -244,3 +245,4 @@ $('[data-toggle="counter-up"]').counterUp({
 </script>
 
 
+<?php /**PATH C:\Users\Lenovo\OneDrive\Desktop\essentechs\essentechs\resources\views/common/footer.blade.php ENDPATH**/ ?>

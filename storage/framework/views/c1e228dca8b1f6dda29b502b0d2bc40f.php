@@ -1,10 +1,8 @@
-@extends('layouts.app')
+<?php $__env->startSection('title', 'Blog | EssenTechs - AC Repair and Appliance Services in Kerala'); ?>
+<?php $__env->startSection('meta_description', 'Explore our blog for expert tips on AC repair in Kerala, washing machine repair, refrigerator repair & service, microwave oven repair, and home appliance maintenance tips.'); ?>
+<?php $__env->startSection('meta_keywords', 'AC repair in Kerala, washing machine repair Kerala, refrigerator repair Kerala, microwave oven repair Kerala, best AC repair mechanic in Kerala, appliance services Kerala'); ?>
 
-@section('title', 'Blog | EssenTechs - AC Repair and Appliance Services in Kerala')
-@section('meta_description', 'Explore our blog for expert tips on AC repair in Kerala, washing machine repair, refrigerator repair & service, microwave oven repair, and home appliance maintenance tips.')
-@section('meta_keywords', 'AC repair in Kerala, washing machine repair Kerala, refrigerator repair Kerala, microwave oven repair Kerala, best AC repair mechanic in Kerala, appliance services Kerala')
-
-@section('style')
+<?php $__env->startSection('style'); ?>
 <style>
     .blog-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; }
     .blog-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
@@ -21,16 +19,16 @@
     .breadcrumb-item.active { color: white; }
     .breadcrumb-divider { color: rgba(255,255,255,0.6); }
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- Page Hero Start -->
 <div class="page-hero wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-3">
-                <li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fa fa-home me-1"></i>Home</a></li>
+                <li class="breadcrumb-item"><a href="<?php echo e(url('/')); ?>"><i class="fa fa-home me-1"></i>Home</a></li>
                 <li class="breadcrumb-item active">Blog</li>
             </ol>
         </nav>
@@ -44,52 +42,54 @@
 <div class="container-xxl py-5">
     <div class="container">
 
-        @if($blogs->isEmpty())
+        <?php if($blogs->isEmpty()): ?>
             <div class="text-center py-5">
                 <i class="fa fa-newspaper fa-3x text-muted mb-3"></i>
                 <h4 class="text-muted">No blogs published yet. Check back soon!</h4>
             </div>
-        @else
+        <?php else: ?>
             <div class="row g-4">
-                @foreach ($blogs as $index => $blog)
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ ($index % 3) * 0.1 + 0.1 }}s">
+                <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="<?php echo e(($index % 3) * 0.1 + 0.1); ?>s">
                         <div class="blog-card h-100">
-                            <a href="{{ route('blog.details', $blog->slug) }}">
-                                <img src="{{ $blog->featured_image ? asset('storage/' . $blog->featured_image) : asset('img/default-blog.jpg') }}"
-                                     alt="{{ $blog->title }}" loading="lazy">
+                            <a href="<?php echo e(route('blog.details', $blog->slug)); ?>">
+                                <img src="<?php echo e($blog->featured_image ? asset('storage/' . $blog->featured_image) : asset('img/default-blog.jpg')); ?>"
+                                     alt="<?php echo e($blog->title); ?>" loading="lazy">
                             </a>
                             <div class="card-body d-flex flex-column p-4">
                                 <div class="mb-2">
                                     <span class="blog-badge">Repair Guide</span>
                                 </div>
                                 <h2 class="card-title mb-2">
-                                    <a href="{{ route('blog.details', $blog->slug) }}" style="text-decoration:none; color:inherit;">
-                                        {{ $blog->title }}
+                                    <a href="<?php echo e(route('blog.details', $blog->slug)); ?>" style="text-decoration:none; color:inherit;">
+                                        <?php echo e($blog->title); ?>
+
                                     </a>
                                 </h2>
                                 <div class="blog-meta mb-2">
-                                    <span><i class="fa fa-calendar me-1"></i>{{ $blog->created_at->format('M d, Y') }}</span>
-                                    <span><i class="fa fa-clock me-1"></i>{{ max(1, (int)(str_word_count(strip_tags($blog->content)) / 200)) }} min read</span>
+                                    <span><i class="fa fa-calendar me-1"></i><?php echo e($blog->created_at->format('M d, Y')); ?></span>
+                                    <span><i class="fa fa-clock me-1"></i><?php echo e(max(1, (int)(str_word_count(strip_tags($blog->content)) / 200))); ?> min read</span>
                                 </div>
-                                <p class="card-text mb-3">{{ Str::limit($blog->short_description, 110) }}</p>
+                                <p class="card-text mb-3"><?php echo e(Str::limit($blog->short_description, 110)); ?></p>
                                 <div class="mt-auto">
-                                    <a href="{{ route('blog.details', $blog->slug) }}" class="read-more">
+                                    <a href="<?php echo e(route('blog.details', $blog->slug)); ?>" class="read-more">
                                         Read More <i class="fa fa-arrow-right ms-1"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
 
             <!-- Pagination -->
-            @if($blogs instanceof \Illuminate\Pagination\LengthAwarePaginator && $blogs->hasPages())
+            <?php if($blogs instanceof \Illuminate\Pagination\LengthAwarePaginator && $blogs->hasPages()): ?>
                 <div class="d-flex justify-content-center mt-5">
-                    {{ $blogs->links() }}
+                    <?php echo e($blogs->links()); ?>
+
                 </div>
-            @endif
-        @endif
+            <?php endif; ?>
+        <?php endif; ?>
 
     </div>
 </div>
@@ -112,4 +112,6 @@
 </div>
 <!-- CTA Section End -->
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Lenovo\OneDrive\Desktop\essentechs\essentechs\resources\views/blogs.blade.php ENDPATH**/ ?>
