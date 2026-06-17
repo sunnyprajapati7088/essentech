@@ -13,7 +13,8 @@
     .breadcrumb-item.active { color: white; }
     .brand-card { border: none; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.07); transition: all 0.3s ease; background: #fff; text-align: center; padding: 30px 20px 20px; height: 100%; }
     .brand-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(13,110,253,0.15); border-bottom: 3px solid #0d6efd; }
-    .brand-card img { height: 70px; width: auto; object-fit: contain; margin-bottom: 15px; }
+    .brand-logo-wrap { width: 120px; height: 70px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; overflow: hidden; }
+    .brand-card img { max-height: 70px; max-width: 120px; width: auto; height: auto; object-fit: contain; display: block; }
     .brand-logo-circle { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; margin: 0 auto 15px; letter-spacing: 1px; }
     .brand-card h3 { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
     .brand-card p { font-size: 0.85rem; color: #6c757d; margin-bottom: 15px; }
@@ -54,9 +55,19 @@
             <div class="col-lg-3 col-md-4 col-6 wow fadeInUp" data-wow-delay="{{ ($i % 4) * 0.1 + 0.1 }}s">
                 <a href="{{ route('brands.show', $brand['slug']) }}" style="text-decoration:none;">
                     <div class="brand-card">
-                        <div class="brand-logo-circle" style="background:{{ $brand['color'] }};color:{{ $brand['text'] }};">
-                            {{ strtoupper(substr($brand['name'], 0, 2)) }}
-                        </div>
+                        @if(!empty($brand['logo']))
+                            <div class="brand-logo-wrap">
+                                <img src="{{ $brand['logo'] }}" alt="{{ $brand['name'] }} logo"
+                                     onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='flex';">
+                            </div>
+                            <div class="brand-logo-circle" style="background:{{ $brand['color'] }};color:{{ $brand['text'] }};display:none;">
+                                {{ strtoupper(substr($brand['name'], 0, 2)) }}
+                            </div>
+                        @else
+                            <div class="brand-logo-circle" style="background:{{ $brand['color'] }};color:{{ $brand['text'] }};">
+                                {{ strtoupper(substr($brand['name'], 0, 2)) }}
+                            </div>
+                        @endif
                         <h3>{{ $brand['name'] }}</h3>
                         <p>{{ $brand['desc'] }}</p>
                         <span class="btn-brand">View Services <i class="fa fa-arrow-right ms-1"></i></span>

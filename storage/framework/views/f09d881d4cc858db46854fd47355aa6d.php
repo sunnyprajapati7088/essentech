@@ -67,7 +67,9 @@
 
                 <!-- Hero Icon -->
                 <div class="text-center rounded-3 mb-4" style="background:linear-gradient(135deg,#e8f4fd,#d0e8fb);padding:50px 20px;">
-                    <i class="fa <?php echo e($appliance['icon']); ?>" style="font-size:6rem;color:#0d6efd;"></i>
+                    <img src="<?php echo e($appliance['img_url']); ?>" alt="<?php echo e($appliance['name']); ?>"
+                         style="width:120px;height:120px;object-fit:contain;"
+                         onerror="this.style.display='none';">
                     <h2 class="mt-3 fw-bold text-dark"><?php echo e($brand['name']); ?> <?php echo e($appliance['name']); ?></h2>
                     <p class="text-muted">Expert service in Kochi, Kerala by EssenTechs</p>
                 </div>
@@ -247,7 +249,8 @@
                         <?php $__currentLoopData = $allAppliances; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $app): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <a href="<?php echo e(route('brands.appliance', [$brand['slug'], $app['slug']])); ?>"
                            class="<?php echo e($app['slug'] === $appliance['slug'] ? 'active' : ''); ?>">
-                            <i class="fa <?php echo e($app['icon']); ?> me-2 text-primary"></i><?php echo e($app['name']); ?>
+                            <img src="<?php echo e($app['img_url']); ?>" alt="<?php echo e($app['name']); ?>"
+                                 style="width:22px;height:22px;object-fit:contain;margin-right:8px;vertical-align:middle;"><?php echo e($app['name']); ?>
 
                         </a>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

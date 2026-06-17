@@ -14,12 +14,13 @@
     .appliance-card { border: none; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 18px rgba(0,0,0,0.07); transition: all 0.3s ease; background: #fff; height: 100%; }
     .appliance-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(13,110,253,0.15); }
     .appliance-card .card-icon { height: 160px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e8f4fd, #d0e8fb); }
-    .appliance-card .card-icon i { font-size: 5rem; color: #0d6efd; }
+    .appliance-card .card-icon img { width: 100px; height: 100px; object-fit: contain; }
     .appliance-card .card-body { padding: 1.25rem; }
     .appliance-card h3 { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
     .appliance-card p { font-size: 0.85rem; color: #6c757d; }
     .appliance-badge { background: #e8f4fd; color: #0d6efd; font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
-    .brand-logo-box { background: white; border-radius: 16px; padding: 20px 30px; display: inline-block; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .brand-logo-box { background: white; border-radius: 16px; padding: 20px 30px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); min-width: 160px; min-height: 100px; }
+    .brand-logo-box img { width: 100%; height: 100%; max-width: 140px; max-height: 80px; object-fit: contain; display: block; }
     .blog-mini-card { border-radius: 10px; border: 1px solid #e9ecef; padding: 15px; transition: all 0.2s; }
     .blog-mini-card:hover { border-color: #0d6efd; background: #f8fbff; }
     .section-title { font-size: 1.8rem; font-weight: 800; color: #1a1a2e; }
@@ -40,11 +41,21 @@
         </nav>
         <div class="d-flex align-items-center gap-4 flex-wrap">
             <div class="brand-logo-box" style="background:{{ $brand['color'] }};">
-                <span style="color:{{ $brand['text'] }};font-size:1.8rem;font-weight:900;letter-spacing:2px;">{{ strtoupper(substr($brand['name'],0,2)) }}</span>
+                @if(!empty($brand['logo']))
+                    <img src="{{ $brand['logo'] }}" alt="{{ $brand['name'] }} logo"
+                         style="width:140px; height:80px; object-fit:contain; display:block;"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                    <span style="color:{{ $brand['text'] }};font-size:1.8rem;font-weight:900;letter-spacing:2px;display:none;">{{ strtoupper(substr($brand['name'],0,2)) }}</span>
+                @else
+                    <span style="color:{{ $brand['text'] }};font-size:1.8rem;font-weight:900;letter-spacing:2px;">{{ strtoupper(substr($brand['name'],0,2)) }}</span>
+                @endif
             </div>
             <div>
                 <h1 class="fw-bold mb-1">{{ $brand['name'] }} Appliance Repair in Kochi, Kerala</h1>
                 <p class="mb-0 opacity-75">EssenTechs | +91 97467 00889 | Civil line Kakkanad, Kochi 682030</p>
+                <small class="opacity-50" style="font-size:0.72rem;">
+                    The {{ $brand['name'] }} logo is a trademark of its respective owner. EssenTechs is an independent service provider, not affiliated with {{ $brand['name'] }}.
+                </small>
             </div>
         </div>
     </div>
@@ -66,7 +77,8 @@
                     <div class="appliance-card h-100">
                         <div style="position:relative;">
                             <div class="card-icon">
-                                <i class="fa {{ $appliance['icon'] }}"></i>
+                                <img src="{{ $appliance['img_url'] }}" alt="{{ $appliance['name'] }}"
+                                     onerror="this.style.display='none';">
                             </div>
                             <div style="position:absolute;top:10px;left:10px;">
                                 <span class="appliance-badge">{{ $appliance['name'] }}</span>

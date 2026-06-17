@@ -100,6 +100,12 @@
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a href="#">EssenTechs</a>, All Right Reserved.
                 </div>
+                <div class="col-12 text-center mt-2">
+                    <small class="text-muted" style="font-size:0.75rem; opacity:0.6;">
+                        Brand logos displayed on this site are trademarks of their respective owners and are used solely for identification purposes.
+                        EssenTechs is an independent service provider and is not affiliated with, endorsed by, or sponsored by any of the brands mentioned.
+                    </small>
+                </div>
             </div>
         </div>
     </div>

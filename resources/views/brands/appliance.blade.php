@@ -67,7 +67,9 @@
 
                 <!-- Hero Icon -->
                 <div class="text-center rounded-3 mb-4" style="background:linear-gradient(135deg,#e8f4fd,#d0e8fb);padding:50px 20px;">
-                    <i class="fa {{ $appliance['icon'] }}" style="font-size:6rem;color:#0d6efd;"></i>
+                    <img src="{{ $appliance['img_url'] }}" alt="{{ $appliance['name'] }}"
+                         style="width:120px;height:120px;object-fit:contain;"
+                         onerror="this.style.display='none';">
                     <h2 class="mt-3 fw-bold text-dark">{{ $brand['name'] }} {{ $appliance['name'] }}</h2>
                     <p class="text-muted">Expert service in Kochi, Kerala by EssenTechs</p>
                 </div>
@@ -245,7 +247,8 @@
                         @foreach($allAppliances as $app)
                         <a href="{{ route('brands.appliance', [$brand['slug'], $app['slug']]) }}"
                            class="{{ $app['slug'] === $appliance['slug'] ? 'active' : '' }}">
-                            <i class="fa {{ $app['icon'] }} me-2 text-primary"></i>{{ $app['name'] }}
+                            <img src="{{ $app['img_url'] }}" alt="{{ $app['name'] }}"
+                                 style="width:22px;height:22px;object-fit:contain;margin-right:8px;vertical-align:middle;">{{ $app['name'] }}
                         </a>
                         @endforeach
                     </div>
