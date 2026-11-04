@@ -73,7 +73,7 @@ class AdLandingPageController extends Controller
         ]);
 
         // WhatsApp number: use landing page number or default
-        $whatsappNumber = $landingPage?->whatsapp_number ?: '919746683310';
+        $whatsappNumber = $landingPage?->whatsapp_number ?: '919746700889';
         // Clean phone number (digits only)
         $whatsappNumber = preg_replace('/[^0-9]/', '', $whatsappNumber);
 

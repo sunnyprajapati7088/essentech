@@ -251,7 +251,7 @@ class AdLandingPage extends Model
                     ],
                     'contactPoint' => [
                         '@type' => 'ContactPoint',
-                        'telephone' => $this->primary_phone ?: '+91 97466 83310',
+                        'telephone' => $this->primary_phone ?: '+91 97467 00889',
                         'contactType' => 'customer service',
                         'areaServed' => 'IN',
                         'availableLanguage' => ['en', 'hi', 'ml']
@@ -262,7 +262,7 @@ class AdLandingPage extends Model
                     '@id' => $pageUrl . '#localbusiness',
                     'name' => 'Essen Techs - ' . $this->hero_title,
                     'url' => $pageUrl,
-                    'telephone' => $this->primary_phone ?: '+91 97466 83310',
+                    'telephone' => $this->primary_phone ?: '+91 97467 00889',
                     'image' => $imageUrl,
                     'priceRange' => '₹₹',
                     'address' => [

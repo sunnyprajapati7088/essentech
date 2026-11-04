@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->enum('status', ['published', 'draft'])->default('published');
-            $table->string('theme_color')->default('#00B67A'); // Brand accent green
+            $table->string('theme_color')->default('#FF800F'); // Brand accent orange from essentechs.com
 
             // Hero Section
             $table->string('hero_badge')->default('ESSENTECHS · DOORSTEP SERVICE');
@@ -27,14 +27,14 @@ return new class extends Migration
             $table->string('hero_image')->nullable();
             $table->string('hero_image_alt')->nullable();
             $table->string('primary_cta_text')->default('Book Washing Machine Service');
-            $table->string('primary_phone')->default('+91 97466 83310');
-            $table->string('whatsapp_number')->default('919746683310');
+            $table->string('primary_phone')->default('+91 97467 00889');
+            $table->string('whatsapp_number')->default('919746700889');
 
             // Brands Marquee Section
             $table->boolean('show_brands')->default(true);
             $table->string('brands_heading')->default('BRANDS WE SERVE');
             $table->text('brands_list')->nullable();
-            $table->string('brands_bg_color')->default('#00B67A');
+            $table->string('brands_bg_color')->default('#001064');
             $table->string('brands_text_color')->default('#FFFFFF');
 
             // Trust Badges / Value Props

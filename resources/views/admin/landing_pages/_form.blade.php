@@ -93,14 +93,14 @@
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold">Primary Phone CTA (Display & Tel)</label>
                                 <input type="text" name="primary_phone" class="form-control" 
-                                       value="{{ old('primary_phone', $page->primary_phone) }}" placeholder="+91 97466 83310">
+                                       value="{{ old('primary_phone', $page->primary_phone) }}" placeholder="+91 97467 00889">
                                 <div class="form-text">Shown next to the CTA button with phone icon.</div>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label fw-semibold">Target WhatsApp Number (Digits only with country code)</label>
                                 <input type="text" name="whatsapp_number" class="form-control" 
-                                       value="{{ old('whatsapp_number', $page->whatsapp_number) }}" placeholder="919746683310">
+                                       value="{{ old('whatsapp_number', $page->whatsapp_number) }}" placeholder="919746700889">
                                 <div class="form-text">Where leads and inquiries will be sent via WhatsApp.</div>
                             </div>
 
@@ -108,8 +108,8 @@
                                 <label class="form-label fw-semibold">Theme Accent Color</label>
                                 <div class="input-group">
                                     <input type="color" name="theme_color" class="form-control form-control-color" 
-                                           value="{{ old('theme_color', $page->theme_color ?: '#00B67A') }}" title="Choose theme color">
-                                    <input type="text" class="form-control" value="{{ old('theme_color', $page->theme_color ?: '#00B67A') }}" readonly>
+                                           value="{{ old('theme_color', $page->theme_color ?: '#FF800F') }}" title="Choose theme color">
+                                    <input type="text" class="form-control" value="{{ old('theme_color', $page->theme_color ?: '#FF800F') }}" readonly>
                                 </div>
                             </div>
 
@@ -155,7 +155,7 @@
                             <div class="col-md-3">
                                 <label class="form-label fw-semibold">Banner Background</label>
                                 <input type="color" name="brands_bg_color" class="form-control form-control-color w-100" 
-                                       value="{{ old('brands_bg_color', $page->brands_bg_color ?: '#00B67A') }}">
+                                       value="{{ old('brands_bg_color', $page->brands_bg_color ?: '#001064') }}">
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label fw-semibold">Text Color</label>
@@ -340,10 +340,10 @@
                             <div class="bg-white p-3 rounded border">
                                 <div class="text-muted small d-flex align-items-center mb-1">
                                     <img src="{{ asset('favicon/favicon.ico') }}" alt="" style="width: 16px; height: 16px;" class="me-2" onerror="this.style.display='none'">
-                                    <span>https://essentechs.in &gt; <span id="serpSlugPreview">{{ $page->slug ?: 'ads-washing-machine-repair' }}</span></span>
+                                    <span>https://essentechs.com &gt; <span id="serpSlugPreview">{{ $page->slug ?: 'ads-washing-machine-repair' }}</span></span>
                                 </div>
                                 <h6 class="text-primary mb-1 fw-bold fs-6" id="serpTitlePreview">
-                                    {{ $page->meta_title ?: ($page->title ?: 'Ads Washing Machine Repair - essentechs.in') }}
+                                    {{ $page->meta_title ?: ($page->title ?: 'Ads Washing Machine Repair - essentechs.com') }}
                                 </h6>
                                 <p class="text-secondary small mb-0 lh-sm" id="serpDescPreview">
                                     {{ $page->meta_description ?: 'ESSENTECHS · DOORSTEP SERVICE Washing Machine Service Centre. Professional repair and service at your doorstep. Experienced technicians, 30 min arrival.' }}
@@ -372,7 +372,7 @@
                                     <span class="small text-muted"><span id="metaTitleCount">0</span>/60 characters (Recommended: 50-60)</span>
                                 </div>
                                 <input type="text" name="meta_title" id="metaTitleInput" class="form-control" 
-                                       value="{{ old('meta_title', $page->meta_title) }}" placeholder="Ads Washing Machine Repair - essentechs.in">
+                                       value="{{ old('meta_title', $page->meta_title) }}" placeholder="Ads Washing Machine Repair - essentechs.com">
                                 <div class="form-text">Displayed as the clickable blue headline in Google search results and browser tab.</div>
                             </div>
 
@@ -579,8 +579,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 slugInput.value = generated;
                 updateSlugPreview(generated);
             }
-            if (!metaTitleInput.value || metaTitleInput.value === 'Ads Washing Machine Repair - essentechs.in') {
-                metaTitleInput.value = this.value + ' - essentechs.in';
+            if (!metaTitleInput.value || metaTitleInput.value === 'Ads Washing Machine Repair - essentechs.com') {
+                metaTitleInput.value = this.value + ' - essentechs.com';
                 updateMetaTitle();
             }
         });

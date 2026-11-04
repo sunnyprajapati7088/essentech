@@ -49,17 +49,17 @@ class AdLandingPageController extends Controller
         // Provide smart defaults
         $page = new AdLandingPage([
             'status' => 'published',
-            'theme_color' => '#00B67A',
+            'theme_color' => '#FF800F',
             'hero_badge' => 'ESSENTECHS · DOORSTEP SERVICE',
             'hero_title' => 'Washing Machine Service Centre',
             'hero_subtitle' => 'Professional repair and service at your doorstep.',
             'primary_cta_text' => 'Book Washing Machine Service',
-            'primary_phone' => '+91 97466 83310',
-            'whatsapp_number' => '919746683310',
+            'primary_phone' => '+91 97467 00889',
+            'whatsapp_number' => '919746700889',
             'show_brands' => true,
             'brands_heading' => 'BRANDS WE SERVE',
             'brands_list' => "LG, VOLTAS, SAMSUNG, HAIER, BLUE STAR, CARRIER, IFB, LLYOD, HITACHI, O GENERAL, MITSUBISHI ELECTRIC",
-            'brands_bg_color' => '#00B67A',
+            'brands_bg_color' => '#001064',
             'brands_text_color' => '#FFFFFF',
             'show_trust_badges' => true,
             'trust_badges' => [

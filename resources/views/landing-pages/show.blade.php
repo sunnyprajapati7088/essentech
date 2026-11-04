@@ -20,7 +20,7 @@
     <meta property="og:title" content="{{ $page->effective_og_title }}">
     <meta property="og:description" content="{{ $page->effective_og_description }}">
     <meta property="og:url" content="{{ $page->effective_canonical_url }}">
-    <meta property="og:site_name" content="essentechs.in">
+    <meta property="og:site_name" content="essentechs.com">
     @if($page->effective_og_image_url)
         <meta property="og:image" content="{{ $page->effective_og_image_url }}">
         <meta property="og:image:secure_url" content="{{ $page->effective_og_image_url }}">
@@ -51,12 +51,14 @@
 
     <style>
         :root {
-            --primary-green: {{ $page->theme_color ?: '#00B67A' }};
-            --primary-hover: #009e6b;
+            --primary-theme: {{ $page->theme_color ?: '#FF800F' }};
+            --primary-hover: #e06b00;
+            --theme-navy: #001064;
+            --theme-dark: #010A35;
             --dark-heading: #1e293b;
             --text-dark: #111827;
             --text-muted: #64748b;
-            --bg-light-tint: #f0fdf4;
+            --bg-light-tint: #fff7ed;
             --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
@@ -95,8 +97,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #ecfdf5;
-            color: var(--primary-green);
+            background: #fff7ed;
+            color: var(--primary-theme);
             padding: 8px 16px;
             border-radius: 50px;
             text-decoration: none;
@@ -106,7 +108,7 @@
         }
 
         .lp-top-call:hover {
-            background: var(--primary-green);
+            background: var(--primary-theme);
             color: #ffffff;
         }
 
@@ -147,8 +149,9 @@
 
         .lphero-badge {
             display: inline-block;
-            background: #e6f7f0;
-            color: #047857;
+            background: #fff7ed;
+            color: var(--primary-theme);
+            border: 1px solid #fed7aa;
             padding: 6px 14px;
             border-radius: 4px;
             font-size: 13px;
@@ -168,12 +171,12 @@
         }
 
         .lphero-title .brand-accent {
-            color: var(--primary-green);
+            color: var(--primary-theme);
         }
 
         .lphero-subtitle-box {
-            background: #f1f8f5;
-            border-left: 3px solid var(--primary-green);
+            background: #fffaf5;
+            border-left: 3px solid var(--primary-theme);
             padding: 10px 16px;
             border-radius: 4px;
             margin-bottom: 26px;
@@ -190,7 +193,7 @@
         }
 
         .btn-book-service {
-            background: var(--primary-green);
+            background: var(--primary-theme);
             color: #ffffff;
             border: none;
             padding: 14px 28px;
@@ -199,7 +202,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(0, 182, 122, 0.3);
+            box-shadow: 0 4px 14px rgba(255, 128, 15, 0.35);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -209,11 +212,11 @@
         .btn-book-service:hover {
             background: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 182, 122, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 128, 15, 0.45);
         }
 
         .btn-phone-call {
-            background: #00B67A;
+            background: var(--theme-navy);
             color: #ffffff;
             border: none;
             padding: 14px 24px;
@@ -225,17 +228,18 @@
             align-items: center;
             gap: 8px;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(0, 16, 100, 0.25);
         }
 
         .btn-phone-call:hover {
-            background: #009e6b;
+            background: var(--theme-dark);
             color: #ffffff;
             transform: translateY(-2px);
         }
 
         /* BRANDS MARQUEE */
         .lp-brands-section {
-            background-color: {{ $page->brands_bg_color ?: '#00B67A' }};
+            background-color: {{ $page->brands_bg_color ?: '#001064' }};
             color: {{ $page->brands_text_color ?: '#FFFFFF' }};
             padding: 22px 0 20px;
             overflow: hidden;
@@ -318,7 +322,7 @@
         }
 
         .lp-trust-icon {
-            color: var(--primary-green);
+            color: var(--primary-theme);
             font-size: 18px;
             display: flex;
             align-items: center;
@@ -369,7 +373,7 @@
             position: absolute;
             top: 15px;
             left: 15px;
-            background: var(--primary-green);
+            background: var(--primary-theme);
             color: #ffffff;
             font-size: 11px;
             font-weight: 800;
@@ -418,7 +422,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            color: var(--primary-green);
+            color: var(--primary-theme);
             font-size: 16px;
             font-weight: 800;
         }
@@ -450,21 +454,22 @@
         }
 
         .essen-wm-learn {
-            background: #e4f7f1;
-            color: var(--primary-green) !important;
+            background: #fff7ed;
+            color: var(--primary-theme) !important;
+            border: 1px solid #fed7aa;
         }
 
         .essen-wm-learn:hover {
-            background: #d2f1e7;
+            background: #ffedd5;
         }
 
         .essen-wm-book {
-            background: #111827;
+            background: var(--theme-navy);
             color: #ffffff !important;
         }
 
         .essen-wm-book:hover {
-            background: var(--primary-green);
+            background: var(--primary-theme);
         }
 
         /* POPUP MODAL */
@@ -472,7 +477,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(17, 24, 39, 0.7);
+            background: rgba(1, 10, 53, 0.75);
             backdrop-filter: blur(4px);
             z-index: 999999;
             align-items: center;
@@ -491,7 +496,7 @@
             border-radius: 16px;
             padding: 30px;
             position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
             animation: popupScale 0.22s ease-out;
         }
 
@@ -552,8 +557,8 @@
 
         .essen-wm-form input:focus,
         .essen-wm-form select:focus {
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(0, 182, 122, 0.15);
+            border-color: var(--primary-theme);
+            box-shadow: 0 0 0 3px rgba(255, 128, 15, 0.2);
         }
 
         .essen-wm-submit {
@@ -562,7 +567,7 @@
             margin-top: 4px;
             border: 0;
             border-radius: 8px;
-            background: var(--primary-green);
+            background: var(--primary-theme);
             color: #ffffff;
             font-size: 16px;
             font-weight: 700;
@@ -572,6 +577,7 @@
             justify-content: center;
             gap: 8px;
             transition: background 0.2s;
+            box-shadow: 0 4px 14px rgba(255, 128, 15, 0.35);
         }
 
         .essen-wm-submit:hover {
@@ -600,40 +606,40 @@
             width: 58px;
             height: 58px;
             border-radius: 50%;
-            background: var(--primary-green);
+            background: #25D366; /* Official WhatsApp green for floating icon */
             color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 28px;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0, 182, 122, 0.45);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
             transition: all 0.25s ease;
             position: relative;
         }
 
         .lp-floating-btn:hover {
-            background: var(--primary-hover);
+            background: #20ba5a;
             color: #ffffff;
             transform: scale(1.08);
-            box-shadow: 0 8px 25px rgba(0, 182, 122, 0.6);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
         }
 
         .lp-floating-btn.call-btn {
-            background: #ffffff;
-            color: var(--primary-green);
-            border: 2px solid var(--primary-green);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            background: var(--primary-theme);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 6px 18px rgba(255, 128, 15, 0.35);
         }
 
         .lp-floating-btn.call-btn:hover {
-            background: var(--primary-green);
+            background: var(--primary-hover);
             color: #ffffff;
         }
 
         /* FOOTER */
         .lp-footer {
-            background: #111827;
+            background: var(--theme-dark);
             color: #94a3b8;
             padding: 30px 20px;
             text-align: center;
@@ -646,7 +652,7 @@
         }
 
         .lp-footer a:hover {
-            color: var(--primary-green);
+            color: var(--primary-theme);
         }
 
         /* PREVIEW BANNER */
@@ -946,7 +952,7 @@
     @if($page->show_floating_button)
         <div class="lp-floating-action">
             @if(in_array($page->floating_button_type, ['both', 'whatsapp']))
-                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $page->whatsapp_number ?: '919746683310') }}?text={{ rawurlencode('Hello Essen Techs, I want to book ' . ($page->card_title ?: 'Appliance') . ' repair service.') }}" 
+                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $page->whatsapp_number ?: '919746700889') }}?text={{ rawurlencode('Hello Essen Techs, I want to book ' . ($page->card_title ?: 'Appliance') . ' repair service.') }}" 
                    class="lp-floating-btn" 
                    target="_blank" 
                    rel="noopener"
@@ -974,7 +980,7 @@
         const cardBookBtn = document.getElementById("openCardBookBtn");
         const learnMoreBtn = document.getElementById("openLearnMoreBtn");
 
-        const targetWhatsapp = "{{ preg_replace('/[^0-9]/', '', $page->whatsapp_number ?: '919746683310') }}";
+        const targetWhatsapp = "{{ preg_replace('/[^0-9]/', '', $page->whatsapp_number ?: '919746700889') }}";
         const pageSlug = "{{ $page->slug }}";
         const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
 
