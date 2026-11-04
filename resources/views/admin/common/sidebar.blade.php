@@ -79,6 +79,34 @@
                     <span>Contacts</span>
                 </a>
             </li>
+
+            {{-- 🎯 Ad Landing Pages (Dynamic Campaigns) --}}
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.landing-pages*') ? 'active' : '' }}" href="#"
+                    data-bs-toggle="collapse" data-bs-target="#landingPagesMenu">
+                    <i class="bi bi-megaphone-fill"></i>
+                    <span>Ad Landing Pages</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.landing-pages*') ? 'show' : '' }}" id="landingPagesMenu">
+                    <ul class="nav flex-column ms-3">
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.landing-pages.index') ? 'active' : '' }}"
+                                href="{{ route('admin.landing-pages.index') }}">
+                                <i class="bi bi-list"></i>
+                                <span>All Landing Pages</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.landing-pages.create') ? 'active' : '' }}"
+                                href="{{ route('admin.landing-pages.create') }}">
+                                <i class="bi bi-plus-circle"></i>
+                                <span>Create Landing Page</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             {{-- ✅ Dynamic Content Management --}}
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('menus*') || request()->routeIs('pages*') || request()->routeIs('sections*') || request()->routeIs('page-sections*') ? 'active' : '' }}"

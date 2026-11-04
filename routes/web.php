@@ -100,5 +100,24 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::put('/srns/{srn}', [SrnController::class, 'update'])->name('srns.update');
     Route::delete('/srns/{srn}', [SrnController::class, 'destroy'])->name('srns.destroy');
     Route::get('/srns/{srn}', [SrnController::class, 'show'])->name('srns.show');
+    // Ad Landing Pages
+    Route::resource('landing-pages', \App\Http\Controllers\Admin\AdLandingPageController::class)->names('landing-pages');
+    Route::post('landing-pages/{landing_page}/duplicate', [\App\Http\Controllers\Admin\AdLandingPageController::class, 'duplicate'])->name('landing-pages.duplicate');
+    Route::get('landing-pages/{id}/preview', [\App\Http\Controllers\AdLandingPageController::class, 'preview'])->name('landing-pages.preview');
 });
+
+// Ad Landing Page Lead Submission (AJAX + DB save + WhatsApp)
+Route::post('/lp/lead/submit', [\App\Http\Controllers\AdLandingPageController::class, 'submitLead'])->name('landing.lead.submit');
+
 Route::get('/{menu_slug}/{page_slug}', [PageController::class, 'detailsPage'])->name('pages.show');
+
+// Fallback direct slug match for landing pages (e.g. /ads-washing-machine-repair)
+Route::get('/{slug}', function ($slug) {
+    $landingPage = \App\Models\AdLandingPage::where('slug', $slug)
+        ->where('status', 'published')
+        ->first();
+    if ($landingPage) {
+        return view('landing-pages.show', ['page' => $landingPage]);
+    }
+    abort(404);
+})->name('landing.direct')->where('slug', '[a-zA-Z0-9\-_]+');
