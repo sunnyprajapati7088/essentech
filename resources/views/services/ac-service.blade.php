@@ -1,8 +1,9 @@
 @extends('layouts.app')
-@section('title', 'AC Repair Services in Kochi | Top AC Repair Services in Ernakulam | voltas ac repair in kerala')
-@section('meta_description', 'If you are looking for best AC repair services in Kochi, Essentechs is the name to trust. With a team of highly skilled technicians, they offer the best AC repair services in the area.')
-@section('meta_keywords', 'If you are looking for best AC repair services in Kochi, Essentechs is the name to trust. With a team of highly skilled technicians, they offer the best AC repair services in the area.')
-@section('schema')
+@section('title', 'AC Repair Services in Kochi | Top AC Repair in Ernakulam | EssenTechs')
+@section('meta_description', 'Looking for the best AC repair services in Kochi? EssenTechs provides fast, certified on-site AC repair, gas refilling, and maintenance across Ernakulam.')
+@section('meta_keywords', 'AC repair Kochi, AC service Ernakulam, split AC maintenance, inverter AC repair Kerala')
+@section('canonical', url('/ac/'))
+
 @section('content')
 <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -10,11 +11,11 @@
             <h1 class="display-4 text-white animated slideInDown mb-4">Air Conditioner (AC) Repair</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="service.html">Services</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/services') }}">Services</a></li>
                     <li class="breadcrumb-item active" aria-current="page">AC Repair</li>
                 </ol>
-            </div>
+            </nav>
         </div>
     </div>
     <!-- Page Header End -->
@@ -24,9 +25,12 @@
         <div class="container">
             <!-- Hero Section -->
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
-                <h1 class="display-5 mb-4">Expert AC Repair Services in Kochi, Kerala</h1>
+                <h2 class="display-5 mb-4">Expert AC Repair Services in Kochi, Kerala</h2>
                 <p>Stay cool and comfortable with EssenTechs’ professional air conditioner repair services in Kochi. Our certified technicians provide fast, reliable, and affordable solutions for all AC issues, with 24/7 emergency support. From minor tune-ups to major repairs, we ensure your AC runs efficiently year-round.</p>
-                <a href="contact.html" class="btn btn-primary btn-lg mt-3">Get a Free Quote</a>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url('/ac/') }}" class="btn btn-primary btn-lg mt-3">Explore In-Depth AC Page</a>
+                    <a href="{{ url('/contact') }}" class="btn btn-outline-dark btn-lg mt-3">Get a Free Quote</a>
+                </div>
             </div>
 
             <!-- Service Details Section -->

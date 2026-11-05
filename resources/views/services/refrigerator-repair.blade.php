@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Fridge Repair in Ernakulam | Refrigerator Repairing services in Edappally | refrigerator repairing services in ernakulam | refrigerator repair services in kakkanad')
-@section('meta_description', 'If youre looking for the Fridge Repair in Ernakulam, look no further than Essentechs. Our team is dedicated to providing quality service.')
-@section('meta_keywords', 'If youre looking for the Fridge Repair in Ernakulam, look no further than Essentechs. Our team is dedicated to providing quality service.')
-@section('schema')
+@section('title', 'Refrigerator Repair in Kochi | Fridge Service Ernakulam | EssenTechs')
+@section('meta_description', 'EssenTechs provides expert doorstep refrigerator repair in Kochi, Kerala. Repair for single door, double door, side-by-side, and inverter refrigerators.')
+@section('meta_keywords', 'refrigerator repair Kochi, fridge repair Ernakulam, fridge mechanic Kerala, compressor replacement')
+@section('canonical', url('/service/refrigerator-repair'))
 
 @section('content')
     <!-- Page Header Start -->
@@ -25,7 +25,7 @@
         <div class="container">
             <!-- Hero Section -->
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
-                <h1 class="display-5 mb-4">Expert Refrigerator Repair Services in Kochi, Kerala</h1>
+                <h2 class="display-5 mb-4">Expert Refrigerator Repair Services in Kochi, Kerala</h2>
                 <p>Keep your refrigerator running efficiently with EssenTechs’ professional repair services in Kochi. Our certified technicians provide fast, reliable, and affordable solutions for all fridge issues, with 24/7 emergency support. From cooling problems to electrical faults, we ensure your refrigerator keeps your food fresh.</p>
                 <a href="{{ url('/contact') }}" class="btn btn-primary btn-lg mt-3">Get a Free Quote</a>
             </div>

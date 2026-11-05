@@ -1,8 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Microwave Oven Repair Service Kerala | Microwave Oven Repairing Service in Ernakulam | Best Microwave Oven Repair Services in edappally')
-@section('meta_description', 'Essentechs is your go-to solution for all your appliance repair needs in Kerala. With top-notch microwave oven repair in Kerala, Essentechs has got you covered.')
-@section('meta_keywords', 'Essentechs is your go-to solution for all your appliance repair needs in Kerala. With top-notch microwave oven repair in Kerala, Essentechs has got you covered.')
-@section('schema')
+@section('title', 'Microwave Oven Repair Service Kerala | Top Microwave Repair in Kochi | EssenTechs')
+@section('meta_description', 'EssenTechs is your trusted solution for microwave oven repair in Kochi and Ernakulam. Certified technicians for heating faults, magnetrons, and touch panels.')
+@section('meta_keywords', 'microwave repair Kochi, microwave oven service Kerala, magnetron replacement, convection oven repair')
+@section('canonical', url('/microwave-oven/'))
+
 @section('content')
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -24,9 +25,12 @@
         <div class="container">
             <!-- Hero Section -->
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
-                <h1 class="display-5 mb-4">Expert Microwave Oven Repair Services in Kochi, Kerala</h1>
+                <h2 class="display-5 mb-4">Expert Microwave Oven Repair Services in Kochi, Kerala</h2>
                 <p>Get your microwave oven back in working order with EssenTechs’ professional repair services in Kochi. Our certified technicians provide fast, reliable, and affordable solutions for all microwave issues, with 24/7 emergency support. From minor fixes to complex repairs, we ensure your appliance runs smoothly.</p>
-                <a href="{{ url('/contact') }}" class="btn btn-primary btn-lg mt-3">Get a Free Quote</a>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{{ url('/microwave-oven/') }}" class="btn btn-primary btn-lg mt-3">Explore In-Depth Microwave Page</a>
+                    <a href="{{ url('/contact') }}" class="btn btn-outline-dark btn-lg mt-3">Get a Free Quote</a>
+                </div>
             </div>
 
             <!-- Service Details Section -->

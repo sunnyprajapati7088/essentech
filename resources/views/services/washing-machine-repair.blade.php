@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Washing machine repair in Ernakulam | washing machine repair in kerala | Washing machine Repair near me | Top Washing Machine Repair Services in Ernakulam')
-@section('meta_description', 'They offer Washing machine repair Services in Ernakulam. So, if you are facing any issues with your machine, Essentechs is the one-stop solution for all your repair needs.')
-@section('meta_keywords', 'They offer Washing machine repair Services in Ernakulam. So, if you are facing any issues with your machine, Essentechs is the one-stop solution for all your repair needs.')
-@section('schema')
+@section('title', 'Washing Machine Repair in Kochi | Washing Machine Service Ernakulam | EssenTechs')
+@section('meta_description', 'EssenTechs offers fast, affordable doorstep washing machine repair services in Kochi, Kerala. Repair for front load, top load, and semi-automatic machines.')
+@section('meta_keywords', 'washing machine repair Kochi, washing machine service Ernakulam, front load repair, top load service')
+@section('canonical', url('/service/washing-machine-repair'))
 @section('content')
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -24,7 +24,7 @@
         <div class="container">
             <!-- Hero Section -->
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
-                <h1 class="display-5 mb-4">Expert Washing Machine Repair Services in Kochi, Kerala</h1>
+                <h2 class="display-5 mb-4">Expert Washing Machine Repair Services in Kochi, Kerala</h2>
                 <p>Keep your washing machine running smoothly with EssenTechs’ professional repair services in Kochi. Our
                     certified technicians offer fast, reliable, and affordable solutions for all washing machine issues,
                     with 24/7 emergency support. From minor fixes to major repairs, we ensure your appliance works

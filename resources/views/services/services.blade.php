@@ -1,13 +1,36 @@
 @extends('layouts.app')
 
 @section('title', 'Appliance Repair Services in Kerala | Best Home Appliance Repair in Ernakulam | EssenTechs')
-
 @section('meta_description', 'EssenTechs offers top-notch appliance repair services in Kochi, Kerala, including AC, washing machine, refrigerator, and microwave oven repairs. Fast, reliable, and affordable with 24/7 emergency support.')
-
 @section('meta_keywords', 'appliance repair, AC repair, washing machine repair, refrigerator repair, microwave oven repair, Kochi, Kerala, Ernakulam, EssenTechs')
+@section('canonical', url('/services'))
 
 @section('schema')
-    <!-- Add schema markup for LocalBusiness or Service if needed -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ url('/services') }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "{{ url('/services') }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
 @endsection
 
 @section('content')
@@ -30,9 +53,9 @@
         <div class="container">
             <!-- Hero Section -->
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 700px;">
-                <h1 class="display-5 mb-4">Comprehensive Appliance Repair Services in Kochi, Kerala</h1>
+                <h2 class="display-5 mb-4">Comprehensive Appliance Repair Services in Kochi, Kerala</h2>
                 <p>EssenTechs provides expert repair services for all your home appliances in Kochi. Our certified technicians offer fast, reliable, and affordable solutions with 24/7 emergency support. From air conditioners to microwave ovens, we ensure your appliances run efficiently year-round.</p>
-                <a href="{{ url('/contact') }}" class="btn btn-primary btn-lg mt-3">Get a Free Quote</a>
+                <a href="{{ url('/contact') }}" class="btn btn-primary btn-lg mt-3" aria-label="Get a Free Quote from EssenTechs">Get a Free Quote</a>
             </div>
 
             <!-- Service Overview Section -->
@@ -41,35 +64,31 @@
                     <h2 class="text-center mb-4">Our Appliance Repair Services</h2>
                     <div class="row g-4">
                         <div class="col-md-6 col-lg-3 col-sm-12">
-                            <div class="service-item bg-light text-center h-100 p-4 rounded">
-
-                                <h3>Air Conditioner (AC) Repair</h3>
-                                <p>Stay cool with our expert AC repair services. We fix cooling issues, refrigerant leaks, and more for all AC types, ensuring optimal performance.</p>
-                                <a href="{{ route('acServices') }}" class="btn btn-primary mt-3">Learn More</a>
+                            <div class="service-item bg-light text-center h-100 p-4 rounded d-flex flex-column">
+                                <h3 class="h4 fw-bold mb-3">Air Conditioner (AC) Repair</h3>
+                                <p class="text-muted small mb-4 flex-grow-1">Stay cool with our expert AC repair services. We fix cooling issues, inverter PCB boards, and gas leaks for all AC types.</p>
+                                <a href="{{ url('/ac/') }}" class="btn btn-primary mt-auto" aria-label="Learn more about AC repair services">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 col-sm-12">
-                            <div class="service-item bg-light text-center h-100 p-4 rounded">
-
-                                <h3>Washing Machine Repair</h3>
-                                <p>Keep your laundry routine on track with our washing machine repair services. We handle water leaks, drum issues, and electrical faults for all models.</p>
-                                <a href="{{ route('washingMachine') }}" class="btn btn-primary mt-3">Learn More</a>
+                            <div class="service-item bg-light text-center h-100 p-4 rounded d-flex flex-column">
+                                <h3 class="h4 fw-bold mb-3">Washing Machine Repair</h3>
+                                <p class="text-muted small mb-4 flex-grow-1">Keep your laundry routine on track with our washing machine repair services. We handle water leaks, drum issues, and spin cycles.</p>
+                                <a href="{{ route('washingMachine') }}" class="btn btn-primary mt-auto" aria-label="Learn more about washing machine repair">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 col-sm-12">
-                            <div class="service-item bg-light text-center h-100 p-4 rounded">
-
-                                <h3>Refrigerator Repair</h3>
-                                <p>Ensure your food stays fresh with our refrigerator repair services. We fix cooling problems, compressor failures, and more for all fridge types.</p>
-                                <a href="{{ route('refrigerator') }}" class="btn btn-primary mt-3">Learn More</a>
+                            <div class="service-item bg-light text-center h-100 p-4 rounded d-flex flex-column">
+                                <h3 class="h4 fw-bold mb-3">Refrigerator Repair</h3>
+                                <p class="text-muted small mb-4 flex-grow-1">Ensure your food stays fresh with our refrigerator repair services. We fix cooling problems, compressor failures, and gas leaks.</p>
+                                <a href="{{ route('refrigerator') }}" class="btn btn-primary mt-auto" aria-label="Learn more about refrigerator repair">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 col-sm-12">
-                            <div class="service-item bg-light text-center h-100 p-4 rounded">
-
-                                <h3>Microwave Oven Repair</h3>
-                                <p>Get your microwave back in action with our repair services. We fix heating issues, control panel malfunctions, and more for all microwave models.</p>
-                                <a href="{{ route('microWaveOpen') }}" class="btn btn-primary mt-3">Learn More</a>
+                            <div class="service-item bg-light text-center h-100 p-4 rounded d-flex flex-column">
+                                <h3 class="h4 fw-bold mb-3">Microwave Oven Repair</h3>
+                                <p class="text-muted small mb-4 flex-grow-1">Get your microwave back in action with our repair services. We fix heating issues, control panel malfunctions, and magnetrons.</p>
+                                <a href="{{ url('/microwave-oven/') }}" class="btn btn-primary mt-auto" aria-label="Learn more about microwave oven repair">Learn More</a>
                             </div>
                         </div>
                     </div>

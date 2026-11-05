@@ -11,6 +11,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\MicrowaveOvenController;
+use App\Http\Controllers\AcController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,6 +29,16 @@ Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/services', [ServiceController::class, 'services'])->name('services');
+
+// Dedicated SEO Categories and Brand Routes (Microwave Oven & AC)
+Route::get('/microwave-oven', [MicrowaveOvenController::class, 'index'])->name('microwave.index');
+Route::get('/microwave-oven/{brand}', [MicrowaveOvenController::class, 'showBrand'])->name('microwave.brand');
+Route::get('/ac', [AcController::class, 'index'])->name('ac.index');
+Route::get('/ac/{brand}', [AcController::class, 'showBrand'])->name('ac.brand');
+
+// Dynamic XML Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.xml');
+
 Route::get('/service/ac-service', [ServiceController::class, 'acService'])->name('acServices');
 Route::get('/service/washing-machine-repair', [ServiceController::class, 'washingMachineRepair'])->name('washingMachine');
 Route::get('/service/refrigerator-repair', [ServiceController::class, 'refrigeratorRepair'])->name('refrigerator');

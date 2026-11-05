@@ -1,11 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Contact us | Essen Techs - 919746700889')
-@section('meta_description',
-    'Ready to schedule an appointment or learn more about our services? Contact Essentechs
-    today for the best AC repair services in Kerala')
-@section('meta_keywords',
-    'Ready to schedule an appointment or learn more about our services? Contact Essentechs today
-    for the best AC repair services in Kerala')
+@section('title', 'Contact Us | EssenTechs Home Appliance Repair in Kochi')
+@section('meta_description', 'Contact EssenTechs for fast, reliable doorstep repair of ACs, washing machines, refrigerators, and microwave ovens in Kochi and Ernakulam. Call +91 97467 00889.')
+@section('meta_keywords', 'contact EssenTechs, appliance repair contact, AC mechanic Kochi, Ernakulam appliance service')
+@section('canonical', url('/contact'))
+
 @section('content')
     <!-- Contact Start -->
     <div class="container-xxl py-5">
@@ -13,7 +11,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <h1 class="display-6 mb-3">If You Have Any Query, Please Contact Us</h1>
-                    <p class="mb-4">At EssenTechs, we’re dedicated to keeping your home and business running smoothly.
+                    <p class="mb-4 text-muted">At EssenTechs, we’re dedicated to keeping your home and business running smoothly.
                         Whether you're a homeowner, office, school, or any organization — we’ve got you covered with
                         fast, reliable, and affordable appliance repair services. </p>
                     <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
@@ -22,65 +20,64 @@
 
                             <div class="col-md-6">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Enter name" value="{{ old('name') }}" required>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" value="{{ old('name') }}" required>
                                 @if ($errors->has('name'))
-                                    <div class="text-danger">{{ $errors->first('name') }}</div>
+                                    <div class="text-danger small">{{ $errors->first('name') }}</div>
                                 @endif
                             </div>
 
                             <div class="col-md-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Enter email" value="{{ old('email') }}" required>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" value="{{ old('email') }}" required>
                                 @if ($errors->has('email'))
-                                    <div class="text-danger">{{ $errors->first('email') }}</div>
+                                    <div class="text-danger small">{{ $errors->first('email') }}</div>
                                 @endif
                             </div>
 
                             <div class="col-md-6">
                                 <label for="mobile" class="form-label">Mobile Number</label>
-                                <input type="tel" name="mobile" class="form-control" placeholder="Enter mobile number" value="{{ old('mobile') }}" required>
+                                <input type="tel" name="mobile" id="mobile" class="form-control" placeholder="Enter mobile number" value="{{ old('mobile') }}" required>
                                 @if ($errors->has('mobile'))
-                                    <div class="text-danger">{{ $errors->first('mobile') }}</div>
+                                    <div class="text-danger small">{{ $errors->first('mobile') }}</div>
                                 @endif
                             </div>
 
                             <div class="col-md-6">
                                 <label for="subject" class="form-label">Subject</label>
-                                <input type="text" name="subject" class="form-control" placeholder="Enter subject" value="{{ old('subject') }}" required>
+                                <input type="text" name="subject" id="subject" class="form-control" placeholder="Enter subject" value="{{ old('subject') }}" required>
                                 @if ($errors->has('subject'))
-                                    <div class="text-danger">{{ $errors->first('subject') }}</div>
+                                    <div class="text-danger small">{{ $errors->first('subject') }}</div>
                                 @endif
                             </div>
 
                             <div class="col-12">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea name="message" class="form-control" placeholder="Write your message" style="height: 120px;" required>{{ old('message') }}</textarea>
+                                <textarea name="message" id="message" class="form-control" placeholder="Write your message" style="height: 120px;" required>{{ old('message') }}</textarea>
                                 @if ($errors->has('message'))
-                                    <div class="text-danger">{{ $errors->first('message') }}</div>
+                                    <div class="text-danger small">{{ $errors->first('message') }}</div>
                                 @endif
                             </div>
 
                             <input type="hidden" name="page" value="Contact Page">
 
-
                             <div class="col-12">
-                            <button id="submitBtn" class="btn btn-primary py-3 px-5" type="submit">
-                                Send Message
-                            </button>
-                            <button id="loadingBtn" class="btn btn-primary py-3 px-5 d-none" type="button" disabled>
-                                <span class="spinner-border spinner-border-sm me-2"></span> Sending...
-                            </button>
-                        </div>
-
+                                <button id="submitBtn" class="btn btn-primary py-3 px-5" type="submit" aria-label="Send message to EssenTechs">
+                                    Send Message
+                                </button>
+                                <button id="loadingBtn" class="btn btn-primary py-3 px-5 d-none" type="button" disabled aria-label="Sending message...">
+                                    <span class="spinner-border spinner-border-sm me-2"></span> Sending...
+                                </button>
+                            </div>
 
                         </div>
                     </form>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                    <div class="position-relative overflow-hidden h-100">
+                    <div class="position-relative overflow-hidden h-100 rounded-3 shadow-sm">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.6915662791384!2d76.35092087494714!3d10.042290390065256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080bdbcdeb93e1%3A0x55d1863026bb19f0!2sEdappally%20-%20Pukkattupady%20Rd%2C%20Kerala!5e0!3m2!1sen!2sin!4v1753694520035!5m2!1sen!2sin"
                             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            title="EssenTechs Office Location Map"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
