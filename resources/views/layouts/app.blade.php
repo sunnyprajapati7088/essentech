@@ -30,18 +30,18 @@
     {{-- Default Global Structured Data --}}
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@@context": "https://schema.org",
+      "@@graph": [
         {
-          "@type": "Organization",
-          "@id": "https://essentechs.com/#organization",
+          "@@type": "Organization",
+          "@@id": "https://essentechs.com/#organization",
           "name": "Essentechs",
           "url": "https://essentechs.com/",
           "logo": "https://essentechs.com/img/EssenTechs-logo.jpeg",
           "email": "info@essentechs.com",
           "telephone": "+919746700889",
           "contactPoint": {
-            "@type": "ContactPoint",
+            "@@type": "ContactPoint",
             "telephone": "+91-9746700889",
             "contactType": "customer service",
             "areaServed": "IN",
@@ -49,15 +49,15 @@
           }
         },
         {
-          "@type": "LocalBusiness",
-          "@id": "https://essentechs.com/#localbusiness",
+          "@@type": "LocalBusiness",
+          "@@id": "https://essentechs.com/#localbusiness",
           "name": "Essentechs Home Appliance Repair",
           "image": "https://essentechs.com/img/EssenTechs-logo.jpeg",
           "telephone": "+919746700889",
           "email": "info@essentechs.com",
           "priceRange": "₹₹",
           "address": {
-            "@type": "PostalAddress",
+            "@@type": "PostalAddress",
             "streetAddress": "Civil Line Kakkanad - Kunneparambu Road, Office No. KRA-52",
             "addressLocality": "Kochi",
             "addressRegion": "Kerala",
@@ -65,12 +65,12 @@
             "addressCountry": "IN"
           },
           "geo": {
-            "@type": "GeoCoordinates",
+            "@@type": "GeoCoordinates",
             "latitude": 10.0159,
             "longitude": 76.3419
           },
           "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
+            "@@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             "opens": "08:00",
             "closes": "21:00"

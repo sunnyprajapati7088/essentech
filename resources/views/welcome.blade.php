@@ -8,16 +8,16 @@
 @section('schema')
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@@context": "https://schema.org",
+  "@@graph": [
     {
-      "@type": "WebSite",
-      "@id": "https://essentechs.com/#website",
+      "@@type": "WebSite",
+      "@@id": "https://essentechs.com/#website",
       "url": "https://essentechs.com/",
       "name": "EssenTechs",
       "description": "Leading home appliance repair service provider in Kochi, Kerala",
       "publisher": {
-        "@id": "https://essentechs.com/#organization"
+        "@@id": "https://essentechs.com/#organization"
       }
     }
   ]

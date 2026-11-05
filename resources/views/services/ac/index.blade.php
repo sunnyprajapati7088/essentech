@@ -8,42 +8,42 @@
 @section('schema')
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@@context": "https://schema.org",
+  "@@graph": [
     {
-      "@type": "Service",
-      "@id": "{{ url('/ac/') }}#service",
+      "@@type": "Service",
+      "@@id": "{{ url('/ac/') }}#service",
       "name": "AC Service & Repair",
       "provider": {
-        "@type": "LocalBusiness",
-        "@id": "https://essentechs.com/#localbusiness",
+        "@@type": "LocalBusiness",
+        "@@id": "https://essentechs.com/#localbusiness",
         "name": "Essentechs"
       },
       "serviceType": "Air Conditioning Service",
       "areaServed": {
-        "@type": "AdministrativeArea",
+        "@@type": "AdministrativeArea",
         "name": "Kochi, Kerala"
       },
       "description": "Reliable air conditioner service, repair and maintenance solutions from Essentechs. Component diagnostics for inverter and split air conditioners."
     },
     {
-      "@type": "BreadcrumbList",
-      "@id": "{{ url('/ac/') }}#breadcrumb",
+      "@@type": "BreadcrumbList",
+      "@@id": "{{ url('/ac/') }}#breadcrumb",
       "itemListElement": [
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 1,
           "name": "Home",
           "item": "{{ url('/') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 2,
           "name": "Services",
           "item": "{{ url('/services') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 3,
           "name": "AC",
           "item": "{{ url('/ac/') }}"
@@ -51,15 +51,15 @@
       ]
     },
     {
-      "@type": "FAQPage",
-      "@id": "{{ url('/ac/') }}#faq",
+      "@@type": "FAQPage",
+      "@@id": "{{ url('/ac/') }}#faq",
       "mainEntity": [
         @foreach($faqs as $index => $faq)
         {
-          "@type": "Question",
+          "@@type": "Question",
           "name": "{{ $faq['q'] }}",
           "acceptedAnswer": {
-            "@type": "Answer",
+            "@@type": "Answer",
             "text": "{{ $faq['a'] }}"
           }
         }@if(!$loop->last),@endif

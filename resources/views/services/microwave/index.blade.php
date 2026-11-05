@@ -8,42 +8,42 @@
 @section('schema')
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@@context": "https://schema.org",
+  "@@graph": [
     {
-      "@type": "Service",
-      "@id": "{{ url('/microwave-oven/') }}#service",
+      "@@type": "Service",
+      "@@id": "{{ url('/microwave-oven/') }}#service",
       "name": "Microwave Oven Service & Repair",
       "provider": {
-        "@type": "LocalBusiness",
-        "@id": "https://essentechs.com/#localbusiness",
+        "@@type": "LocalBusiness",
+        "@@id": "https://essentechs.com/#localbusiness",
         "name": "Essentechs"
       },
       "serviceType": "Appliance Repair",
       "areaServed": {
-        "@type": "AdministrativeArea",
+        "@@type": "AdministrativeArea",
         "name": "Kochi, Kerala"
       },
       "description": "Reliable microwave oven service and repair solutions from Essentechs. Component-level diagnostics for solo, grill, and convection microwaves."
     },
     {
-      "@type": "BreadcrumbList",
-      "@id": "{{ url('/microwave-oven/') }}#breadcrumb",
+      "@@type": "BreadcrumbList",
+      "@@id": "{{ url('/microwave-oven/') }}#breadcrumb",
       "itemListElement": [
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 1,
           "name": "Home",
           "item": "{{ url('/') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 2,
           "name": "Services",
           "item": "{{ url('/services') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 3,
           "name": "Microwave Oven",
           "item": "{{ url('/microwave-oven/') }}"
@@ -51,15 +51,15 @@
       ]
     },
     {
-      "@type": "FAQPage",
-      "@id": "{{ url('/microwave-oven/') }}#faq",
+      "@@type": "FAQPage",
+      "@@id": "{{ url('/microwave-oven/') }}#faq",
       "mainEntity": [
         @foreach($faqs as $index => $faq)
         {
-          "@type": "Question",
+          "@@type": "Question",
           "name": "{{ $faq['q'] }}",
           "acceptedAnswer": {
-            "@type": "Answer",
+            "@@type": "Answer",
             "text": "{{ $faq['a'] }}"
           }
         }@if(!$loop->last),@endif

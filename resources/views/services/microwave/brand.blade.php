@@ -8,48 +8,48 @@
 @section('schema')
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+  "@@context": "https://schema.org",
+  "@@graph": [
     {
-      "@type": "Service",
-      "@id": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}#service",
+      "@@type": "Service",
+      "@@id": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}#service",
       "name": "{{ $brandData['h1'] }}",
       "provider": {
-        "@type": "LocalBusiness",
-        "@id": "https://essentechs.com/#localbusiness",
+        "@@type": "LocalBusiness",
+        "@@id": "https://essentechs.com/#localbusiness",
         "name": "Essentechs"
       },
       "serviceType": "Microwave Oven Repair",
       "areaServed": {
-        "@type": "AdministrativeArea",
+        "@@type": "AdministrativeArea",
         "name": "Kochi, Kerala"
       },
       "description": "{{ $brandData['meta_description'] }}"
     },
     {
-      "@type": "BreadcrumbList",
-      "@id": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}#breadcrumb",
+      "@@type": "BreadcrumbList",
+      "@@id": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}#breadcrumb",
       "itemListElement": [
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 1,
           "name": "Home",
           "item": "{{ url('/') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 2,
           "name": "Services",
           "item": "{{ url('/services') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 3,
           "name": "Microwave Oven",
           "item": "{{ url('/microwave-oven/') }}"
         },
         {
-          "@type": "ListItem",
+          "@@type": "ListItem",
           "position": 4,
           "name": "{{ $brandData['name'] }}",
           "item": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}"
@@ -57,15 +57,15 @@
       ]
     },
     {
-      "@type": "FAQPage",
-      "@id": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}#faq",
+      "@@type": "FAQPage",
+      "@@id": "{{ url('/microwave-oven/' . $brandData['slug'] . '/') }}#faq",
       "mainEntity": [
         @foreach($brandData['faqs'] as $index => $faq)
         {
-          "@type": "Question",
+          "@@type": "Question",
           "name": "{{ $faq['q'] }}",
           "acceptedAnswer": {
-            "@type": "Answer",
+            "@@type": "Answer",
             "text": "{{ $faq['a'] }}"
           }
         }@if(!$loop->last),@endif
