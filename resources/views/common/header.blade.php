@@ -97,6 +97,48 @@
                 </div>
             </div>
 
+            <!-- Ads Dropdown (Dynamic from Admin "Ad Landing Pages") -->
+            @php
+                $publishedAds = \App\Models\AdLandingPage::where('status', 'published')
+                    ->orderBy('updated_at', 'desc')
+                    ->take(6)
+                    ->get();
+            @endphp
+            @if($publishedAds->count() > 0)
+            <div class="nav-item dropdown">
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ $publishedAds->contains(fn($ad) => request()->is($ad->slug)) ? 'active' : '' }}"
+                    data-bs-toggle="dropdown" id="adsDropdown" aria-expanded="false" aria-label="Special Ad Promotions">
+                    Ads <span class="badge bg-warning text-dark rounded-pill ms-1 small" style="font-size: 0.7rem; font-weight: 700;">Live</span>
+                </a>
+                <div class="dropdown-menu bg-white m-0 shadow border-0 rounded-3 py-2" aria-labelledby="adsDropdown" style="min-width: 270px;">
+                    <div class="dropdown-header text-uppercase text-muted small fw-bold px-3 py-1">
+                        <i class="fas fa-bullhorn text-warning me-1"></i> Active Campaigns
+                    </div>
+                    @foreach($publishedAds as $ad)
+                    <a href="{{ url('/' . $ad->slug) }}"
+                        class="dropdown-item py-2 px-3 {{ request()->is($ad->slug) ? 'active' : '' }}">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0 bg-warning-subtle text-warning p-2 rounded-circle me-2 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                <i class="fas fa-bolt small"></i>
+                            </div>
+                            <div class="flex-grow-1 text-truncate">
+                                <span class="fw-semibold d-block text-dark text-truncate" style="font-size: 0.88rem;">{{ $ad->title }}</span>
+                                @if(!empty($ad->hero_badge))
+                                    <small class="text-muted d-block text-truncate" style="font-size: 0.74rem;">{{ $ad->hero_badge }}</small>
+                                @endif
+                            </div>
+                        </div>
+                    </a>
+                    @endforeach
+                    <div class="dropdown-divider my-1"></div>
+                    <a href="{{ url('/offers') }}" class="dropdown-item py-2 px-3 small fw-semibold text-primary">
+                        <i class="fas fa-tags me-1"></i> View All Offers & Deals <i class="fas fa-arrow-right ms-1 small"></i>
+                    </a>
+                </div>
+            </div>
+            @endif
+
             <!-- Offers & Deals -->
             <a href="{{ url('/offers') }}"
                 class="nav-item nav-link {{ request()->is('offers*') ? 'active' : '' }}" aria-label="Seasonal repair offers and deals">

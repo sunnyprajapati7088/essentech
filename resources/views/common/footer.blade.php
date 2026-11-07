@@ -94,6 +94,12 @@
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/about') }}">About Us</a>
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/contact') }}">Contact Us</a>
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/terms') }}">Terms & Conditions</a>
+                @php
+                    $footerAds = \App\Models\AdLandingPage::where('status', 'published')->take(3)->get();
+                @endphp
+                @foreach($footerAds as $fad)
+                    <a class="btn btn-link text-warning text-start" href="{{ url('/' . $fad->slug) }}"><i class="fas fa-bolt me-1 small"></i> {{ $fad->title }}</a>
+                @endforeach
             </div>
 
             <!-- Dynamic Menus -->
