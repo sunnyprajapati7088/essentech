@@ -2595,5 +2595,23 @@ class ApplianceCatalogService
             ['name' => 'Havells', 'desc' => 'Maxx RO Alkaline Water & Revitalizer Technology']
         ];
     }
+
+    /**
+     * Get logo asset URL for any brand slug
+     */
+    public static function getBrandLogo(string $slug): ?string
+    {
+        $normalized = strtolower(trim($slug));
+        $extensions = ['svg', 'png', 'jpg', 'jpeg', 'avif', 'webp'];
+        
+        foreach ($extensions as $ext) {
+            $relative = "img/brands/{$normalized}.{$ext}";
+            if (file_exists(public_path($relative))) {
+                return asset($relative);
+            }
+        }
+        
+        return null;
+    }
 }
 

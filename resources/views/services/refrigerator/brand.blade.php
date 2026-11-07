@@ -109,9 +109,17 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-8">
-                <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill text-uppercase mb-3 d-inline-block">
-                    <i class="fas fa-certificate me-1" aria-hidden="true"></i> {{ $brandData['badge'] }}
-                </span>
+                @php $brandLogo = \App\Services\ApplianceCatalogService::getBrandLogo($brandData['slug']); @endphp
+                <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+                    @if($brandLogo)
+                    <div class="bg-white p-2 rounded border shadow-sm d-inline-flex align-items-center justify-content-center" style="height: 52px; min-width: 120px;">
+                        <img src="{{ $brandLogo }}" alt="{{ $brandData['name'] }} Logo" style="max-height: 38px; max-width: 140px; object-fit: contain;">
+                    </div>
+                    @endif
+                    <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill text-uppercase">
+                        <i class="fas fa-certificate me-1" aria-hidden="true"></i> {{ $brandData['badge'] }}
+                    </span>
+                </div>
                 <h1 id="brand-hero-title" class="display-4 fw-bold text-dark mb-4">{{ $brandData['h1'] }}</h1>
                 <p class="lead text-muted mb-4">
                     {{ $brandData['hero_subtitle'] }}

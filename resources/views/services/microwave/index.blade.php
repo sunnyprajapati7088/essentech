@@ -132,7 +132,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-                    <img src="{{ asset('img/MicrowaveRepair.jpeg') }}" class="img-fluid w-100" alt="Certified technician diagnosing microwave oven circuit" width="600" height="400">
+                    <img src="{{ asset('img/technician-microwave.jpg') }}" class="img-fluid w-100" alt="Essen Techs certified technician diagnosing microwave oven circuit" width="600" height="400" style="object-fit: cover; max-height: 400px;">
                     <div class="card-body p-4 bg-light">
                         <h2 class="h5 fw-bold mb-2">Need Urgent Assistance?</h2>
                         <p class="small text-muted mb-3">Speak directly with an appliance technician to discuss your microwave's symptoms.</p>
@@ -187,13 +187,20 @@
         </div>
         <div class="row g-3">
             @foreach($brands as $b)
+            @php $logo = \App\Services\ApplianceCatalogService::getBrandLogo($b['slug']); @endphp
             <div class="col-lg-4 col-md-6">
-                <a href="{{ url('/microwave-oven/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <span class="h5 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
+                <a href="{{ url('/microwave-oven/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+                        <div class="d-flex align-items-center" style="height: 48px;">
+                            @if($logo)
+                                <img src="{{ $logo }}" alt="{{ $b['name'] }} Logo" class="img-fluid" style="max-height: 40px; max-width: 130px; object-fit: contain;">
+                            @else
+                                <span class="h5 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
+                            @endif
+                        </div>
                         <span class="badge bg-light text-primary border small">View Brand Page <i class="fas fa-chevron-right ms-1 small" aria-hidden="true"></i></span>
                     </div>
-                    <p class="small text-muted mb-0">
+                    <p class="small text-muted mb-0 mt-auto">
                         {{ $b['badge'] }} — solo, grill, and convection model support.
                     </p>
                 </a>

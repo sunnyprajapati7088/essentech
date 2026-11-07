@@ -96,13 +96,20 @@
         </div>
         <div class="row g-3">
             @foreach($applianceBrands['ac']['brands'] as $b)
+            @php $logo = \App\Services\ApplianceCatalogService::getBrandLogo($b['slug']); @endphp
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="{{ url('/ac/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
-                        <i class="fas fa-chevron-right text-muted small"></i>
+                <a href="{{ url('/ac/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-center mb-3 p-2 bg-light rounded" style="height: 65px;">
+                        @if($logo)
+                            <img src="{{ $logo }}" alt="{{ $b['name'] }} Logo" class="img-fluid" style="max-height: 45px; max-width: 140px; object-fit: contain;">
+                        @else
+                            <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
+                        @endif
                     </div>
-                    <p class="small text-muted mb-0">{{ $b['badge'] }}</p>
+                    <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+                        <span class="small fw-semibold text-dark">{{ $b['name'] }}</span>
+                        <span class="badge bg-light text-primary border small">View Model <i class="fas fa-chevron-right ms-1 small"></i></span>
+                    </div>
                 </a>
             </div>
             @endforeach
@@ -125,13 +132,20 @@
         </div>
         <div class="row g-3">
             @foreach($applianceBrands['refrigerator']['brands'] as $b)
+            @php $logo = \App\Services\ApplianceCatalogService::getBrandLogo($b['slug']); @endphp
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="{{ url('/refrigerator/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-light">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
-                        <i class="fas fa-chevron-right text-muted small"></i>
+                <a href="{{ url('/refrigerator/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-center mb-3 p-2 bg-light rounded" style="height: 65px;">
+                        @if($logo)
+                            <img src="{{ $logo }}" alt="{{ $b['name'] }} Logo" class="img-fluid" style="max-height: 45px; max-width: 140px; object-fit: contain;">
+                        @else
+                            <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
+                        @endif
                     </div>
-                    <p class="small text-muted mb-0">{{ $b['badge'] }}</p>
+                    <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+                        <span class="small fw-semibold text-dark">{{ $b['name'] }}</span>
+                        <span class="badge bg-light text-success border small">View Model <i class="fas fa-chevron-right ms-1 small"></i></span>
+                    </div>
                 </a>
             </div>
             @endforeach
@@ -154,13 +168,20 @@
         </div>
         <div class="row g-3">
             @foreach($applianceBrands['washing_machine']['brands'] as $b)
+            @php $logo = \App\Services\ApplianceCatalogService::getBrandLogo($b['slug']); @endphp
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="{{ url('/washing-machine/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
-                        <i class="fas fa-chevron-right text-muted small"></i>
+                <a href="{{ url('/washing-machine/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-center mb-3 p-2 bg-light rounded" style="height: 65px;">
+                        @if($logo)
+                            <img src="{{ $logo }}" alt="{{ $b['name'] }} Logo" class="img-fluid" style="max-height: 45px; max-width: 140px; object-fit: contain;">
+                        @else
+                            <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
+                        @endif
                     </div>
-                    <p class="small text-muted mb-0">{{ $b['badge'] }}</p>
+                    <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+                        <span class="small fw-semibold text-dark">{{ $b['name'] }}</span>
+                        <span class="badge bg-light text-primary border small">View Model <i class="fas fa-chevron-right ms-1 small"></i></span>
+                    </div>
                 </a>
             </div>
             @endforeach
@@ -183,13 +204,20 @@
         </div>
         <div class="row g-3">
             @foreach($applianceBrands['microwave']['brands'] as $b)
+            @php $logo = \App\Services\ApplianceCatalogService::getBrandLogo($b['slug']); @endphp
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="{{ url('/microwave-oven/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-light">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
-                        <i class="fas fa-chevron-right text-muted small"></i>
+                <a href="{{ url('/microwave-oven/' . $b['slug'] . '/') }}" class="card text-decoration-none h-100 border rounded-3 p-3 shadow-sm hover-shadow transition bg-white d-flex flex-column">
+                    <div class="d-flex align-items-center justify-content-center mb-3 p-2 bg-light rounded" style="height: 65px;">
+                        @if($logo)
+                            <img src="{{ $logo }}" alt="{{ $b['name'] }} Logo" class="img-fluid" style="max-height: 45px; max-width: 140px; object-fit: contain;">
+                        @else
+                            <span class="h6 fw-bold text-dark mb-0">{{ $b['name'] }}</span>
+                        @endif
                     </div>
-                    <p class="small text-muted mb-0">{{ $b['badge'] }}</p>
+                    <div class="mt-auto pt-2 border-top d-flex justify-content-between align-items-center">
+                        <span class="small fw-semibold text-dark">{{ $b['name'] }}</span>
+                        <span class="badge bg-light text-dark border small">View Model <i class="fas fa-chevron-right ms-1 small"></i></span>
+                    </div>
                 </a>
             </div>
             @endforeach

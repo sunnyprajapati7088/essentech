@@ -157,68 +157,65 @@
     </div>
     <!-- Services Section End -->
 
-    <!-- Our Partners Section Start -->
-    <div class="container-xxl py-1 bg-light">
+    <!-- Brands We Service Section Start -->
+    <div class="container-xxl py-4 bg-light border-top border-bottom">
         <div class="container">
-            <div class="text-center mb-2">
-                <h2>Our Partners</h2>
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                <div>
+                    <h2 class="h4 fw-bold mb-0">Brands We Service in Kochi</h2>
+                    <p class="small text-muted mb-0">Independent doorstep care for all major appliance manufacturers</p>
+                </div>
+                <a href="{{ url('/brands') }}" class="btn btn-sm btn-outline-primary fw-semibold rounded-pill px-3">
+                    View All 34+ Brands <i class="fas fa-arrow-right ms-1"></i>
+                </a>
             </div>
-            <div class="owl-carousel partner-carousel">
-                <div class="text-center">
-                    <img src="{{ asset('img/bpl.png') }}" alt="Samsung" class="img-fluid" style="max-height: 100px;">
+            <div class="owl-carousel partner-carousel py-2">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/refrigerator/samsung/') }}"><img src="{{ asset('img/brands/samsung.avif') }}" alt="Samsung Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/lg-logo.png') }}" alt="LG" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/washing-machine/lg/') }}"><img src="{{ asset('img/brands/lg.png') }}" alt="LG Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/Daikin.jpg') }}" alt="Daikin" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/ac/daikin/') }}"><img src="{{ asset('img/brands/daikin.jpg') }}" alt="Daikin AC Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/haier-logo.png') }}" alt="Haier" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/washing-machine/bosch/') }}"><img src="{{ asset('img/brands/bosch.svg') }}" alt="Bosch Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/ifb-logo.png') }}" alt="IFB" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/washing-machine/ifb/') }}"><img src="{{ asset('img/brands/ifb.png') }}" alt="IFB Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/whilphool-logo.png') }}" alt="Whirlpool" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/refrigerator/whirlpool/') }}"><img src="{{ asset('img/brands/whirlpool.png') }}" alt="Whirlpool Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/godrej-logo.jpg') }}" alt="Godrej" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/refrigerator/godrej/') }}"><img src="{{ asset('img/brands/godrej.jpg') }}" alt="Godrej Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/Daikin.jpg') }}" alt="Daikin" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/ac/voltas/') }}"><img src="{{ asset('img/brands/voltas.jpg') }}" alt="Voltas AC Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/Voltas.jpg') }}" alt="Voltas" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/refrigerator/haier/') }}"><img src="{{ asset('img/brands/haier.png') }}" alt="Haier Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/haier-logo.png') }}" alt="Haier" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/ac/blue-star/') }}"><img src="{{ asset('img/brands/blue-star.png') }}" alt="Blue Star Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/Blue_Star.png') }}" alt="Blue Star" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/microwave-oven/electrolux/') }}"><img src="{{ asset('img/brands/electrolux.svg') }}" alt="Electrolux Microwave Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/intex.png') }}" alt="Intex" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/washing-machine/panasonic/') }}"><img src="{{ asset('img/brands/panasonic.svg') }}" alt="Panasonic Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
-                <div class="text-center">
-                    <img src="{{ asset('img/samsung.avif') }}" alt="Samsung" class="img-fluid"
-                        style="max-height: 100px;">
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/ac/hitachi/') }}"><img src="{{ asset('img/brands/hitachi.svg') }}" alt="Hitachi AC Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                </div>
+                <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
+                    <a href="{{ url('/refrigerator/siemens/') }}"><img src="{{ asset('img/brands/siemens.jpg') }}" alt="Siemens Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Our Partners Section End -->
+    <!-- Brands We Service Section End -->
 
     <!-- About Start -->
     <div class="container-xxl py-5">

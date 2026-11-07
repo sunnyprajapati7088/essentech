@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+        <rect width="220" height="60" fill="transparent"/>
+        <text x="70" y="38" font-family="Arial Black, sans-serif" font-size="20" fill="#004A8F">VOLTAS</text>
+        <rect x="150" y="18" width="55" height="26" rx="5" fill="#0077C8"/>
+        <text x="177" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="16" fill="#FFF">beko</text>
+    </svg>
