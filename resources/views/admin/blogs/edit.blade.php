@@ -81,63 +81,104 @@
                         @enderror
                     </div>
 
-                    <!-- Featured Image -->
-                    <div class="mb-3">
-                        <label for="featured_image" class="form-label">Featured Image</label>
-                        <input type="file" class="form-control" id="featured_image" name="{{ \App\Models\Blog::FEATURED_IMAGE }}" accept="image/jpeg,image/png,image/jpg,image/gif" aria-describedby="featuredImageHelp">
-                        <div id="featuredImageHelp" class="form-text">Upload an image (JPEG, PNG, JPG, GIF, max 2MB).</div>
-                        <div class="mt-2">
+                    <!-- Featured Image & Alt -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="featured_image" class="form-label">Featured Image</label>
+                            <input type="file" class="form-control" id="featured_image" name="featured_image" accept="image/jpeg,image/png,image/jpg,image/webp">
+                            <div class="form-text">Upload to replace (JPEG, PNG, JPG, or WEBP, max 5MB).</div>
                             @if ($blog->featured_image)
-                                <img id="featured_image_existing" src="{{ Storage::url($blog->featured_image) }}" alt="Current Featured Image" class="img-fluid" style="max-width: 200px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="{{ Storage::url($blog->featured_image) }}">
+                            <div class="mt-2">
+                                <small class="text-muted">Current: <a href="{{ asset('storage/' . $blog->featured_image) }}" target="_blank">View image</a></small>
+                            </div>
                             @endif
-                            <img id="featured_image_preview" class="img-fluid mt-2 d-none" style="max-width: 200px; cursor: pointer;" alt="Featured Image Preview" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="">
                         </div>
-                        @error(\App\Models\Blog::FEATURED_IMAGE)
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
+                        <div class="col-md-6">
+                            <label for="image_alt" class="form-label">Image Alt Text (SEO)</label>
+                            <input type="text" class="form-control" id="image_alt" name="image_alt" value="{{ old('image_alt', $blog->image_alt) }}" placeholder="Descriptive alt text for image">
+                            <div class="form-text">Explains image content to search engines and screen readers.</div>
+                        </div>
                     </div>
 
-                    <!-- Status -->
-                    <div class="mb-3">
-                        <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
-                        <select class="form-select" id="status" name="{{ \App\Models\Blog::STATUS }}" required aria-describedby="statusHelp">
-                            <option value="draft" {{ old(\App\Models\Blog::STATUS, $blog->status) == 'draft' ? 'selected' : '' }}>Draft</option>
-                            <option value="published" {{ old(\App\Models\Blog::STATUS, $blog->status) == 'published' ? 'selected' : '' }}>Published</option>
-                            <option value="archived" {{ old(\App\Models\Blog::STATUS, $blog->status) == 'archived' ? 'selected' : '' }}>Archived</option>
-                        </select>
-                        <div id="statusHelp" class="form-text">Choose the publication status.</div>
-                        @error(\App\Models\Blog::STATUS)
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
+                    <!-- Category & Author -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-4">
+                            <label for="category" class="form-label">Appliance Category</label>
+                            <select class="form-select" id="category" name="category">
+                                <option value="general" {{ old('category', $blog->category) == 'general' ? 'selected' : '' }}>General Appliance</option>
+                                <option value="ac" {{ old('category', $blog->category) == 'ac' ? 'selected' : '' }}>Air Conditioner (AC)</option>
+                                <option value="microwave" {{ old('category', $blog->category) == 'microwave' ? 'selected' : '' }}>Microwave Oven</option>
+                                <option value="refrigerator" {{ old('category', $blog->category) == 'refrigerator' ? 'selected' : '' }}>Refrigerator & Fridge</option>
+                                <option value="washing-machine" {{ old('category', $blog->category) == 'washing-machine' ? 'selected' : '' }}>Washing Machine</option>
+                                <option value="water-purifier" {{ old('category', $blog->category) == 'water-purifier' ? 'selected' : '' }}>RO & Water Purifier</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="author_name" class="form-label">Author Name</label>
+                            <input type="text" class="form-control" id="author_name" name="author_name" value="{{ old('author_name', $blog->author_name ?? 'EssenTechs Technical Team') }}">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tags" class="form-label">Tags (comma-separated)</label>
+                            <input type="text" class="form-control" id="tags" name="tags" value="{{ old('tags', $blog->tags) }}">
+                        </div>
                     </div>
 
-                    <!-- Published At -->
-                    <div class="mb-3">
-                        <label for="published_at" class="form-label">Published At</label>
-                        <input type="date" class="form-control" id="published_at" name="{{ \App\Models\Blog::PUBLISHED_AT }}" value="{{ old(\App\Models\Blog::PUBLISHED_AT, $blog->published_at ? $blog->published_at->format('Y-m-d') : date('Y-m-d')) }}" aria-describedby="publishedAtHelp">
-                        <div id="publishedAtHelp" class="form-text">Select the publication date (defaults to today).</div>
-                        @error(\App\Models\Blog::PUBLISHED_AT)
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
+                    <!-- Status & Published At -->
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                            <select class="form-select" id="status" name="status" required>
+                                <option value="published" {{ old('status', $blog->status) == 'published' ? 'selected' : '' }}>Published (Live on site)</option>
+                                <option value="draft" {{ old('status', $blog->status) == 'draft' ? 'selected' : '' }}>Draft</option>
+                                <option value="scheduled" {{ old('status', $blog->status) == 'scheduled' ? 'selected' : '' }}>Scheduled</option>
+                                <option value="archived" {{ old('status', $blog->status) == 'archived' ? 'selected' : '' }}>Archived</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="published_at" class="form-label">Published At</label>
+                            <input type="date" class="form-control" id="published_at" name="published_at" value="{{ old('published_at', $blog->published_at ? $blog->published_at->format('Y-m-d') : date('Y-m-d')) }}">
+                        </div>
                     </div>
 
-                    <!-- Meta Title -->
-                    <div class="mb-3">
-                        <label for="meta_title" class="form-label">Meta Title</label>
-                        <input type="text" class="form-control" id="meta_title" name="{{ \App\Models\Blog::META_TITLE }}" value="{{ old(\App\Models\Blog::META_TITLE, $blog->meta_title) }}" aria-describedby="metaTitleHelp">
-                        <div id="metaTitleHelp" class="form-text">SEO title for search engines (max 255 characters).</div>
-                        @error(\App\Models\Blog::META_TITLE)
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    <!-- SEO Optimization Section -->
+                    <div class="card bg-light border-0 p-3 mb-4 rounded-3">
+                        <h6 class="fw-bold mb-3 text-primary"><i class="bi bi-google me-2"></i>SEO & Structured Data Settings</h6>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="focus_keyword" class="form-label small fw-bold">Focus Keyword</label>
+                                <input type="text" class="form-control form-control-sm" id="focus_keyword" name="focus_keyword" value="{{ old('focus_keyword', $blog->focus_keyword) }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="schema_type" class="form-label small fw-bold">Schema Structured Data Type</label>
+                                <select class="form-select form-select-sm" id="schema_type" name="schema_type">
+                                    <option value="Article" {{ old('schema_type', $blog->schema_type) == 'Article' ? 'selected' : '' }}>Article</option>
+                                    <option value="TechArticle" {{ old('schema_type', $blog->schema_type) == 'TechArticle' ? 'selected' : '' }}>TechArticle</option>
+                                    <option value="HowTo" {{ old('schema_type', $blog->schema_type) == 'HowTo' ? 'selected' : '' }}>HowTo</option>
+                                    <option value="BlogPosting" {{ old('schema_type', $blog->schema_type) == 'BlogPosting' ? 'selected' : '' }}>BlogPosting</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <!-- Meta Description -->
-                    <div class="mb-3">
-                        <label for="meta_description" class="form-label">Meta Description</label>
-                        <textarea class="form-control" id="meta_description" name="{{ \App\Models\Blog::META_DESCRIPTION }}" rows="3">{{ old(\App\Models\Blog::META_DESCRIPTION, $blog->meta_description) }}</textarea>
-                        @error(\App\Models\Blog::META_DESCRIPTION)
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                        @enderror
+                        <div class="mb-3">
+                            <label for="meta_title" class="form-label small fw-bold">Meta Title</label>
+                            <input type="text" class="form-control form-control-sm" id="meta_title" name="meta_title" value="{{ old('meta_title', $blog->meta_title) }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="meta_description" class="form-label small fw-bold">Meta Description</label>
+                            <textarea class="form-control form-control-sm" id="meta_description" name="meta_description" rows="2">{{ old('meta_description', $blog->meta_description) }}</textarea>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="canonical_url" class="form-label small fw-bold">Canonical URL</label>
+                                <input type="text" class="form-control form-control-sm" id="canonical_url" name="canonical_url" value="{{ old('canonical_url', $blog->canonical_url) }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="secondary_keywords" class="form-label small fw-bold">Secondary Keywords</label>
+                                <input type="text" class="form-control form-control-sm" id="secondary_keywords" name="secondary_keywords" value="{{ old('secondary_keywords', $blog->secondary_keywords) }}">
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Submit Button with Loader -->

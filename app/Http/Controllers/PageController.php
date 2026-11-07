@@ -46,6 +46,12 @@ class PageController extends Controller
         return view('terms');
     }
 
+    public function brands()
+    {
+        $applianceBrands = \App\Services\ApplianceCatalogService::getAllBrands();
+        return view('brands.index', compact('applianceBrands'));
+    }
+
     public function blog()
     {
         $blogs = Blog::orderBy('created_at', 'desc')
@@ -59,19 +65,17 @@ class PageController extends Controller
         // Find blog by slug
         $blog = Blog::where('slug', $slug)->firstOrFail();
 
-        // Related blogs: fetch 3 latest blogs excluding current one
+        // Increment views safely
+        $blog->increment('views_count');
+
+        // Related blogs: fetch 4 latest blogs excluding current one
         $related_blogs = Blog::where('id', '!=', $blog->id)
+            ->where('status', 'published')
             ->orderBy('created_at', 'desc')
-            ->take(3)
-            ->get(['title', 'slug']);
-        return view('blog-details', [
-            'title' => $blog->title,
-            'meta_description' => $blog->meta_description,
-            'meta_keywords' => $blog->meta_keywords,
-            'image' => $blog->featured_image,
-            'content' => $blog->content,
-            'related_blogs' => $related_blogs,
-        ]);
+            ->take(4)
+            ->get();
+
+        return view('blog-details', compact('blog', 'related_blogs'));
     }
 
     public function detailsPage($menu_slug, $page_slug)

@@ -13,69 +13,8 @@ class AcController extends Controller
     public function index()
     {
         $brands = ApplianceCatalogService::getAcBrands();
-
-        $services = [
-            [
-                'title' => 'AC Repair',
-                'description' => 'Fast component-level diagnostics and repair for inverter PCB boards, dual rotary compressors, starting capacitors, and electrical contactors.',
-                'icon' => 'fas fa-wrench',
-                'cta_text' => 'Book AC Repair',
-            ],
-            [
-                'title' => 'AC Service',
-                'description' => 'Comprehensive multi-point inspection including operating pressure verification, electrical current draw analysis, and louver calibration.',
-                'icon' => 'fas fa-cogs',
-                'cta_text' => 'Book AC Service',
-            ],
-            [
-                'title' => 'AC Maintenance',
-                'description' => 'Preventive maintenance programs and Annual Maintenance Contracts (AMC) to minimize unexpected breakdowns and sustain optimal energy ratings.',
-                'icon' => 'fas fa-calendar-check',
-                'cta_text' => 'Get Maintenance',
-            ],
-            [
-                'title' => 'AC Installation',
-                'description' => 'Professional split and window AC mounting, vibration-damped outdoor bracket installation, vacuum-tested copper line flaring, and electrical wiring.',
-                'icon' => 'fas fa-tools',
-                'cta_text' => 'Request Installation',
-            ],
-            [
-                'title' => 'AC Cooling Problem',
-                'description' => 'Accurate troubleshooting for weak airflow, slow temperature drop, frozen copper pipes, and refrigerant leakage using electronic halogen detectors.',
-                'icon' => 'fas fa-snowflake',
-                'cta_text' => 'Restore Cooling',
-            ],
-            [
-                'title' => 'AC Not Turning On',
-                'description' => 'Rapid diagnosis of completely dead systems, tripped circuit breakers, communication errors between indoor/outdoor boards, and blown fuses.',
-                'icon' => 'fas fa-power-off',
-                'cta_text' => 'Fix Power Fault',
-            ],
-            [
-                'title' => 'AC Water Leakage',
-                'description' => 'High-pressure condensate line suction clearing, drain pan algae treatment, pipe re-pitching, and crack repairs to eliminate indoor dripping.',
-                'icon' => 'fas fa-tint',
-                'cta_text' => 'Stop Water Leak',
-            ],
-            [
-                'title' => 'AC Noise Problem',
-                'description' => 'Balancing of noisy cross-flow blower fans, indoor motor bearing replacement, and compressor vibration isolator pad installation.',
-                'icon' => 'fas fa-volume-up',
-                'cta_text' => 'Silence AC Noise',
-            ],
-            [
-                'title' => 'AC Cleaning',
-                'description' => 'High-pressure jet wash with biodegradable foam cleaners for indoor evaporator fins, cross-flow blower barrels, and outdoor condenser coils.',
-                'icon' => 'fas fa-spray-can',
-                'cta_text' => 'Book Jet Clean',
-            ],
-            [
-                'title' => 'AC General Inspection',
-                'description' => 'Pre-monsoon and pre-summer thorough health checks including delta-T temperature differential checks, coil health, and electrical insulation tests.',
-                'icon' => 'fas fa-clipboard-check',
-                'cta_text' => 'Schedule Inspection',
-            ],
-        ];
+        $services = ApplianceCatalogService::getAcServices();
+        $problems = ApplianceCatalogService::getAcProblems();
 
         $faqs = [
             [
@@ -103,12 +42,12 @@ class AcController extends Controller
                 'a' => 'Yes. Essentechs services all major AC brands available in India, including Hitachi, Carrier, Panasonic, Godrej, Haier, Whirlpool, Lloyd, IFB, Mitsubishi Electric, Mitsubishi Heavy Industries, Toshiba, O General, Hisense, Cruise, Onida, Croma, Midea, Haikawa, Sansui, Akai, and Sharp. We service inverter split, non-inverter split, and window ACs.'
             ],
             [
-                'q' => 'How can I book AC service?',
+                'q' => 'How can I book AC service in Kochi?',
                 'a' => 'Booking your AC service with Essentechs is simple. You can call our team directly at +91 97467 00889, message our WhatsApp support desk at 919746700889, or fill out the service request form on this page. We provide prompt doorstep service across Kochi, Kakkanad, and Ernakulam.'
             ],
         ];
 
-        return view('services.ac.index', compact('brands', 'services', 'faqs'));
+        return view('services.ac.index', compact('brands', 'services', 'problems', 'faqs'));
     }
 
     /**

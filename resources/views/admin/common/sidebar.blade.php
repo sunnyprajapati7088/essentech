@@ -20,6 +20,42 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.seo.dashboard') ? 'active' : '' }}"
+                    href="{{ route('admin.seo.dashboard') }}">
+                    <i class="bi bi-graph-up-arrow text-success"></i>
+                    <span>SEO Dashboard</span>
+                    <span class="badge bg-success ms-auto">SEO</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.offers*') ? 'active' : '' }}" href="#"
+                    data-bs-toggle="collapse" data-bs-target="#offersMenu">
+                    <i class="bi bi-tag-fill text-warning"></i>
+                    <span>Offers & Deals</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <div class="collapse {{ request()->routeIs('admin.offers*') ? 'show' : '' }}" id="offersMenu">
+                    <ul class="nav flex-column ms-3">
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.offers.index') ? 'active' : '' }}"
+                                href="{{ route('admin.offers.index') }}">
+                                <i class="bi bi-list"></i>
+                                <span>All Offers</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.offers.create') ? 'active' : '' }}"
+                                href="{{ route('admin.offers.create') }}">
+                                <i class="bi bi-plus-circle"></i>
+                                <span>Create Offer</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('admin.blogs*') ? 'active' : '' }}" href="#"
                     data-bs-toggle="collapse" data-bs-target="#blogsMenu">
                     <i class="bi bi-journal-text"></i>

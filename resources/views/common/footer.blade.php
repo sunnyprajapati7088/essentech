@@ -75,23 +75,24 @@
             <!-- Our Services -->
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Our Services</h5>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/ac/') }}">Air Conditioner (AC) Repair</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/ac-service-repair-kochi') }}">Air Conditioner (AC) Service</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/refrigerator-repair-service-kochi') }}">Refrigerator Repair & Service</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/washing-machine-repair-service-kochi') }}">Washing Machine Repair</a>
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/microwave-oven/') }}">Microwave Oven Repair</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/service/washing-machine-repair') }}">Washing Machine Repair</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/service/refrigerator-repair') }}">Refrigerator Repair & Service</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/service/installation-uninstallation') }}">Installation & Uninstallation</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/service/amc') }}">Annual Maintenance Contracts (AMC)</a>
-                <a class="btn btn-link text-primary text-start fw-semibold" href="{{ url('/ads-washing-machine-repair') }}">Special Ad Offers</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/water-purifier') }}">RO & Water Purifier Service</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/service/amc') }}">Annual Maintenance (AMC)</a>
+                <a class="btn btn-link text-warning text-start fw-semibold" href="{{ url('/offers') }}">Offers & Deals</a>
             </div>
 
             <!-- Quick Links -->
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Quick Links</h5>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/') }}">Home</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/brands') }}">Supported Brands</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/offers') }}">Current Offers</a>
+                <a class="btn btn-link text-white-50 text-start" href="{{ url('/blog') }}">Appliance Blog & DIY Tips</a>
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/about') }}">About Us</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/blog') }}">Blog & Articles</a>
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/contact') }}">Contact Us</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/gallery') }}">Service Gallery</a>
-                <a class="btn btn-link text-white-50 text-start" href="{{ url('/services') }}">All Services</a>
                 <a class="btn btn-link text-white-50 text-start" href="{{ url('/terms') }}">Terms & Conditions</a>
             </div>
 

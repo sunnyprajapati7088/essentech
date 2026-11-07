@@ -962,6 +962,333 @@ class ApplianceCatalogService
     public static function getAcBrands(): array
     {
         return [
+            'daikin' => [
+                'name' => 'Daikin',
+                'slug' => 'daikin',
+                'meta_title' => 'Daikin AC Service & Repair | Essentechs',
+                'meta_description' => 'Expert Daikin AC repair and service in Kochi by Essentechs. Fast resolution for Neo Swing Inverter compressor faults, E4/U4 error codes, and gas charging.',
+                'h1' => 'Daikin AC Service & Repair',
+                'badge' => 'Specialized Daikin AC Support',
+                'hero_subtitle' => 'Reliable diagnostic, repair, gas charging, and routine maintenance solutions for Daikin split, inverter, and cassette air conditioners across Kochi.',
+                'intro_heading' => 'Expert Solutions for Daikin Streamer & Inverter ACs',
+                'intro_paragraphs' => [
+                    'Daikin air conditioners are celebrated for their patented Neo Swing inverter compressors, PM2.5 air purification filters, and Coanda airflow technology. Engineered to provide silent operation and superior humidity control in coastal climates, these advanced Japanese cooling systems require trained technicians for PCB and inverter circuit troubleshooting.',
+                    'Essentechs provides specialized on-site diagnostic and repair services for Daikin AC owners across Kochi, Kakkanad, and Ernakulam. Our certified technicians use precision digital gauges, inverter drive analyzers, and genuine components to restore factory cooling performance.'
+                ],
+                'technologies' => [
+                    'Neo Swing Inverter Compressor Technology',
+                    'Coanda 3D Airflow Distribution Pattern',
+                    'Streamer Discharge Air Purification System',
+                    'Econo Mode Power Factor Tuning',
+                    'Anti-Corrosion Titanium Apatite Filters'
+                ],
+                'common_problems' => [
+                    [
+                        'title' => 'Daikin Error Code U4 Communication Fault',
+                        'symptom' => 'Operation lamp blinks with U4 error code on the wireless remote display.',
+                        'cause' => 'Communication transmission error between indoor unit PCB and outdoor inverter driver board.',
+                        'solution' => 'Signal wire impedance verification, terminal re-torquing, and inverter PCB driver module servicing.'
+                    ],
+                    [
+                        'title' => 'Daikin Low Cooling / Refrigerant Shortage',
+                        'symptom' => 'Airflow is normal but discharge temperature differential is below 8°C.',
+                        'cause' => 'Flare nut micro-leakage or pinhole corrosion along coastal saline zones.',
+                        'solution' => 'Nitrogen leak testing at 350 PSI, flare remake, high-vacuum evacuation, and precision electronic gas charging.'
+                    ],
+                    [
+                        'title' => 'Water Leaking from Daikin Indoor Unit',
+                        'symptom' => 'Condensate water overflows into the room from behind the decorative front panel.',
+                        'cause' => 'Blocked internal drain channel or dust gelatin clogging the U-trap.',
+                        'solution' => 'High-pressure vacuum drain clearance and antifungal tray treatment.'
+                    ],
+                    [
+                        'title' => 'Daikin Error Code E4 / High Pressure Trip',
+                        'symptom' => 'Outdoor unit cuts off after 5 to 10 minutes of operation with E4 code.',
+                        'cause' => 'Choked outdoor condenser fins, failed outdoor fan motor, or overcharged refrigerant.',
+                        'solution' => 'Condenser coil chemical pressure jet wash and condenser fan motor testing.'
+                    ]
+                ],
+                'services_offered' => [
+                    'Daikin Inverter PCB Troubleshooting & Micro-Soldering',
+                    'High-Pressure Jet Washing & Coanda Vane Calibration',
+                    'R32 & R410A Eco Gas Leak Detection & Electronic Refill',
+                    'Daikin Neo Swing Compressor Diagnostic & Capacitor Renewal',
+                    'Anti-Microbial Coil Sanitization & Filter Replacement',
+                    'Complete Split & Multi-Split AC Installation & Shifting'
+                ],
+                'supported_models' => [
+                    'Daikin FTKM / FTKF 3D Airflow Inverter Series',
+                    'Daikin JTKJ Streamer Series',
+                    'Daikin Dual Inverter FTHT Series',
+                    'Daikin Standard Split & Non-Inverter Series',
+                    'Daikin Ceiling Suspended & Cassette Units'
+                ],
+                'faqs' => [
+                    [
+                        'q' => 'What does error code U4 mean on my Daikin AC?',
+                        'a' => 'U4 indicates a loss of data transmission between the indoor unit and outdoor inverter PCB. Our technicians inspect the wiring harness, signal noise, and printed circuit board transceivers on-site.'
+                    ],
+                    [
+                        'q' => 'How often should Daikin ACs in Kochi be serviced?',
+                        'a' => 'Due to high humidity and salinity in Kochi, Daikin ACs should undergo deep foam cleaning every 3 to 4 months to protect the titanium apatite filters and heat exchanger fins.'
+                    ]
+                ]
+            ],
+            'voltas' => [
+                'name' => 'Voltas',
+                'slug' => 'voltas',
+                'meta_title' => 'Voltas AC Service & Repair | Essentechs',
+                'meta_description' => 'Expert Voltas AC repair and service in Kochi by Essentechs. Prompt doorstep assistance for All-Weather split & window ACs, cooling issues, E6 errors, and gas filling.',
+                'h1' => 'Voltas AC Service & Repair',
+                'badge' => 'Specialized Voltas AC Support',
+                'hero_subtitle' => 'Doorstep diagnostic, repair, gas charging, and routine maintenance solutions for Voltas split, window, and adjustable inverter air conditioners across Kochi.',
+                'intro_heading' => 'Reliable Repairs for Voltas All-Weather Air Conditioners',
+                'intro_paragraphs' => [
+                    'Voltas air conditioners, backed by Tata engineering, are celebrated across India for robust cooling under high ambient conditions (up to 52°C), All-Star Inverter technology, and 100% copper condenser tubing. High humidity in coastal Kerala can cause sensor drifts and condensate line blocks over extended cooling seasons.',
+                    'Essentechs provides specialized on-site diagnostic and maintenance services for Voltas AC owners throughout Kochi, Ernakulam, and Kakkanad. Our technicians carry diagnostic multimeters, original capacitors, sensors, and vacuum pumps for fast, reliable repair.'
+                ],
+                'technologies' => [
+                    'Adjustable Inverter Dual Mode Tonnage Logic',
+                    'Superdry High-Dehumidification Operation',
+                    '100% High-Grade Grooved Copper Condenser',
+                    'Anti-Corrosion Blue Fin Protection',
+                    'CO2 Reduction Eco Filters'
+                ],
+                'common_problems' => [
+                    [
+                        'title' => 'Voltas AC Error Code E6 / Communication Failure',
+                        'symptom' => 'Indoor display shows E6 error code and the outdoor compressor fails to switch on.',
+                        'cause' => 'PCB communication signal drop or open thermistor on the outdoor coil.',
+                        'solution' => 'Signal wire testing, sensor recalibration, or outdoor inverter board component repair.'
+                    ],
+                    [
+                        'title' => 'Voltas AC Blowing Warm Air / No Cooling',
+                        'symptom' => 'Blower operates normally but air temperature is identical to room temperature.',
+                        'cause' => 'Burnt run capacitor, low R32/R22 refrigerant charge, or tripped compressor overload protector.',
+                        'solution' => 'Dual run capacitor replacement, leak detection, vacuum evacuation, and precision gas recharge.'
+                    ],
+                    [
+                        'title' => 'Indoor Unit Water Dripping',
+                        'symptom' => 'Condensate water overflows from the drain tray onto interior walls.',
+                        'cause' => 'Drain line clogged with mold residue or cracked condensate tray.',
+                        'solution' => 'Pressure flushing of the drain pipe and antimicrobial treatment of the drip tray.'
+                    ],
+                    [
+                        'title' => 'Voltas AC Ice Formation on Evaporator',
+                        'symptom' => 'Frost forms on indoor copper coils and cold air velocity drops noticeably.',
+                        'cause' => 'Choked air filters restricting airflow or low suction pressure.',
+                        'solution' => 'Coil de-icing, high-pressure foam filter washing, and suction pressure balancing.'
+                    ]
+                ],
+                'services_offered' => [
+                    'Voltas Inverter & Non-Inverter PCB Diagnostics & Repair',
+                    'R32, R410A & R22 Refrigerant Gas Refilling & Leak Sealing',
+                    'High-Pressure Jet Chemical Cleaning for Indoor & Outdoor Units',
+                    'Compressor Starting Relay & Dual Capacitor Replacement',
+                    'Indoor Blower Fan Motor & Louver Step Motor Replacement',
+                    'Safe Uninstallation, Wall Bracket Mounting & Re-installation'
+                ],
+                'supported_models' => [
+                    'Voltas Maha Adjustable Inverter AC Series',
+                    'Voltas All-Star Inverter 12V / 18V Series',
+                    'Voltas PureAir Inverter AC with HEPA Filter',
+                    'Voltas Window AC 1 Ton & 1.5 Ton Models',
+                    'Voltas Commercial Ductable & Cassette Systems'
+                ],
+                'faqs' => [
+                    [
+                        'q' => 'What causes error E6 on a Voltas split AC?',
+                        'a' => 'Error E6 indicates a communication breakdown between the indoor and outdoor control units. Our technicians inspect the interconnecting wiring, surge fuses, and PCB chips to resolve it quickly.'
+                    ],
+                    [
+                        'q' => 'Do you use original copper spare parts for Voltas ACs?',
+                        'a' => 'Yes, we use 100% high-grade copper piping, brass flare nuts, and OEM-spec components for all Voltas air conditioner repairs.'
+                    ]
+                ]
+            ],
+            'blue-star' => [
+                'name' => 'Blue Star',
+                'slug' => 'blue-star',
+                'meta_title' => 'Blue Star AC Service & Repair | Essentechs',
+                'meta_description' => 'Expert Blue Star AC repair and service in Kochi by Essentechs. Fast resolution for Precision Inverter split ACs, EC errors, gas refilling, and PCB board servicing.',
+                'h1' => 'Blue Star AC Service & Repair',
+                'badge' => 'Specialized Blue Star AC Support',
+                'hero_subtitle' => 'Reliable diagnostic, repair, gas charging, and routine maintenance solutions for Blue Star split, window, and commercial cassette ACs across Kochi.',
+                'intro_heading' => 'Engineered Precision for Blue Star Air Conditioners',
+                'intro_paragraphs' => [
+                    'Blue Star air conditioners are renowned for heavy-duty industrial precision, Precision Inverter technology, acoustic insulation jackets, and anti-corrosive hydrophilic blue fins. Designed for harsh tropical operation, regular maintenance is essential to prevent PCB communication faults and coil oxidation.',
+                    'Essentechs provides specialized on-site diagnostic and repair services for Blue Star AC owners across Kochi, Kakkanad, and Ernakulam. Our certified HVAC technicians restore peak efficiency and optimal cooling performance.'
+                ],
+                'technologies' => [
+                    'Precision Cooling Dual Rotor Inverter Technology',
+                    'Anti-Corrosive Hydrophilic Blue Fins',
+                    'Acoustic Compressor Insulation Jacket',
+                    'Self-Diagnosis Microcontroller Logic',
+                    'Self-Clean Heat Exchanger Cycle'
+                ],
+                'common_problems' => [
+                    [
+                        'title' => 'Blue Star Error Code EC / Refrigerant Leakage',
+                        'symptom' => 'AC displays EC code and compressor stops after a few minutes of running.',
+                        'cause' => 'Refrigerant pressure drop detected by the indoor evaporator pipe temperature sensor.',
+                        'solution' => 'Nitrogen pressure leak detection, copper brazing, vacuumization, and gas charging.'
+                    ],
+                    [
+                        'title' => 'Blue Star AC Not Turning On',
+                        'symptom' => 'No display lights, remote commands fail to register, and indoor unit is dead.',
+                        'cause' => 'Burnt SMPS transformer or blown surge protection fuse on the indoor PCB.',
+                        'solution' => 'SMPS repair, surge protector replacement, and mains voltage stabilization check.'
+                    ],
+                    [
+                        'title' => 'Vibration Noise from Outdoor Unit',
+                        'symptom' => 'Deep metallic humming resonates through the wall during cooling cycles.',
+                        'cause' => 'Damaged outdoor fan blade balance or hardened compressor rubber mounts.',
+                        'solution' => 'Anti-vibration mount replacement and condenser fan dynamic balance calibration.'
+                    ]
+                ],
+                'services_offered' => [
+                    'Blue Star Inverter PCB Diagnostic & Component Replacement',
+                    'High-Pressure Jet Foam Servicing for Evaporator & Condenser',
+                    'R32 & R410A Eco Refrigerant Refilling & Nitrogen Leak Test',
+                    'Outdoor Blower Motor & Dual Rotary Compressor Servicing',
+                    'Thermostat & Dual Temperature Sensor Replacement',
+                    'Complete Split AC Shifting, Bracket Mounting & Piping'
+                ],
+                'supported_models' => [
+                    'Blue Star Precision Inverter AC (IC Series)',
+                    'Blue Star Heavy Duty Inverter 5-Star Series',
+                    'Blue Star Fix Speed Window & Split ACs',
+                    'Blue Star Inverter Cassette & Ceiling Suspended Units'
+                ],
+                'faqs' => [
+                    [
+                        'q' => 'What does error code EC mean on my Blue Star AC?',
+                        'a' => 'Error EC signals low refrigerant pressure or a refrigerant leak. Our technicians carry nitrogen testing equipment and digital gauges to pinpoint and seal the leak before recharging.'
+                    ]
+                ]
+            ],
+            'lg' => [
+                'name' => 'LG',
+                'slug' => 'lg',
+                'meta_title' => 'LG AC Service & Repair | Essentechs',
+                'meta_description' => 'Expert LG AC repair and service in Kochi by Essentechs. Fast resolution for LG DUAL Inverter ACs, CH error codes, gas charging, and Ocean Black Fin maintenance.',
+                'h1' => 'LG AC Service & Repair',
+                'badge' => 'Specialized LG AC Support',
+                'hero_subtitle' => 'Professional diagnostic, component-level repair, and maintenance for LG DUAL Inverter split, window, and commercial ACs across Kochi.',
+                'intro_heading' => 'Comprehensive Repairs for LG DUAL Inverter Air Conditioners',
+                'intro_paragraphs' => [
+                    'LG air conditioners featuring DUAL Inverter Compressors with twin rotators offer high cooling capacity, silent operation, and Ocean Black Fin anti-corrosion protection. However, in coastal Kochi, electronic circuit boards and sensors can still experience humidity stress and voltage fluctuation issues.',
+                    'Essentechs provides specialized on-site diagnostic and repair services for LG AC owners across Kochi, Kakkanad, and Ernakulam. Our certified HVAC specialists troubleshoot PCB inverter modules, BLDC fan motors, and refrigerant lines safely.'
+                ],
+                'technologies' => [
+                    'DUAL Inverter Compressor with Twin Rotator',
+                    'Ocean Black Fin Anti-Corrosion Protection',
+                    'AI DUAL Inverter 6-in-1 Convertible Modes',
+                    'Hi-Grooved Copper Heat Exchangers',
+                    'Smart Diagnosis LED Microcontroller'
+                ],
+                'common_problems' => [
+                    [
+                        'title' => 'LG AC Error Code CH05 / Communication Error',
+                        'symptom' => 'Indoor display flashes CH 05 and outdoor unit fails to start.',
+                        'cause' => 'Serial communication fault between indoor display PCB and outdoor inverter driver board.',
+                        'solution' => 'PCB communication signal diagnostic, terminal harness testing, or inverter PCB repair.'
+                    ],
+                    [
+                        'title' => 'LG AC Error Code CH38 / Low Refrigerant',
+                        'symptom' => 'Indoor unit flashes CH 38 and cooling performance stops within minutes.',
+                        'cause' => 'Refrigerant shortage detected by the smart diagnosis system.',
+                        'solution' => 'Electronic leak detection, nitrogen pressure check, and precision R32 gas recharging.'
+                    ],
+                    [
+                        'title' => 'Water Leaking from LG Indoor Blower',
+                        'symptom' => 'Water drips along the wall below the indoor unit during humid weather.',
+                        'cause' => 'Choked condensate drain pipe or dust slime in the internal drain tray.',
+                        'solution' => 'High-pressure vacuum drain flush and anti-fungal chemical wash.'
+                    ]
+                ],
+                'services_offered' => [
+                    'LG DUAL Inverter PCB Diagnostics & Board Micro-Soldering',
+                    'R32 Refrigerant Leak Detection & Electronic Charging',
+                    'High-Pressure Jet Deep Cleaning of Ocean Black Fin Coils',
+                    'BLDC Indoor & Outdoor Fan Motor Replacement',
+                    'Ocean Black Protection Re-Coating & Bracket Renewal',
+                    'Complete LG AC Relocation, Uninstallation & Re-Installation'
+                ],
+                'supported_models' => [
+                    'LG AI DUAL Inverter 6-in-1 Split AC Series',
+                    'LG Super Convertible 5-Star Split ACs',
+                    'LG DUAL Inverter Window AC Models',
+                    'LG Commercial Cassette & Multi V Systems'
+                ],
+                'faqs' => [
+                    [
+                        'q' => 'What does error CH05 mean on an LG DUAL Inverter AC?',
+                        'a' => 'CH05 indicates a communication fault between the indoor and outdoor units. Our technicians inspect signal continuity and inverter PCB transceivers to fix it quickly.'
+                    ]
+                ]
+            ],
+            'samsung' => [
+                'name' => 'Samsung',
+                'slug' => 'samsung',
+                'meta_title' => 'Samsung AC Service & Repair | Essentechs',
+                'meta_description' => 'Expert Samsung AC repair and service in Kochi by Essentechs. Fast resolution for WindFree™ cooling, Digital Inverter faults, E1/C1 error codes, and gas refilling.',
+                'h1' => 'Samsung AC Service & Repair',
+                'badge' => 'Specialized Samsung AC Support',
+                'hero_subtitle' => 'Professional diagnostic, repair, gas charging, and routine maintenance solutions for Samsung WindFree™ and Digital Inverter air conditioners across Kochi.',
+                'intro_heading' => 'Specialized Diagnostics for Samsung WindFree™ & Inverter ACs',
+                'intro_paragraphs' => [
+                    'Samsung air conditioners are celebrated for their WindFree™ micro-hole cooling technology, Digital Inverter Boost compressors, and DuraFin+ corrosion-resistant coils. When intricate electronic controllers or motorized louvers face wear or electrical anomalies, expert diagnosis ensures long-lasting operation.',
+                    'Essentechs provides specialized on-site diagnostic and maintenance services for Samsung AC owners across Kochi, Kakkanad, and Ernakulam. Our certified technicians carry diagnostic scanners and OEM-compatible components for prompt, reliable service.'
+                ],
+                'technologies' => [
+                    'WindFree™ Micro-Hole Still Air Cooling',
+                    'Digital Inverter Boost 8-Pole Compressor',
+                    'DuraFin+ Anti-Corrosion Protection',
+                    'Tri-Care Filter with Anti-Bacterial Coating',
+                    'Voltage Fluctuation Protector (Triple Protector Plus)'
+                ],
+                'common_problems' => [
+                    [
+                        'title' => 'Samsung AC Error Code C101 / E101 Communication Error',
+                        'symptom' => 'Display shows error code C101 or E101 and the AC shuts off after turning on.',
+                        'cause' => 'Communication line open circuit between indoor unit and outdoor inverter module.',
+                        'solution' => 'Interconnecting cable inspection, terminal block renewal, and inverter PCB repair.'
+                    ],
+                    [
+                        'title' => 'Samsung AC Not Cooling / Slow Cooling',
+                        'symptom' => 'Air blows at room temperature with no chill even after 20 minutes.',
+                        'cause' => 'Low R32/R410A gas charge, choked micro-holes on WindFree panel, or dirty condenser coil.',
+                        'solution' => 'High-pressure jet wash of micro-holes, leak detection, and digital gas recharge.'
+                    ],
+                    [
+                        'title' => 'WindFree™ Louver Stuck or Clicking Noise',
+                        'symptom' => 'Front panel clicks loudly when opening or fails to close completely.',
+                        'cause' => 'Stripped step motor plastic gears or broken louver hinge mechanism.',
+                        'solution' => 'Louver step motor replacement and hinge track lubrication.'
+                    ]
+                ],
+                'services_offered' => [
+                    'Samsung Digital Inverter PCB Diagnostics & Repair',
+                    'WindFree™ Micro-Hole Panel Deep Ultrasonic Jet Wash',
+                    'R32 & R410A Gas Leak Testing & Factory-Spec Refilling',
+                    'DuraFin+ Heat Exchanger Maintenance & Anti-Corrosion Service',
+                    'Louver Step Motor & Cross Flow Fan Replacement',
+                    'Complete Samsung Split AC Dismantling & Shifting Support'
+                ],
+                'supported_models' => [
+                    'Samsung WindFree™ Premium Plus Series',
+                    'Samsung Convertible 5-in-1 Digital Inverter Series',
+                    'Samsung DuraFin+ Copper Split AC Models',
+                    'Samsung Multi-Split & Cassette Inverter Systems'
+                ],
+                'faqs' => [
+                    [
+                        'q' => 'How are Samsung WindFree™ micro-holes cleaned?',
+                        'a' => 'The 23,000 micro-holes require specialized non-abrasive high-pressure foam jet cleaning to clear fine dust without damaging the acoustic mesh membrane.'
+                    ]
+                ]
+            ],
             'hitachi' => [
                 'name' => 'Hitachi',
                 'slug' => 'hitachi',
@@ -2106,4 +2433,167 @@ class ApplianceCatalogService
             ],
         ];
     }
+
+    /**
+     * Get AC Services List
+     */
+    public static function getAcServices(): array
+    {
+        return \App\Services\Catalog\AcCatalog::getServices();
+    }
+
+    /**
+     * Get AC Common Problems
+     */
+    public static function getAcProblems(): array
+    {
+        return \App\Services\Catalog\AcCatalog::getProblems();
+    }
+
+    /**
+     * Get Refrigerator Services List
+     */
+    public static function getRefrigeratorServices(): array
+    {
+        return \App\Services\Catalog\RefrigeratorCatalog::getServices();
+    }
+
+    /**
+     * Get Refrigerator Common Problems
+     */
+    public static function getRefrigeratorProblems(): array
+    {
+        return \App\Services\Catalog\RefrigeratorCatalog::getProblems();
+    }
+
+    /**
+     * Get Refrigerator Brands (Complete Detailed Catalog)
+     */
+    public static function getRefrigeratorBrands(): array
+    {
+        return \App\Services\Catalog\RefrigeratorCatalog::getBrands();
+    }
+
+    /**
+     * Get Washing Machine Services List
+     */
+    public static function getWashingMachineServices(): array
+    {
+        return \App\Services\Catalog\WashingMachineCatalog::getServices();
+    }
+
+    /**
+     * Get Washing Machine Common Problems
+     */
+    public static function getWashingMachineProblems(): array
+    {
+        return \App\Services\Catalog\WashingMachineCatalog::getProblems();
+    }
+
+    /**
+     * Get Washing Machine Brands (Complete Detailed Catalog)
+     */
+    public static function getWashingMachineBrands(): array
+    {
+        return \App\Services\Catalog\WashingMachineCatalog::getBrands();
+    }
+
+    /**
+     * Get All Brands across appliances for the Brands Hub
+     */
+    public static function getAllBrands(): array
+    {
+        return [
+            'ac' => [
+                'title' => 'Air Conditioner (AC) Brands',
+                'appliance' => 'Air Conditioner',
+                'hub_url' => url('/ac-service-repair-kochi'),
+                'icon' => 'fas fa-snowflake',
+                'brands' => self::getAcBrands()
+            ],
+            'refrigerator' => [
+                'title' => 'Refrigerator & Fridge Brands',
+                'appliance' => 'Refrigerator',
+                'hub_url' => url('/refrigerator-repair-service-kochi'),
+                'icon' => 'fas fa-temperature-low',
+                'brands' => self::getRefrigeratorBrands()
+            ],
+            'washing_machine' => [
+                'title' => 'Washing Machine Brands',
+                'appliance' => 'Washing Machine',
+                'hub_url' => url('/washing-machine-repair-service-kochi'),
+                'icon' => 'fas fa-sync-alt',
+                'brands' => self::getWashingMachineBrands()
+            ],
+            'microwave' => [
+                'title' => 'Microwave Oven Brands',
+                'appliance' => 'Microwave Oven',
+                'hub_url' => url('/microwave-oven/'),
+                'icon' => 'fas fa-microchip',
+                'brands' => self::getMicrowaveBrands()
+            ],
+        ];
+    }
+
+    /**
+     * Get Water Purifier / RO Services List
+     */
+    public static function getWaterPurifierServices(): array
+    {
+        return [
+            [
+                'title' => 'RO Membrane Replacement & TDS Tuning',
+                'description' => 'Installation of high-rejection 75/80/100 GPD thin-film composite (TFC) RO membranes with calibrated TDS controller balancing to restore pure, mineral-rich drinking water.',
+                'icon' => 'fas fa-filter',
+                'badge' => 'Pure Water'
+            ],
+            [
+                'title' => 'Sediment & Carbon Pre-Filter Replacement',
+                'description' => 'Periodic replacement of 5-micron spun polypropylene sediment candles and coconut-shell activated carbon blocks protecting internal membranes from chlorine and turbidity.',
+                'icon' => 'fas fa-layer-group',
+                'badge' => 'Essential Care'
+            ],
+            [
+                'title' => 'RO Booster Pump & Low Pressure Fix',
+                'description' => 'Troubleshooting and repair of 24V/36V high-pressure diaphragm booster pumps, resolving continuous motor hum, low water production, and vibration.',
+                'icon' => 'fas fa-compress-arrows-alt',
+                'badge' => 'Full Pressure'
+            ],
+            [
+                'title' => 'UV Lamp & SMPS Power Supply Replacement',
+                'description' => 'Replacing 11W Phillips germicidal UV disinfection tubes and high-efficiency constant-current SMPS electronic ballasts with automatic buzzer alarms.',
+                'icon' => 'fas fa-lightbulb',
+                'badge' => 'Germ Free'
+            ],
+            [
+                'title' => 'Auto Cut-off Float & Leak Rectification',
+                'description' => 'Replacement of faulty high-pressure switches (HPS), low-pressure switches (LPS), auto shut-off valves, and quick-connect push fittings to end tank overflow.',
+                'icon' => 'fas fa-faucet',
+                'badge' => 'Zero Waste'
+            ],
+            [
+                'title' => 'Bad Taste & Odor Remediation',
+                'description' => 'Post-carbon silver-impregnated polishing filter replacement and food-grade tank sanitization to ensure fresh, sweet, and odor-free drinking water.',
+                'icon' => 'fas fa-glass-whiskey',
+                'badge' => 'Sweet Taste'
+            ]
+        ];
+    }
+
+    /**
+     * Get Water Purifier Brands
+     */
+    public static function getWaterPurifierBrands(): array
+    {
+        return [
+            ['name' => 'Kent', 'desc' => 'Mineral RO™, Save Water Technology & In-Tank UV'],
+            ['name' => 'Aquaguard', 'desc' => 'Active Copper, Zinc Booster & Mineral Guard™'],
+            ['name' => 'Pureit', 'desc' => 'Eco Water Saver, Mineral RO+UV & Copper+ Series'],
+            ['name' => 'Livpure', 'desc' => 'Smart Touch, 7-Stage Purification & Mineraliser'],
+            ['name' => 'Blue Star', 'desc' => 'Immuno Boost & Triple Layered RO+UV Protection'],
+            ['name' => 'AO Smith', 'desc' => 'Side Stream RO Membrane & Baby Safe Hot RO Purifiers'],
+            ['name' => 'Havells', 'desc' => 'Maxx RO Alkaline Water & Revitalizer Technology']
+        ];
+    }
 }
+
