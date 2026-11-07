@@ -33,9 +33,12 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-echo "🔒 [8/8] Setting proper file permissions for web server..."
-sudo chown -R www-data:www-data storage bootstrap/cache
-sudo chmod -R 775 storage bootstrap/cache
+echo "🔒 [8/8] Setting proper file permissions for web server (including SQLite)..."
+sudo chown -R www-data:www-data storage bootstrap/cache database
+sudo chmod -R 775 storage bootstrap/cache database
+if [ -f "database/database.sqlite" ]; then
+    sudo chmod 664 database/database.sqlite
+fi
 
 # Reload web server & PHP-FPM
 if systemctl is-active --quiet php8.3-fpm; then
