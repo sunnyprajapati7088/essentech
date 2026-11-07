@@ -17,7 +17,7 @@ git fetch origin main
 git reset --hard origin/main
 
 echo "📦 [3/8] Installing production composer dependencies..."
-composer install --no-dev --optimize-autoloader --no-interaction
+composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-req=php+
 
 echo "🗄️ [4/8] Running database migrations..."
 php artisan migrate --force
