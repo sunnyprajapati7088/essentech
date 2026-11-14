@@ -14,7 +14,7 @@
                     <p class="mb-4 text-muted">At EssenTechs, we’re dedicated to keeping your home and business running smoothly.
                         Whether you're a homeowner, office, school, or any organization — we’ve got you covered with
                         fast, reliable, and affordable appliance repair services. </p>
-                    <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
+                    <form id="contactForm" action="{{ route('contact.store') }}" method="POST" toolname="book_appliance_repair" tooldescription="Submit service request for home appliance repair in Kochi">
                         @csrf
                         <div class="row g-3">
 

@@ -15,7 +15,7 @@
             <div class="col-lg-6 quote-form" data-parallax="scroll"
                 data-image-src="{{ asset('img/carousel-2.jpg') }}">
                 <div class="h-100 px-4 px-sm-5 pe-lg-0 wow fadeIn" data-wow-delay="0.5s">
-                    <form action="{{ route('contact.store') }}" method="POST">
+                    <form action="{{ route('contact.store') }}" method="POST" toolname="book_appliance_repair" tooldescription="Submit service request for home appliance repair in Kochi">
                         @csrf
                         <div class="bg-white p-4 p-sm-5">
                             <div class="row g-3">

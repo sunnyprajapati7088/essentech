@@ -1,0 +1,34 @@
+{
+  "name": "EssenTechs",
+  "description": "Doorstep Home Appliance Repair and Maintenance Services in Kochi, Kerala",
+  "url": "https://essentechs.com",
+  "contact": {
+    "phone": "+919746700889",
+    "email": "info@essentechs.com"
+  },
+  "rating": {
+    "score": 4.8,
+    "reviewCount": 427
+  },
+  "location": {
+    "address": "Civil Line Kakkanad - Kunneparambu Road, Office No. KRA-52",
+    "city": "Kochi",
+    "region": "Kerala",
+    "postalCode": "682021",
+    "country": "IN"
+  },
+  "tools": [
+    {
+      "name": "book_appliance_repair",
+      "description": "Book a repair technician for washing machine, refrigerator, AC, microwave, or TV in Kochi.",
+      "url": "https://essentechs.com/contact",
+      "method": "POST",
+      "parameters": {
+        "name": { "type": "string", "required": true, "description": "Customer full name" },
+        "phone": { "type": "string", "required": true, "description": "Customer phone number" },
+        "service": { "type": "string", "required": true, "description": "Appliance service required" },
+        "message": { "type": "string", "required": false, "description": "Issue description" }
+      }
+    }
+  ]
+}

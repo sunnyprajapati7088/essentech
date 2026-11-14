@@ -20,7 +20,7 @@
                 Washing Machine & Microwave.
 
             </h3>
-            <form action="{{ route('contact.store') }}" method="POST">
+            <form action="{{ route('contact.store') }}" method="POST" toolname="book_appliance_repair" tooldescription="Submit service request for home appliance repair in Kochi">
                 @csrf
                 <div class="row g-3">
                     <div class="col-12">
