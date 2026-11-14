@@ -189,7 +189,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let modalEl = document.getElementById('popupServiceModal');
-        if (modalEl) {
+        if (modalEl && typeof bootstrap !== 'undefined' && bootstrap.Modal) {
             let popupModal = new bootstrap.Modal(modalEl);
             let pageKey = "popupClosed_" + window.location.pathname;
 
@@ -203,48 +203,7 @@
                 });
             }
         }
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        if ($('.partner-carousel').length) {
-            $('.partner-carousel').owlCarousel({
-                loop: true,
-                margin: 20,
-                nav: false,
-                dots: false,
-                autoplay: true,
-                autoplayTimeout: 2000,
-                autoplaySpeed: 1000,
-                smartSpeed: 1000,
-                slideTransition: 'linear',
-                autoplayHoverPause: false,
-                responsive: {
-                    0: { items: 2 },
-                    576: { items: 3 },
-                    768: { items: 4 },
-                    992: { items: 5 }
-                }
-            });
-        }
 
-        if ($('.testimonial-carousel').length) {
-            $(".testimonial-carousel").owlCarousel({
-                autoplay: true,
-                smartSpeed: 1000,
-                items: 1,
-                dots: false,
-                loop: true,
-                nav: true,
-                navText : [
-                    '<i class="bi bi-chevron-left" aria-label="Previous testimonial"></i>',
-                    '<i class="bi bi-chevron-right" aria-label="Next testimonial"></i>'
-                ]
-            });
-        }
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
         const form = document.querySelector("form");
         const submitBtn = document.getElementById("submitBtn");
         const loadingBtn = document.getElementById("loadingBtn");
@@ -257,10 +216,50 @@
         }
     });
 
-    if (typeof $.fn.counterUp !== 'undefined' && $('[data-toggle="counter-up"]').length) {
-        $('[data-toggle="counter-up"]').counterUp({
-            delay: 10,
-            time: 1500
-        });
-    }
+    window.addEventListener('load', function () {
+        if (typeof jQuery !== 'undefined') {
+            if (jQuery('.partner-carousel').length && typeof jQuery.fn.owlCarousel !== 'undefined') {
+                jQuery('.partner-carousel').owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    nav: false,
+                    dots: false,
+                    autoplay: true,
+                    autoplayTimeout: 2000,
+                    autoplaySpeed: 1000,
+                    smartSpeed: 1000,
+                    slideTransition: 'linear',
+                    autoplayHoverPause: false,
+                    responsive: {
+                        0: { items: 2 },
+                        576: { items: 3 },
+                        768: { items: 4 },
+                        992: { items: 5 }
+                    }
+                });
+            }
+
+            if (jQuery('.testimonial-carousel').length && typeof jQuery.fn.owlCarousel !== 'undefined') {
+                jQuery(".testimonial-carousel").owlCarousel({
+                    autoplay: true,
+                    smartSpeed: 1000,
+                    items: 1,
+                    dots: false,
+                    loop: true,
+                    nav: true,
+                    navText : [
+                        '<i class="bi bi-chevron-left" aria-label="Previous testimonial"></i>',
+                        '<i class="bi bi-chevron-right" aria-label="Next testimonial"></i>'
+                    ]
+                });
+            }
+
+            if (typeof jQuery.fn.counterUp !== 'undefined' && jQuery('[data-toggle="counter-up"]').length) {
+                jQuery('[data-toggle="counter-up"]').counterUp({
+                    delay: 10,
+                    time: 1500
+                });
+            }
+        }
+    });
 </script>

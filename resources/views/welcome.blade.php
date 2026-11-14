@@ -25,19 +25,28 @@
 </script>
 @endsection
 
+@section('preload')
+<link rel="preload" as="image" href="{{ asset('img/carousel-1-mobile.webp') }}" media="(max-width: 768px)" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="{{ asset('img/carousel-1.webp') }}" media="(min-width: 769px)" type="image/webp" fetchpriority="high">
+@endsection
+
 @section('content')
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('img/carousel-1.jpg') }}" alt="EssenTechs certified technicians repairing home appliances in Kochi" width="1920" height="700">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="{{ asset('img/carousel-1-mobile.webp') }}" type="image/webp">
+                        <source srcset="{{ asset('img/carousel-1.webp') }}" type="image/webp">
+                        <img class="w-100" src="{{ asset('img/carousel-1.jpg') }}" alt="EssenTechs certified technicians repairing home appliances in Kochi" width="1920" height="700" fetchpriority="high" loading="eager" decoding="async">
+                    </picture>
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-4 animated slideInDown">We Provide Best Repair Services in Kerala</h1>
-                                    <p class="fs-5 text-body mb-4 pb-2 mx-sm-5 animated slideInDown">Experience fast,
+                                    <p class="fs-5 text-light mb-4 pb-2 mx-sm-5 animated slideInDown">Experience fast,
                                         reliable, and affordable repairs for all your home appliances. Whether it’s an AC,
                                         refrigerator, washing machine, or microwave, our skilled technicians use genuine
                                         parts to restore smooth performance—right at your doorstep.</p>
@@ -49,13 +58,17 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('img/carousel-2.jpg') }}" alt="Reliable appliance repair support for homes and businesses in Kerala" width="1920" height="700">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="{{ asset('img/carousel-2-mobile.webp') }}" type="image/webp">
+                        <source srcset="{{ asset('img/carousel-2.webp') }}" type="image/webp">
+                        <img class="w-100" src="{{ asset('img/carousel-2.jpg') }}" alt="Reliable appliance repair support for homes and businesses in Kerala" width="1920" height="700" loading="lazy" decoding="async">
+                    </picture>
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
                                     <p class="display-4 text-white mb-4 animated slideInDown fw-bold">Your Comfort, Our Priority and Honesty</p>
-                                    <p class="fs-5 text-body mb-4 pb-2 mx-sm-5 animated slideInDown">Reliable Appliance
+                                    <p class="fs-5 text-light mb-4 pb-2 mx-sm-5 animated slideInDown">Reliable Appliance
                                         Repairs for Homes & Businesses. Same-Day Service | Budget-Friendly Rates | 100%
                                         Genuine Parts. EssenTechs brings comfort back to your life with fast, expert repairs
                                         you can trust. 📞 Book Today — Help is Just a Call Away!</p>
@@ -101,7 +114,7 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="service-item bg-light text-center p-4 rounded-3 h-100 d-flex flex-column">
-                        <img src="{{ asset('img/air-conditioner.png') }}" alt="Air Conditioner Repair Service" width="60" height="60"
+                        <img src="{{ asset('img/air-conditioner.png') }}" alt="Air Conditioner Repair Service" width="60" height="60" loading="lazy" decoding="async"
                             class="mb-3 mx-auto">
                         <h3 class="h5 mb-3 fw-bold">AC Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Professional AC repair services including gas refilling, part replacement, servicing, and installation — ensuring cool, clean, and uninterrupted comfort.</p>
@@ -113,7 +126,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="service-item bg-light text-center p-4 rounded-3 h-100 d-flex flex-column">
-                        <img src="{{ asset('img/microwave-oven.png') }}" alt="Microwave Oven Repair Service" width="60" height="60"
+                        <img src="{{ asset('img/microwave-oven.png') }}" alt="Microwave Oven Repair Service" width="60" height="60" loading="lazy" decoding="async"
                             class="mb-3 mx-auto">
                         <h3 class="h5 mb-3 fw-bold">Microwave Oven Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Safe and prompt repairs for all microwave oven issues — heating failures, sparking, keypad errors, or turntable malfunctions.</p>
@@ -125,7 +138,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="service-item bg-light text-center p-4 rounded-3 h-100 d-flex flex-column">
-                        <img src="{{ asset('img/washer.png') }}" alt="Washing Machine Repair Service" width="60" height="60"
+                        <img src="{{ asset('img/washer.png') }}" alt="Washing Machine Repair Service" width="60" height="60" loading="lazy" decoding="async"
                             class="mb-3 mx-auto">
                         <h3 class="h5 mb-3 fw-bold">Washing Machine Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Fast and affordable repairs for all types of washing machines — from drum issues and spin cycles to water drainage and motor repairs.</p>
@@ -137,7 +150,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="service-item bg-light text-center p-4 rounded-3 h-100 d-flex flex-column">
-                        <img src="{{ asset('img/fridge-repair.png') }}" alt="Refrigerator Repair Service" width="60" height="60"
+                        <img src="{{ asset('img/fridge-repair.png') }}" alt="Refrigerator Repair Service" width="60" height="60" loading="lazy" decoding="async"
                             class="mb-3 mx-auto">
                         <h3 class="h5 mb-3 fw-bold">Refrigerator Repair & Service</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Quick and dependable fridge repairs, gas refilling, compressor checks, and thermostat servicing to keep your food fresh and cool.</p>
@@ -171,46 +184,46 @@
             </div>
             <div class="owl-carousel partner-carousel py-2">
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/refrigerator/samsung/') }}"><img src="{{ asset('img/brands/samsung.avif') }}" alt="Samsung Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/refrigerator/samsung/') }}"><img src="{{ asset('img/brands/samsung.avif') }}" alt="Samsung Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/washing-machine/lg/') }}"><img src="{{ asset('img/brands/lg.png') }}" alt="LG Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/washing-machine/lg/') }}"><img src="{{ asset('img/brands/lg.png') }}" alt="LG Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/ac/daikin/') }}"><img src="{{ asset('img/brands/daikin.jpg') }}" alt="Daikin AC Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/ac/daikin/') }}"><img src="{{ asset('img/brands/daikin.jpg') }}" alt="Daikin AC Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/washing-machine/bosch/') }}"><img src="{{ asset('img/brands/bosch.svg') }}" alt="Bosch Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/washing-machine/bosch/') }}"><img src="{{ asset('img/brands/bosch.svg') }}" alt="Bosch Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/washing-machine/ifb/') }}"><img src="{{ asset('img/brands/ifb.png') }}" alt="IFB Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/washing-machine/ifb/') }}"><img src="{{ asset('img/brands/ifb.png') }}" alt="IFB Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/refrigerator/whirlpool/') }}"><img src="{{ asset('img/brands/whirlpool.png') }}" alt="Whirlpool Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/refrigerator/whirlpool/') }}"><img src="{{ asset('img/brands/whirlpool.png') }}" alt="Whirlpool Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/refrigerator/godrej/') }}"><img src="{{ asset('img/brands/godrej.jpg') }}" alt="Godrej Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/refrigerator/godrej/') }}"><img src="{{ asset('img/brands/godrej.jpg') }}" alt="Godrej Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/ac/voltas/') }}"><img src="{{ asset('img/brands/voltas.jpg') }}" alt="Voltas AC Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/ac/voltas/') }}"><img src="{{ asset('img/brands/voltas.jpg') }}" alt="Voltas AC Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/refrigerator/haier/') }}"><img src="{{ asset('img/brands/haier.png') }}" alt="Haier Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/refrigerator/haier/') }}"><img src="{{ asset('img/brands/haier.png') }}" alt="Haier Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/ac/blue-star/') }}"><img src="{{ asset('img/brands/blue-star.png') }}" alt="Blue Star Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/ac/blue-star/') }}"><img src="{{ asset('img/brands/blue-star.png') }}" alt="Blue Star Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/microwave-oven/electrolux/') }}"><img src="{{ asset('img/brands/electrolux.svg') }}" alt="Electrolux Microwave Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/microwave-oven/electrolux/') }}"><img src="{{ asset('img/brands/electrolux.svg') }}" alt="Electrolux Microwave Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/washing-machine/panasonic/') }}"><img src="{{ asset('img/brands/panasonic.svg') }}" alt="Panasonic Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/washing-machine/panasonic/') }}"><img src="{{ asset('img/brands/panasonic.svg') }}" alt="Panasonic Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/ac/hitachi/') }}"><img src="{{ asset('img/brands/hitachi.svg') }}" alt="Hitachi AC Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/ac/hitachi/') }}"><img src="{{ asset('img/brands/hitachi.svg') }}" alt="Hitachi AC Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
                 <div class="text-center p-2 bg-white rounded shadow-sm mx-1">
-                    <a href="{{ url('/refrigerator/siemens/') }}"><img src="{{ asset('img/brands/siemens.jpg') }}" alt="Siemens Repair Kochi" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
+                    <a href="{{ url('/refrigerator/siemens/') }}"><img src="{{ asset('img/brands/siemens.jpg') }}" alt="Siemens Repair Kochi" loading="lazy" decoding="async" width="120" height="48" class="img-fluid" style="max-height: 48px; object-fit: contain;"></a>
                 </div>
             </div>
         </div>
@@ -228,19 +241,19 @@
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center">
                                     <img class="flex-shrink-0 me-3" src="{{ asset('img/icon/icon-07-primary.png') }}"
-                                        alt="Expert Certified Technician" width="50" height="50">
+                                        alt="Expert Certified Technician" width="50" height="50" loading="lazy" decoding="async">
                                     <h3 class="h5 mb-0 fw-bold">Expert Technician</h3>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center">
                                     <img class="flex-shrink-0 me-3" src="{{ asset('img/icon/icon-09-primary.png') }}"
-                                        alt="Best Quality Services" width="50" height="50">
+                                        alt="Best Quality Services" width="50" height="50" loading="lazy" decoding="async">
                                     <h3 class="h5 mb-0 fw-bold">Best Quality Services</h3>
                                 </div>
                             </div>
                         </div>
-                        <p class="mb-4 text-secondary">We specialize in fast, reliable, and affordable repair services for
+                        <p class="mb-4 text-dark">We specialize in fast, reliable, and affordable repair services for
                             refrigerators, washing machines, microwave ovens, and air conditioners. Our certified
                             technicians are just a call away to bring your appliances back to life!</p>
                         <div class="border-top mt-4 pt-4">
@@ -269,19 +282,19 @@
                     <div class="row g-3">
                         <div class="col-6 text-end">
                             <img class="img-fluid w-85 wow zoomIn" data-wow-delay="0.1s"
-                                src="{{ asset('img/Gall-15.jpeg') }}" alt="Technician repairing equipment" width="300" height="225">
+                                src="{{ asset('img/Gall-15.jpeg') }}" alt="Technician repairing equipment" width="300" height="225" loading="lazy" decoding="async">
                         </div>
                         <div class="col-6 text-start">
                             <img class="img-fluid w-85 wow zoomIn" data-wow-delay="0.3s"
-                                src="{{ asset('img/Gall-03.jpeg') }}" alt="Air conditioning maintenance" width="300" height="225">
+                                src="{{ asset('img/Gall-03.jpeg') }}" alt="Air conditioning maintenance" width="300" height="225" loading="lazy" decoding="async">
                         </div>
                         <div class="col-6 text-end">
                             <img class="img-fluid w-70 wow zoomIn" data-wow-delay="0.5s"
-                                src="{{ asset('img/Gall-01.jpeg') }}" alt="Appliance diagnostics" width="300" height="225">
+                                src="{{ asset('img/Gall-01.jpeg') }}" alt="Appliance diagnostics" width="300" height="225" loading="lazy" decoding="async">
                         </div>
                         <div class="col-6 text-start">
                             <img class="img-fluid w-52 wow zoomIn" data-wow-delay="0.7s"
-                                src="{{ asset('img/Gall-02.jpeg') }}" alt="Compressor testing" width="300" height="225">
+                                src="{{ asset('img/Gall-02.jpeg') }}" alt="Compressor testing" width="300" height="225" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -322,12 +335,12 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h2 class="display-6 mb-5">Why People Choose EssenTechs</h2>
-                    <p class="mb-5 text-secondary">Our team is highly trained and certified to repair all major brands of refrigerators,
+                    <p class="mb-5 text-dark">Our team is highly trained and certified to repair all major brands of refrigerators,
                         washing machines, microwaves, and air conditioners.</p>
                     <div class="d-flex mb-5">
                         <div class="flex-shrink-0 btn-square bg-primary rounded-circle"
                             style="width: 90px; height: 90px;">
-                            <img class="img-fluid" src="{{ asset('img/icon/icon-08-light.png') }}" alt="Fast and Reliable Service" width="45" height="45">
+                            <img class="img-fluid" src="{{ asset('img/icon/icon-08-light.png') }}" alt="Fast and Reliable Service" width="45" height="45" loading="lazy" decoding="async">
                         </div>
                         <div class="ms-4">
                             <h3 class="h5 mb-3 fw-bold">⚡ Fast & Reliable Service</h3>
@@ -337,7 +350,7 @@
                     <div class="d-flex mb-5">
                         <div class="flex-shrink-0 btn-square bg-primary rounded-circle"
                             style="width: 90px; height: 90px;">
-                            <img class="img-fluid" src="{{ asset('img/icon/icon-10-light.png') }}" alt="Reasonable Price" width="45" height="45">
+                            <img class="img-fluid" src="{{ asset('img/icon/icon-10-light.png') }}" alt="Reasonable Price" width="45" height="45" loading="lazy" decoding="async">
                         </div>
                         <div class="ms-4">
                             <h3 class="h5 mb-3 fw-bold">Reasonable Price</h3>
@@ -347,7 +360,7 @@
                     <div class="d-flex mb-0">
                         <div class="flex-shrink-0 btn-square bg-primary rounded-circle"
                             style="width: 90px; height: 90px;">
-                            <img class="img-fluid" src="{{ asset('img/icon/icon-06-light.png') }}" alt="24/7 Customer Support" width="45" height="45">
+                            <img class="img-fluid" src="{{ asset('img/icon/icon-06-light.png') }}" alt="24/7 Customer Support" width="45" height="45" loading="lazy" decoding="async">
                         </div>
                         <div class="ms-4">
                             <h3 class="h5 mb-3 fw-bold">Easy Booking & 24/7 Support</h3>
@@ -358,7 +371,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="position-relative rounded overflow-hidden h-100" style="min-height: 400px;">
                         <img class="position-absolute w-100 h-100" src="{{ asset('img/feature.jpg') }}" alt="EssenTechs home service van and technicians"
-                            style="object-fit: cover;" width="600" height="450">
+                            style="object-fit: cover;" width="600" height="450" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>
@@ -375,10 +388,10 @@
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item shadow-sm rounded-3 overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('img/ACReapir.jpg') }}" alt="Air Conditioner Repair Service in Kochi" width="400" height="250">
+                        <img class="img-fluid w-100" src="{{ asset('img/ACReapir.jpg') }}" alt="Air Conditioner Repair Service in Kochi" width="400" height="250" loading="lazy" decoding="async">
                         <div class="d-flex align-items-center bg-light p-3">
                             <div class="service-icon flex-shrink-0 bg-primary p-2 rounded-circle">
-                                <img class="img-fluid" src="{{ asset('img/icon/icon-01-light.png') }}" alt="AC Icon" width="30" height="30">
+                                <img class="img-fluid" src="{{ asset('img/icon/icon-01-light.png') }}" alt="AC Icon" width="30" height="30" loading="lazy" decoding="async">
                             </div>
                             <a class="h5 mx-3 mb-0 fw-bold text-dark text-decoration-none" href="{{ url('/ac/') }}">Air Conditioner (AC) Repair</a>
                         </div>
@@ -386,10 +399,10 @@
                 </div>
                 <div class="col-lg-4 col-md-8 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item shadow-sm rounded-3 overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('img/WashingRepair.jpeg') }}" alt="Washing Machine Repair Service in Kochi" width="400" height="250">
+                        <img class="img-fluid w-100" src="{{ asset('img/WashingRepair.jpeg') }}" alt="Washing Machine Repair Service in Kochi" width="400" height="250" loading="lazy" decoding="async">
                         <div class="d-flex align-items-center bg-light p-3">
                             <div class="service-icon flex-shrink-0 bg-primary p-2 rounded-circle">
-                                <img class="img-fluid" src="{{ asset('img/icon/icon-02-light.png') }}" alt="Washer Icon" width="30" height="30">
+                                <img class="img-fluid" src="{{ asset('img/icon/icon-02-light.png') }}" alt="Washer Icon" width="30" height="30" loading="lazy" decoding="async">
                             </div>
                             <a class="h5 mx-3 mb-0 fw-bold text-dark text-decoration-none" href="{{ route('washingMachine') }}">Washing Machine Repair</a>
                         </div>
@@ -397,10 +410,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item shadow-sm rounded-3 overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('img/FridgeRepair.jpeg') }}" alt="Refrigerator Repair and Servicing in Kochi" width="400" height="250">
+                        <img class="img-fluid w-100" src="{{ asset('img/FridgeRepair.jpeg') }}" alt="Refrigerator Repair and Servicing in Kochi" width="400" height="250" loading="lazy" decoding="async">
                         <div class="d-flex align-items-center bg-light p-3">
                             <div class="service-icon flex-shrink-0 bg-primary p-2 rounded-circle">
-                                <img class="img-fluid" src="{{ asset('img/icon/icon-03-light.png') }}" alt="Fridge Icon" width="30" height="30">
+                                <img class="img-fluid" src="{{ asset('img/icon/icon-03-light.png') }}" alt="Fridge Icon" width="30" height="30" loading="lazy" decoding="async">
                             </div>
                             <a class="h5 mx-3 mb-0 fw-bold text-dark text-decoration-none" href="{{ route('refrigerator') }}">Refrigerator Repair</a>
                         </div>
@@ -408,10 +421,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item shadow-sm rounded-3 overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('img/MicrowaveRepair.jpeg') }}" alt="Microwave Oven Repair Service in Kochi" width="400" height="250">
+                        <img class="img-fluid w-100" src="{{ asset('img/MicrowaveRepair.jpeg') }}" alt="Microwave Oven Repair Service in Kochi" width="400" height="250" loading="lazy" decoding="async">
                         <div class="d-flex align-items-center bg-light p-3">
                             <div class="service-icon flex-shrink-0 bg-primary p-2 rounded-circle">
-                                <img class="img-fluid" src="{{ asset('img/icon/icon-04-light.png') }}" alt="Microwave Icon" width="30" height="30">
+                                <img class="img-fluid" src="{{ asset('img/icon/icon-04-light.png') }}" alt="Microwave Icon" width="30" height="30" loading="lazy" decoding="async">
                             </div>
                             <a class="h5 mx-3 mb-0 fw-bold text-dark text-decoration-none" href="{{ url('/microwave-oven/') }}">Microwave Oven Repair</a>
                         </div>
@@ -419,10 +432,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item shadow-sm rounded-3 overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('img/service-5.jpg') }}" alt="Appliance Installation and Uninstallation" width="400" height="250">
+                        <img class="img-fluid w-100" src="{{ asset('img/service-5.jpg') }}" alt="Appliance Installation and Uninstallation" width="400" height="250" loading="lazy" decoding="async">
                         <div class="d-flex align-items-center bg-light p-3">
                             <div class="service-icon flex-shrink-0 bg-primary p-2 rounded-circle">
-                                <img class="img-fluid" src="{{ asset('img/icon/icon-05-light.png') }}" alt="Installation Icon" width="30" height="30">
+                                <img class="img-fluid" src="{{ asset('img/icon/icon-05-light.png') }}" alt="Installation Icon" width="30" height="30" loading="lazy" decoding="async">
                             </div>
                             <a class="h5 mx-3 mb-0 fw-bold text-dark text-decoration-none" href="{{ route('installationUninstallation') }}">Installation & Uninstallation</a>
                         </div>
@@ -430,10 +443,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item shadow-sm rounded-3 overflow-hidden">
-                        <img class="img-fluid w-100" src="{{ asset('img/service-6.jpg') }}" alt="Annual Maintenance Contracts for Appliances" width="400" height="250">
+                        <img class="img-fluid w-100" src="{{ asset('img/service-6.jpg') }}" alt="Annual Maintenance Contracts for Appliances" width="400" height="250" loading="lazy" decoding="async">
                         <div class="d-flex align-items-center bg-light p-3">
                             <div class="service-icon flex-shrink-0 bg-primary p-2 rounded-circle">
-                                <img class="img-fluid" src="{{ asset('img/icon/icon-06-light.png') }}" alt="AMC Icon" width="30" height="30">
+                                <img class="img-fluid" src="{{ asset('img/icon/icon-06-light.png') }}" alt="AMC Icon" width="30" height="30" loading="lazy" decoding="async">
                             </div>
                             <a class="h5 mx-3 mb-0 fw-bold text-dark text-decoration-none" href="{{ route('amc') }}">Maintenance Contracts (AMC)</a>
                         </div>
@@ -545,60 +558,60 @@
                 <div class="col-lg-3 d-none d-lg-block">
                     <div class="testimonial-left h-100">
                         <img class="img-fluid animated pulse infinite" src="{{ asset('img/testimonial-1.jpg') }}"
-                            alt="">
+                            alt="EssenTechs Reviewer" width="100" height="100" loading="lazy" decoding="async">
                         <img class="img-fluid animated pulse infinite" src="{{ asset('img/testimonial-2.jpg') }}"
-                            alt="">
+                            alt="EssenTechs Client" width="100" height="100" loading="lazy" decoding="async">
                         <img class="img-fluid animated pulse infinite" src="{{ asset('img/testimonial-3.jpg') }}"
-                            alt="">
+                            alt="Satisfied Customer" width="100" height="100" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <div class="owl-carousel testimonial-carousel">
                         <div class="testimonial-item text-center">
                             <img class="img-fluid mx-auto mb-4" src="{{ asset('img/testimonial-1.jpg') }}"
-                                alt="">
+                                alt="Shruti - EssenTechs Customer" width="100" height="100" loading="lazy" decoding="async">
                             <p class="fs-5">I received excellent service for all my home appliances at the most reliable
                                 and affordable prices. EssenTechs is truly a trusted service center with consistent 5-star
                                 reviews.</p>
                             <h5>Shruti</h5>
-                            <span>Profession</span>
+                            <span>Kakkanad, Kochi</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid mx-auto mb-4" src="{{ asset('img/testimonial-2.jpg') }}"
-                                alt="">
+                                alt="Biju Antony - AC Service Client" width="100" height="100" loading="lazy" decoding="async">
                             <p class="fs-5">Outstanding servicing by EssenTechs! I had both my air cooler and AC
                                 serviced. The process was smooth, and they addressed all concerns efficiently. Highly
                                 recommended!</p>
                             <h5>Biju Antony</h5>
-                            <span>JOB</span>
+                            <span>Edapally, Kochi</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid mx-auto mb-4" src="{{ asset('img/testimonial-3.jpg') }}"
-                                alt="">
+                                alt="Kirishna Pillay - Washing Machine Client" width="100" height="100" loading="lazy" decoding="async">
                             <p class="fs-5">I got my washing machine serviced by EssenTechs. Their team was highly
                                 professional and completed the job on time. Great experience overall!</p>
                             <h5>Kirishna Pillay</h5>
-                            <span>Profession</span>
+                            <span>Kaloor, Kochi</span>
                         </div>
                         <div class="testimonial-item text-center">
                             <img class="img-fluid mx-auto mb-4" src="{{ asset('img/testimonial-3.jpg') }}"
-                                alt="">
+                                alt="Thomas Paul - Appliance Repair Client" width="100" height="100" loading="lazy" decoding="async">
                             <p class="fs-5">Very professional and reliable service! I got my AC and washing machine
                                 repaired—everything was done quickly and smoothly. Easy to reach and easy to connect on
                                 call, which made the whole process hassle-free. Great experience with EssenTechs!</p>
                             <h5>Thomas Paul</h5>
-                            <span>Profession</span>
+                            <span>Aluva, Kochi</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 d-none d-lg-block">
                     <div class="testimonial-right h-100">
                         <img class="img-fluid animated pulse infinite" src="{{ asset('img/testimonial-1.jpg') }}"
-                            alt="">
+                            alt="EssenTechs Reviewer" width="100" height="100" loading="lazy" decoding="async">
                         <img class="img-fluid animated pulse infinite" src="{{ asset('img/testimonial-2.jpg') }}"
-                            alt="">
+                            alt="EssenTechs Client" width="100" height="100" loading="lazy" decoding="async">
                         <img class="img-fluid animated pulse infinite" src="{{ asset('img/testimonial-3.jpg') }}"
-                            alt="">
+                            alt="Satisfied Customer" width="100" height="100" loading="lazy" decoding="async">
                     </div>
                 </div>
             </div>

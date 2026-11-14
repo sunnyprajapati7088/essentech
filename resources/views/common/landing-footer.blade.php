@@ -123,81 +123,78 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const modalEl = document.getElementById('popupServiceModal');
-    const popupModal = new bootstrap.Modal(modalEl);
-    const pageKey = "popupClosed_" + window.location.pathname;
+    if (modalEl && typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+        const popupModal = new bootstrap.Modal(modalEl);
+        const pageKey = "popupClosed_" + window.location.pathname;
 
-    if (!sessionStorage.getItem(pageKey)) {
-        setTimeout(() => {
-            popupModal.show();
-        }, 2000);
+        if (!sessionStorage.getItem(pageKey)) {
+            setTimeout(() => {
+                popupModal.show();
+            }, 2000);
+        }
+
+        modalEl.addEventListener('hidden.bs.modal', function () {
+            sessionStorage.setItem(pageKey, "1");
+        });
     }
 
-    modalEl.addEventListener('hidden.bs.modal', function () {
-        sessionStorage.setItem(pageKey, "1");
-    });
-});
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.partner-carousel').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 1,
-            autoplaySpeed: 2000,
-            smartSpeed: 2000,
-            slideTransition: 'linear',
-            autoplayHoverPause: false,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                576: {
-                    items: 3
-                },
-                768: {
-                    items: 4
-                },
-                992: {
-                    items: 5
-                }
-            }
-        });
-
-        setInterval(function() {
-            $('.partner-carousel').trigger('next.owl.carousel');
-        }, 2000);
-        $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav: true,
-        navText : [
-            '<i class="bi bi-chevron-left"></i>',
-            '<i class="bi bi-chevron-right"></i>'
-        ]
-    });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const submitBtn = document.getElementById("submitBtn");
     const loadingBtn = document.getElementById("loadingBtn");
 
-    form.addEventListener("submit", function () {
-        // Hide normal button, show loader button
-        submitBtn.classList.add("d-none");
-        loadingBtn.classList.remove("d-none");
-    });
+    if (form && submitBtn && loadingBtn) {
+        form.addEventListener("submit", function () {
+            submitBtn.classList.add("d-none");
+            loadingBtn.classList.remove("d-none");
+        });
+    }
 });
-// Facts counter
-$('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 2000
+
+window.addEventListener('load', function () {
+    if (typeof jQuery !== 'undefined') {
+        if (jQuery('.partner-carousel').length && typeof jQuery.fn.owlCarousel !== 'undefined') {
+            jQuery('.partner-carousel').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplaySpeed: 1000,
+                smartSpeed: 1000,
+                slideTransition: 'linear',
+                autoplayHoverPause: false,
+                responsive: {
+                    0: { items: 2 },
+                    576: { items: 3 },
+                    768: { items: 4 },
+                    992: { items: 5 }
+                }
+            });
+        }
+
+        if (jQuery('.testimonial-carousel').length && typeof jQuery.fn.owlCarousel !== 'undefined') {
+            jQuery(".testimonial-carousel").owlCarousel({
+                autoplay: true,
+                smartSpeed: 1000,
+                items: 1,
+                dots: false,
+                loop: true,
+                nav: true,
+                navText : [
+                    '<i class="bi bi-chevron-left" aria-label="Previous testimonial"></i>',
+                    '<i class="bi bi-chevron-right" aria-label="Next testimonial"></i>'
+                ]
+            });
+        }
+
+        if (typeof jQuery.fn.counterUp !== 'undefined' && jQuery('[data-toggle="counter-up"]').length) {
+            jQuery('[data-toggle="counter-up"]').counterUp({
+                delay: 10,
+                time: 1500
+            });
+        }
+    }
 });
 </script>
 

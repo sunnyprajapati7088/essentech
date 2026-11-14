@@ -10,57 +10,52 @@
         }, 1);
     };
     spinner();
-    
-    
-    // Initiate the wowjs
-    new WOW().init();
 
+    // Initiate the wowjs safely
+    if (typeof WOW !== 'undefined') {
+        new WOW().init();
+    }
 
-    // Sticky Navbar
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
+    // Passive scroll listeners for high performance
+    window.addEventListener('scroll', function () {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 300) {
             $('.sticky-top').addClass('shadow-sm').css('top', '0px');
-        } else {
-            $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
-        }
-    });
-    
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
         } else {
+            $('.sticky-top').removeClass('shadow-sm').css('top', '-100px');
             $('.back-to-top').fadeOut('slow');
         }
-    });
-    $('.back-to-top').click(function () {
+    }, { passive: true });
+
+    // Back to top button
+    $('.back-to-top').on('click', function () {
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
 
+    // Facts counter safely initialized
+    if (typeof $.fn.counterUp !== 'undefined' && $('[data-toggle="counter-up"]').length) {
+        $('[data-toggle="counter-up"]').counterUp({
+            delay: 10,
+            time: 2000
+        });
+    }
 
-    // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
-    });
+    // Testimonials carousel safely initialized
+    if (typeof $.fn.owlCarousel !== 'undefined' && $(".testimonial-carousel").length) {
+        $(".testimonial-carousel").owlCarousel({
+            autoplay: true,
+            smartSpeed: 1000,
+            items: 1,
+            dots: false,
+            loop: true,
+            nav: true,
+            navText : [
+                '<i class="bi bi-chevron-left"></i>',
+                '<i class="bi bi-chevron-right"></i>'
+            ]
+        });
+    }
 
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav: true,
-        navText : [
-            '<i class="bi bi-chevron-left"></i>',
-            '<i class="bi bi-chevron-right"></i>'
-        ]
-    });
-
-    
 })(jQuery);
-
