@@ -93,14 +93,18 @@
     <!-- Carousel End -->
 
     <!-- Excellent Services Section -->
-    <div class="text-center mb-3">
-        <h2 class="mb-3">Trusted Appliance Repair Services</h2>
-        <div>
-            <i class="fas fa-star text-warning fs-4 mx-1" aria-hidden="true"></i>
-            <i class="fas fa-star text-warning fs-4 mx-1" aria-hidden="true"></i>
-            <i class="fas fa-star text-warning fs-4 mx-1" aria-hidden="true"></i>
-            <i class="fas fa-star text-warning fs-4 mx-1" aria-hidden="true"></i>
-            <i class="fas fa-star text-warning fs-4 mx-1" aria-hidden="true"></i>
+    <div class="text-center mb-4">
+        <h2 class="mb-2 fw-bold">Trusted Appliance Repair Services in Kochi</h2>
+        <div class="d-inline-flex align-items-center justify-content-center bg-light border rounded-pill px-4 py-2 shadow-sm my-2">
+            <span class="fw-bold text-dark me-2 fs-5">4.8</span>
+            <div class="text-warning me-2">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+                <i class="fas fa-star" aria-hidden="true"></i>
+            </div>
+            <span class="text-secondary small fw-semibold">Rated on <strong>Google (427+ Verified Customer Reviews)</strong></span>
         </div>
     </div>
 

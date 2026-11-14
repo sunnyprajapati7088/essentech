@@ -40,7 +40,7 @@
                 <p class="text-white-50 mb-2">
                     <i class="fa fa-map-marker-alt me-3 text-primary" aria-hidden="true"></i>
                     Civil Line Kakkanad - Kunneparambu Road<br>
-                    <span class="ps-4">Office No. KRA-52, Kochi, Kerala 682030</span>
+                    <span class="ps-4">Office No. KRA-52, Kochi, Kerala 682021</span>
                 </p>
                 <p class="text-white-50 mb-2">
                     <i class="fa fa-phone-alt me-3 text-primary" aria-hidden="true"></i>

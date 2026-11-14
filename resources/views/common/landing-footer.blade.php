@@ -36,7 +36,7 @@
             <div class="col-lg-6 col-md-6">
                 <h5 class="text-light mb-4">Get In Touch</h5>
                 <p><i class="fa fa-map-marker-alt me-3"></i>Civil line Kakkanad- Kunneparambu, Road
-                    Office no.KRA, 52 Kochi Kerala 682030</p>
+                    Office no.KRA, 52 Kochi Kerala 682021</p>
                 <p><i class="fa fa-map-marker-alt me-3"></i>Trusted Home Appliance Repair – Ernakulam</p>
                 <p><i class="fa fa-phone-alt me-3"></i> +919746700889 &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;<i class="fa fa-envelope me-3"></i>info@essentechs.com</p>
 

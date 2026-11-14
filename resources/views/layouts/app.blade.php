@@ -61,8 +61,15 @@
             "streetAddress": "Civil Line Kakkanad - Kunneparambu Road, Office No. KRA-52",
             "addressLocality": "Kochi",
             "addressRegion": "Kerala",
-            "postalCode": "682030",
+            "postalCode": "682021",
             "addressCountry": "IN"
+          },
+          "aggregateRating": {
+            "@@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "427",
+            "bestRating": "5",
+            "worstRating": "1"
           },
           "geo": {
             "@@type": "GeoCoordinates",
