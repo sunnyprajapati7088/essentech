@@ -46,7 +46,10 @@
                         <li><i class="fa fa-check text-primary me-2"></i>Door gasket and seal replacements</li>
                         <li><i class="fa fa-check text-primary me-2"></i>24/7 emergency repair services</li>
                     </ul>
-                    <a href="{{ url('/contact') }}" class="btn btn-primary mt-3">Book Now</a>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <a href="{{ url('/contact') }}" class="btn btn-primary">Book Now</a>
+                        <a href="{{ url('/refrigerator-repair-service-kochi') }}" class="btn btn-outline-primary">View Kochi Brand Hub & Pricing</a>
+                    </div>
                 </div>
             </div>
 

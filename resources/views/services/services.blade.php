@@ -74,14 +74,14 @@
                             <div class="service-item bg-light text-center h-100 p-4 rounded d-flex flex-column">
                                 <h3 class="h4 fw-bold mb-3">Washing Machine Repair</h3>
                                 <p class="text-muted small mb-4 flex-grow-1">Keep your laundry routine on track with our washing machine repair services. We handle water leaks, drum issues, and spin cycles.</p>
-                                <a href="{{ route('washingMachine') }}" class="btn btn-primary mt-auto" aria-label="Learn more about washing machine repair">Learn More</a>
+                                <a href="{{ url('/washing-machine-repair-service-kochi') }}" class="btn btn-primary mt-auto" aria-label="Learn more about washing machine repair">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 col-sm-12">
                             <div class="service-item bg-light text-center h-100 p-4 rounded d-flex flex-column">
                                 <h3 class="h4 fw-bold mb-3">Refrigerator Repair</h3>
                                 <p class="text-muted small mb-4 flex-grow-1">Ensure your food stays fresh with our refrigerator repair services. We fix cooling problems, compressor failures, and gas leaks.</p>
-                                <a href="{{ route('refrigerator') }}" class="btn btn-primary mt-auto" aria-label="Learn more about refrigerator repair">Learn More</a>
+                                <a href="{{ url('/service/refrigerator-repair') }}" class="btn btn-primary mt-auto" aria-label="Learn more about refrigerator repair">Learn More</a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3 col-sm-12">

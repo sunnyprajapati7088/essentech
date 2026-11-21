@@ -147,7 +147,7 @@
                         <h3 class="h5 mb-3 fw-bold">Washing Machine Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Fast and affordable repairs for all types of washing machines — from drum issues and spin cycles to water drainage and motor repairs.</p>
                         <div class="d-flex flex-column gap-2 mt-auto">
-                            <a href="{{ url('/service/washing-machine-repair') }}" class="btn btn-primary" aria-label="Explore Washing Machine Repair Services">View Washing Machine Services</a>
+                            <a href="{{ url('/washing-machine-repair-service-kochi') }}" class="btn btn-primary" aria-label="Explore Washing Machine Repair Services">View Washing Machine Services</a>
                             <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call for Washing Machine Repair">Call Now</a>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                         <h3 class="h5 mb-3 fw-bold">Refrigerator Repair & Service</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Quick and dependable fridge repairs, gas refilling, compressor checks, and thermostat servicing to keep your food fresh and cool.</p>
                         <div class="d-flex flex-column gap-2 mt-auto">
-                            <a href="{{ url('/service/refrigerator-repair') }}" class="btn btn-primary" aria-label="Explore Refrigerator Repair Services">View Fridge Services</a>
+                            <a href="{{ url('/service/refrigerator-repair') }}" class="btn btn-primary" aria-label="Explore Refrigerator Repair Services">View Refrigerator Services</a>
                             <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call for Refrigerator Repair">Call Now</a>
                         </div>
                     </div>
