@@ -20,7 +20,10 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import http from "node:http";
-import { timingSafeEqual } from "node:crypto";
+import { timingSafeEqual, webcrypto } from "node:crypto";
+
+// Node 18 (Ubuntu 24.04's default) has no global Web Crypto; the MCP SDK needs it.
+if (!globalThis.crypto) globalThis.crypto = webcrypto;
 import { z } from "zod";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
