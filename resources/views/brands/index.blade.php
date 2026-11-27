@@ -241,7 +241,7 @@
             <a href="tel:+919746700889" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary" aria-label="Call +91 97467 00889">
                 <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Call +91 97467 00889
             </a>
-            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold" aria-label="Chat on WhatsApp">
+            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold">
                 <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Us Now
             </a>
         </div>

@@ -61,7 +61,7 @@
 
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(rgba(0, 16, 100, 0.85), rgba(0, 16, 100, 0.85)), url('{{ asset('img/carousel-2.jpg') }}') center center no-repeat; background-size: cover;">
+    <div class="container-fluid page-header py-5 mb-5" style="background: linear-gradient(rgba(0, 16, 100, 0.85), rgba(0, 16, 100, 0.85)), url('{{ asset('img/page-header-bg-2.webp') }}') center center no-repeat; background-size: cover;">
         <div class="container text-center py-5">
             <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">{{ $offer->discount ?? 'Special Promotion' }}</span>
             <h1 class="display-4 text-white animated slideInDown mb-3">{{ $offer->title }}</h1>
@@ -108,7 +108,7 @@
 
                         <!-- Highlights Box -->
                         <div class="p-4 bg-light rounded-3 mb-5 border-start border-4 border-primary">
-                            <h3 class="h5 mb-3">Offer Highlights & Terms</h3>
+                            <h2 class="h5 mb-3">Offer Highlights & Terms</h2>
                             <ul class="list-unstyled mb-0 d-flex flex-column gap-2 text-muted">
                                 <li><i class="fas fa-check text-success me-2"></i><strong>Service Location:</strong> {{ $offer->location ?? 'Kochi, Kakkanad, Palarivattom, Ernakulam' }}</li>
                                 @if($offer->applicable_brand)

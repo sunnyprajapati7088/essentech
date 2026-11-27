@@ -139,7 +139,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="popupServiceModalLabel">Need Emergency Repair Service?</h5>
+                <h2 class="modal-title h5" id="popupServiceModalLabel">Need Emergency Repair Service?</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close emergency service dialog"></button>
             </div>
             <div class="modal-body">
@@ -178,7 +178,7 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="tel:+919746700889" class="btn btn-primary" aria-label="Call EssenTechs now at +91 97467 00889">Call Now</a>
+                <a href="tel:+919746700889" class="btn btn-primary" aria-label="Call Now: EssenTechs at +91 97467 00889">Call Now</a>
             </div>
         </div>
     </div>

@@ -116,7 +116,7 @@
                     <a href="tel:+919746700889" class="btn btn-primary btn-lg px-4 py-3" aria-label="Book AC Service by calling +91 97467 00889">
                         <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Book AC Service
                     </a>
-                    <a href="tel:+919746700889" class="btn btn-outline-dark btn-lg px-4 py-3" aria-label="Call Essentechs technician now">
+                    <a href="tel:+919746700889" class="btn btn-outline-dark btn-lg px-4 py-3" aria-label="Call Now: Essentechs technician">
                         <i class="fas fa-phone me-2" aria-hidden="true"></i> Call Now
                     </a>
                 </div>
@@ -143,11 +143,11 @@
             </div>
             <div class="col-lg-5">
                 <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-                    <img src="{{ asset('img/technician-ac.jpg') }}" class="img-fluid w-100" alt="Essen Techs certified technician servicing air conditioner split system in Kochi" width="600" height="400" style="object-fit: cover; max-height: 400px;">
+                    <img src="{{ asset('img/technician-ac.webp') }}" class="img-fluid w-100" alt="Essen Techs certified technician servicing air conditioner split system in Kochi" width="600" height="400" style="object-fit: cover; max-height: 400px;">
                     <div class="card-body p-4 bg-light">
                         <h2 class="h5 fw-bold mb-2">Need Rapid AC Assistance?</h2>
                         <p class="small text-muted mb-3">Get direct telephone guidance or dispatch a certified technician to your home today.</p>
-                        <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-2 fw-semibold" aria-label="Chat with our AC specialists on WhatsApp">
+                        <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-2 fw-semibold">
                             <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Us: +91 97467 00889
                         </a>
                     </div>
@@ -360,7 +360,7 @@
             <a href="tel:+919746700889" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary" aria-label="Call +91 97467 00889">
                 <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Call +91 97467 00889
             </a>
-            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold" aria-label="Chat on WhatsApp">
+            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold">
                 <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Now
             </a>
         </div>

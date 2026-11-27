@@ -47,7 +47,7 @@
 
 @section('content')
     <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="background: linear-gradient(rgba(0, 16, 100, 0.85), rgba(0, 16, 100, 0.85)), url('{{ asset('img/carousel-1.jpg') }}') center center no-repeat; background-size: cover;">
+    <div class="container-fluid page-header py-5 mb-5" style="background: linear-gradient(rgba(0, 16, 100, 0.85), rgba(0, 16, 100, 0.85)), url('{{ asset('img/page-header-bg.webp') }}') center center no-repeat; background-size: cover;">
         <div class="container text-center py-5">
             <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">Diagnostic Guides & Tips</span>
             <h1 class="display-4 text-white animated slideInDown mb-3">Home Appliance Repair Blog & Insights</h1>

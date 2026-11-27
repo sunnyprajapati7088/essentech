@@ -105,7 +105,7 @@
                     <a href="tel:+919746700889" class="btn btn-primary btn-lg px-4 py-3" aria-label="Book a Service by calling +91 97467 00889">
                         <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Book a Service
                     </a>
-                    <a href="{{ url('/contact') }}" class="btn btn-outline-dark btn-lg px-4 py-3" aria-label="Contact EssenTechs support">
+                    <a href="{{ url('/contact') }}" class="btn btn-outline-dark btn-lg px-4 py-3">
                         <i class="fas fa-envelope me-2" aria-hidden="true"></i> Contact Us
                     </a>
                 </div>
@@ -132,11 +132,11 @@
             </div>
             <div class="col-lg-5">
                 <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
-                    <img src="{{ asset('img/technician-microwave.jpg') }}" class="img-fluid w-100" alt="Essen Techs certified technician diagnosing microwave oven circuit" width="600" height="400" style="object-fit: cover; max-height: 400px;">
+                    <img src="{{ asset('img/technician-microwave.webp') }}" class="img-fluid w-100" alt="Essen Techs certified technician diagnosing microwave oven circuit" width="600" height="400" style="object-fit: cover; max-height: 400px;">
                     <div class="card-body p-4 bg-light">
                         <h2 class="h5 fw-bold mb-2">Need Urgent Assistance?</h2>
                         <p class="small text-muted mb-3">Speak directly with an appliance technician to discuss your microwave's symptoms.</p>
-                        <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-2 fw-semibold" aria-label="Chat with our technicians on WhatsApp">
+                        <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-2 fw-semibold">
                             <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Us: +91 97467 00889
                         </a>
                     </div>
@@ -298,7 +298,7 @@
             <a href="tel:+919746700889" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary" aria-label="Call +91 97467 00889">
                 <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Call +91 97467 00889
             </a>
-            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold" aria-label="Chat on WhatsApp">
+            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold">
                 <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Now
             </a>
         </div>

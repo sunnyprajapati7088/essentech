@@ -123,8 +123,8 @@
                         <h3 class="h5 mb-3 fw-bold">AC Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Professional AC repair services including gas refilling, part replacement, servicing, and installation — ensuring cool, clean, and uninterrupted comfort.</p>
                         <div class="d-flex flex-column gap-2 mt-auto">
-                            <a href="{{ url('/ac/') }}" class="btn btn-primary" aria-label="Explore AC Repair Services">View AC Services</a>
-                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call for AC Repair">Call Now</a>
+                            <a href="{{ url('/ac/') }}" class="btn btn-primary">View AC Services</a>
+                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call Now for AC Repair">Call Now</a>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,8 @@
                         <h3 class="h5 mb-3 fw-bold">Microwave Oven Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Safe and prompt repairs for all microwave oven issues — heating failures, sparking, keypad errors, or turntable malfunctions.</p>
                         <div class="d-flex flex-column gap-2 mt-auto">
-                            <a href="{{ url('/microwave-oven/') }}" class="btn btn-primary" aria-label="Explore Microwave Oven Repair Services">View Microwave Services</a>
-                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call for Microwave Repair">Call Now</a>
+                            <a href="{{ url('/microwave-oven/') }}" class="btn btn-primary">View Microwave Services</a>
+                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call Now for Microwave Repair">Call Now</a>
                         </div>
                     </div>
                 </div>
@@ -147,8 +147,8 @@
                         <h3 class="h5 mb-3 fw-bold">Washing Machine Repair</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Fast and affordable repairs for all types of washing machines — from drum issues and spin cycles to water drainage and motor repairs.</p>
                         <div class="d-flex flex-column gap-2 mt-auto">
-                            <a href="{{ url('/washing-machine-repair-service-kochi') }}" class="btn btn-primary" aria-label="Explore Washing Machine Repair Services">View Washing Machine Services</a>
-                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call for Washing Machine Repair">Call Now</a>
+                            <a href="{{ url('/washing-machine-repair-service-kochi') }}" class="btn btn-primary">View Washing Machine Services</a>
+                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call Now for Washing Machine Repair">Call Now</a>
                         </div>
                     </div>
                 </div>
@@ -159,8 +159,8 @@
                         <h3 class="h5 mb-3 fw-bold">Refrigerator Repair & Service</h3>
                         <p class="text-muted small mb-4 flex-grow-1">Quick and dependable fridge repairs, gas refilling, compressor checks, and thermostat servicing to keep your food fresh and cool.</p>
                         <div class="d-flex flex-column gap-2 mt-auto">
-                            <a href="{{ url('/service/refrigerator-repair') }}" class="btn btn-primary" aria-label="Explore Refrigerator Repair Services">View Refrigerator Services</a>
-                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call for Refrigerator Repair">Call Now</a>
+                            <a href="{{ url('/service/refrigerator-repair') }}" class="btn btn-primary">View Refrigerator Services</a>
+                            <a href="tel:+919746700889" class="btn btn-outline-dark btn-sm" aria-label="Call Now for Refrigerator Repair">Call Now</a>
                         </div>
                     </div>
                 </div>
@@ -472,7 +472,7 @@
                         <p class="text-light mb-5">At EssenTechs, we’re committed to keeping your home and business running
                             smoothly. Whether you're a homeowner, office, school, or any organization — we've got your back
                             with fast, reliable, and affordable appliance repair services.</p>
-                        <a href="{{ url('/contact') }}" class="align-self-start btn btn-primary py-3 px-5" aria-label="Contact our team for appliance repair">Contact Us</a>
+                        <a href="{{ url('/contact') }}" class="align-self-start btn btn-primary py-3 px-5">Contact Us</a>
                     </div>
                 </div>
                 <div class="col-lg-6 quote-form" data-parallax="scroll"

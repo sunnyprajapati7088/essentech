@@ -41,8 +41,12 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.min.css') }}" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.min.css') }}">
+    </noscript>
 
     <!-- Injected Header Tracking Scripts (GTM, Google Ads, Meta Pixel) -->
     @if($page->header_scripts)
@@ -51,7 +55,7 @@
 
     <style>
         :root {
-            --primary-theme: {{ $page->theme_color ?: '#FF800F' }};
+            --primary-theme: {{ (! $page->theme_color || strtolower($page->theme_color) === '#ff800f') ? '#B35400' : $page->theme_color }}; {{-- old brand orange failed contrast checks --}}
             --primary-hover: #e06b00;
             --theme-navy: #001064;
             --theme-dark: #010A35;
@@ -202,7 +206,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 14px rgba(255, 128, 15, 0.35);
+            box-shadow: 0 4px 14px rgba(179, 84, 0, 0.35);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -212,7 +216,7 @@
         .btn-book-service:hover {
             background: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 128, 15, 0.45);
+            box-shadow: 0 6px 20px rgba(179, 84, 0, 0.45);
         }
 
         .btn-phone-call {
@@ -558,7 +562,7 @@
         .essen-wm-form input:focus,
         .essen-wm-form select:focus {
             border-color: var(--primary-theme);
-            box-shadow: 0 0 0 3px rgba(255, 128, 15, 0.2);
+            box-shadow: 0 0 0 3px rgba(179, 84, 0, 0.2);
         }
 
         .essen-wm-submit {
@@ -577,7 +581,7 @@
             justify-content: center;
             gap: 8px;
             transition: background 0.2s;
-            box-shadow: 0 4px 14px rgba(255, 128, 15, 0.35);
+            box-shadow: 0 4px 14px rgba(179, 84, 0, 0.35);
         }
 
         .essen-wm-submit:hover {
@@ -629,7 +633,7 @@
             background: var(--primary-theme);
             color: #ffffff;
             border: none;
-            box-shadow: 0 6px 18px rgba(255, 128, 15, 0.35);
+            box-shadow: 0 6px 18px rgba(179, 84, 0, 0.35);
         }
 
         .lp-floating-btn.call-btn:hover {
@@ -744,17 +748,25 @@
     <section class="lp-hero-section">
         <!-- Hero Left: Technician Image -->
         <div class="lphero-image-col">
-            @if($page->hero_image)
-                <img src="{{ $page->hero_image_url }}" 
-                     alt="{{ $page->hero_image_alt ?: $page->hero_title }}" 
-                     class="lphero-img" 
-                     loading="eager">
+            @php
+                // Use the uploaded hero only if the file exists (a missing file showed a broken image and a console error),
+                // and give it its real size so the browser reserves space (prevents layout shift).
+                $heroPath = ($page->hero_image && ! str_starts_with($page->hero_image, 'http')) ? storage_path('app/public/' . $page->hero_image) : null;
+                $heroOk = $page->hero_image && (! $heroPath || is_file($heroPath));
+                $heroSize = ($heroPath && $heroOk) ? @getimagesize($heroPath) : null;
+            @endphp
+            @if($heroOk)
+                <img src="{{ $page->hero_image_url }}"
+                     alt="{{ $page->hero_image_alt ?: $page->hero_title }}"
+                     class="lphero-img"
+                     @if($heroSize) width="{{ $heroSize[0] }}" height="{{ $heroSize[1] }}" @endif
+                     loading="eager" fetchpriority="high">
             @else
-                <img src="{{ asset('storage/landing_pages/Copy-of-Copy-of-Heading.jpg') }}" 
-                     alt="{{ $page->hero_image_alt ?: $page->hero_title }}" 
-                     class="lphero-img" 
-                     loading="eager"
-                     onerror="this.src='{{ asset('img/service-2.jpg') }}'">
+                <img src="{{ asset('img/service-2.jpg') }}"
+                     alt="{{ $page->hero_image_alt ?: $page->hero_title }}"
+                     class="lphero-img"
+                     width="550" height="400"
+                     loading="eager" fetchpriority="high">
             @endif
         </div>
 
@@ -843,15 +855,19 @@
             <div class="essen-wm-card">
                 <!-- Card Image Box -->
                 <div class="essen-wm-image-box">
-                    @if($page->card_image)
+                    @php
+                        $cardPath = ($page->card_image && ! str_starts_with($page->card_image, 'http')) ? storage_path('app/public/' . $page->card_image) : null;
+                        $cardOk = $page->card_image && (! $cardPath || is_file($cardPath));
+                    @endphp
+                    @if($cardOk)
                         <img src="{{ $page->card_image_url }}" 
                              alt="{{ $page->card_image_alt ?: $page->card_title }}" 
                              loading="lazy">
                     @else
-                        <img src="{{ asset('storage/landing_pages/photo-1626806787461-102c1bfaaea1.jpeg') }}" 
-                             alt="{{ $page->card_image_alt ?: $page->card_title }}" 
-                             loading="lazy"
-                             onerror="this.src='{{ asset('img/service-1.jpg') }}'">
+                        <img src="{{ asset('img/service-1.jpg') }}"
+                             alt="{{ $page->card_image_alt ?: $page->card_title }}"
+                             width="550" height="400"
+                             loading="lazy">
                     @endif
 
                     @if($page->card_badge)

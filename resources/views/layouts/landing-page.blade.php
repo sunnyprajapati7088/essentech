@@ -30,26 +30,26 @@
     </noscript>
 
     <!-- Icon Font Stylesheet (Single Deduplicated Font Awesome + Bootstrap Icons loaded asynchronously) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}?v={{ filemtime(public_path('assets/vendor/fontawesome-free/css/all.min.css')) }}" media="print" onload="this.media='all'">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.min.css') }}?v={{ filemtime(public_path('assets/vendor/bootstrap-icons/bootstrap-icons.min.css')) }}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}?v={{ filemtime(public_path('assets/vendor/fontawesome-free/css/all.min.css')) }}">
+        <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.min.css') }}?v={{ filemtime(public_path('assets/vendor/bootstrap-icons/bootstrap-icons.min.css')) }}" rel="stylesheet">
     </noscript>
 
     <!-- Libraries Stylesheet (Asynchronously loaded non-critical CSS) -->
-    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="{{ asset('lib/animate/animate.min.css') }}?v={{ filemtime(public_path('lib/animate/animate.min.css')) }}" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}?v={{ filemtime(public_path('lib/owlcarousel/assets/owl.carousel.min.css')) }}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-        <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('lib/animate/animate.min.css') }}?v={{ filemtime(public_path('lib/animate/animate.min.css')) }}" rel="stylesheet">
+        <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}?v={{ filemtime(public_path('lib/owlcarousel/assets/owl.carousel.min.css')) }}" rel="stylesheet">
     </noscript>
 
     <!-- Customized Bootstrap Stylesheet (Critical) -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}?v={{ filemtime(public_path('css/bootstrap.min.css')) }}" rel="stylesheet">
 
     <!-- Template Stylesheet (Critical) -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}?v={{ filemtime(public_path('css/style.css')) }}" rel="stylesheet">
     @yield('style')
     @yield('preload')
     <style>
@@ -100,13 +100,20 @@
             })(window, document, 'script', 'dataLayer', 'GTM-TT25RCWH');
         }
 
-        if ('requestIdleCallback' in window) {
-            window.requestIdleCallback(loadAnalyticsServices, { timeout: 3500 });
-        } else {
-            window.addEventListener('load', function() {
-                setTimeout(loadAnalyticsServices, 2000);
-            });
-        }
+        // Load the tags on the first user interaction, or 5 s after the page has loaded,
+        // so they never compete with the first render (keeps LCP/TBT and third-party cookies out of page load).
+        (function () {
+            var started = false;
+            var events = ['scroll', 'pointerdown', 'keydown', 'touchstart', 'mousemove'];
+            function start() {
+                if (started) return;
+                started = true;
+                events.forEach(function (e) { window.removeEventListener(e, start); });
+                loadAnalyticsServices();
+            }
+            events.forEach(function (e) { window.addEventListener(e, start, { passive: true }); });
+            window.addEventListener('load', function () { setTimeout(start, 5000); });
+        })();
     </script>
     @endif
 </head>
@@ -145,15 +152,15 @@
     <!-- WhatsApp & Call Buttons End -->
 
     <!-- JavaScript Libraries with defer to prevent render blocking (Upgraded to secure jQuery 3.7.1) -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="{{ asset('lib/wow/wow.min.js') }}" defer></script>
-    <script src="{{ asset('lib/easing/easing.min.js') }}" defer></script>
-    <script src="{{ asset('lib/waypoints/waypoints.min.js') }}" defer></script>
-    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}" defer></script>
-    <script src="{{ asset('lib/counterup/counterup.min.js') }}" defer></script>
-    <script src="{{ asset('lib/parallax/parallax.min.js') }}" defer></script>
-    <script src="{{ asset('js/main.js') }}" defer></script>
+    <script src="{{ asset('js/vendor/jquery-3.7.1.min.js') }}?v={{ filemtime(public_path('js/vendor/jquery-3.7.1.min.js')) }}" defer></script>
+    <script src="{{ asset('js/vendor/bootstrap-5.3.3.bundle.min.js') }}?v={{ filemtime(public_path('js/vendor/bootstrap-5.3.3.bundle.min.js')) }}" defer></script>
+    <script src="{{ asset('lib/wow/wow.min.js') }}?v={{ filemtime(public_path('lib/wow/wow.min.js')) }}" defer></script>
+    <script src="{{ asset('lib/easing/easing.min.js') }}?v={{ filemtime(public_path('lib/easing/easing.min.js')) }}" defer></script>
+    <script src="{{ asset('lib/waypoints/waypoints.min.js') }}?v={{ filemtime(public_path('lib/waypoints/waypoints.min.js')) }}" defer></script>
+    <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}?v={{ filemtime(public_path('lib/owlcarousel/owl.carousel.min.js')) }}" defer></script>
+    <script src="{{ asset('lib/counterup/counterup.min.js') }}?v={{ filemtime(public_path('lib/counterup/counterup.min.js')) }}" defer></script>
+    <script src="{{ asset('lib/parallax/parallax.min.js') }}?v={{ filemtime(public_path('lib/parallax/parallax.min.js')) }}" defer></script>
+    <script src="{{ asset('js/main.js') }}?v={{ filemtime(public_path('js/main.js')) }}" defer></script>
     @yield('script')
 </body>
 

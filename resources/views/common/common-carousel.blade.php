@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-floating custom-floating">
-                            <select class="form-select" name="service" id="serviceType2" required>
+                            <select class="form-select" name="service" id="serviceType2" aria-label="Choose an appliance" required>
                                 <option selected disabled>Choose an Appliance</option>
                                 <option value="AC">Air Conditioner</option>
                                 <option value="Refrigerator">Refrigerator</option>

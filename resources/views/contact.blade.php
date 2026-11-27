@@ -64,7 +64,7 @@
                                 <button id="submitBtn" class="btn btn-primary py-3 px-5" type="submit" aria-label="Send message to EssenTechs">
                                     Send Message
                                 </button>
-                                <button id="loadingBtn" class="btn btn-primary py-3 px-5 d-none" type="button" disabled aria-label="Sending message...">
+                                <button id="loadingBtn" class="btn btn-primary py-3 px-5 d-none" type="button" disabled>
                                     <span class="spinner-border spinner-border-sm me-2"></span> Sending...
                                 </button>
                             </div>

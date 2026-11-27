@@ -125,10 +125,10 @@
                     {{ $brandData['hero_subtitle'] }}
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-4">
-                    <a href="tel:+919746700889" class="btn btn-primary btn-lg px-4 py-3" aria-label="Call +91 97467 00889 to book {{ $brandData['name'] }} washing machine service">
+                    <a href="tel:+919746700889" class="btn btn-primary btn-lg px-4 py-3">
                         <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Book {{ $brandData['name'] }} Washer Service
                     </a>
-                    <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3" aria-label="WhatsApp our technicians">
+                    <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3">
                         <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> Chat on WhatsApp
                     </a>
                 </div>
@@ -246,7 +246,7 @@
                         @endforeach
                     </ul>
                     <div class="mt-4 pt-3 border-top">
-                        <a href="tel:+919746700889" class="btn btn-outline-primary w-100 fw-semibold" aria-label="Book service for {{ $brandData['name'] }} washing machine">
+                        <a href="tel:+919746700889" class="btn btn-outline-primary w-100 fw-semibold">
                             <i class="fas fa-calendar-check me-2" aria-hidden="true"></i> Schedule Service for Your {{ $brandData['name'] }} Washer
                         </a>
                     </div>
@@ -300,7 +300,7 @@
             @endforeach
         </div>
         <div class="p-3 bg-white rounded-3 border text-center small text-muted mx-auto" style="max-width: 800px;">
-            Looking for other home appliance services? We also provide certified <a href="{{ url('/ac-service-repair-kochi') }}" class="text-primary fw-semibold">AC Repair</a>, <a href="{{ url('/refrigerator-repair-service-kochi') }}" class="text-primary fw-semibold">Refrigerator Repair</a>, and <a href="{{ url('/microwave-oven/') }}" class="text-primary fw-semibold">Microwave Oven Repair</a> across Kochi.
+            Looking for other home appliance services? We also provide certified <a href="{{ url('/ac-service-repair-kochi') }}" class="text-primary fw-semibold text-decoration-underline">AC Repair</a>, <a href="{{ url('/refrigerator-repair-service-kochi') }}" class="text-primary fw-semibold text-decoration-underline">Refrigerator Repair</a>, and <a href="{{ url('/microwave-oven/') }}" class="text-primary fw-semibold text-decoration-underline">Microwave Oven Repair</a> across Kochi.
         </div>
     </div>
 </section>
@@ -317,7 +317,7 @@
             <a href="tel:+919746700889" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary" aria-label="Call +91 97467 00889">
                 <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Call +91 97467 00889
             </a>
-            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold" aria-label="Chat on WhatsApp">
+            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold">
                 <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Now
             </a>
         </div>

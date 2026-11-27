@@ -24,7 +24,7 @@
             <img class="img-fluid me-3" src="{{ asset('img/EssenTechs-logo.jpeg') }}" alt="">EssenTechs
         </h2>
     </a>
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation menu">
         <span class="navbar-toggler-icon"></span>
     </button>
 

@@ -6,7 +6,7 @@
 
 @section('content')
     <!-- Blog Header Start -->
-    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid page-header py-5 mb-5">
         <div class="container text-center py-5">
             <h1 class="display-4 text-white animated slideInDown mb-4">Annual Maintenance Contracts (AMC)</h1>
             <nav aria-label="breadcrumb animated slideInDown">
@@ -65,25 +65,25 @@
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="p-3 border rounded bg-light h-100">
-                                <h5>Expert Technicians</h5>
+                                <h4 class="h5">Expert Technicians</h4>
                                 <p>Our AMC services are delivered by certified professionals with years of experience.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="p-3 border rounded bg-light h-100">
-                                <h5>Regular Preventive Maintenance</h5>
+                                <h4 class="h5">Regular Preventive Maintenance</h4>
                                 <p>Scheduled checkups to keep your appliances in perfect condition all year round.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="p-3 border rounded bg-light h-100">
-                                <h5>Cost Savings</h5>
+                                <h4 class="h5">Cost Savings</h4>
                                 <p>AMC contracts save you money by avoiding unexpected high repair costs.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="p-3 border rounded bg-light h-100">
-                                <h5>Priority Service</h5>
+                                <h4 class="h5">Priority Service</h4>
                                 <p>AMC customers get priority over regular repair requests with faster turnaround.</p>
                             </div>
                         </div>

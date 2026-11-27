@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FF800F;
+    --primary: #B35400;
     --secondary: #001064;
     --light: #F6F7F8;
     --dark: #010A35;
@@ -101,7 +101,7 @@
     color: var(--primary);
 }
 .excellent-service {
-    color: #FF800F;
+    color: #B35400;
     font-weight: 600;
 }
 .navbar .dropdown-toggle::after {
@@ -192,7 +192,7 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(1, 10, 53, .8), rgba(1, 10, 53, .8)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(1, 10, 53, .8), rgba(1, 10, 53, .8)), url(../img/page-header-bg.webp) center center no-repeat;
     background-size: cover;
 }
 
@@ -436,7 +436,7 @@
 
 /*** Footer ***/
 .footer {
-    color: #7F8499;
+    color: #686D82;
 }
 
 .footer .btn.btn-link {
@@ -444,7 +444,7 @@
     margin-bottom: 5px;
     padding: 0;
     text-align: left;
-    color: #7F8499;
+    color: #686D82;
     font-weight: normal;
     text-transform: capitalize;
     transition: .3s;
@@ -455,7 +455,7 @@
     content: "\f105";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    color: #7F8499;
+    color: #686D82;
     margin-right: 10px;
 }
 
@@ -466,8 +466,8 @@
 }
 
 .footer .btn.btn-square {
-    color: #7F8499;
-    border: 1px solid #7F8499;
+    color: #686D82;
+    border: 1px solid #686D82;
 }
 
 .footer .btn.btn-square:hover {

@@ -116,7 +116,7 @@
                     <a href="tel:+919746700889" class="btn btn-primary btn-lg px-4 py-3" aria-label="Book Washing Machine Service by calling +91 97467 00889">
                         <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Book Washing Machine Service
                     </a>
-                    <a href="tel:+919746700889" class="btn btn-outline-dark btn-lg px-4 py-3" aria-label="Call Essentechs technician now">
+                    <a href="tel:+919746700889" class="btn btn-outline-dark btn-lg px-4 py-3" aria-label="Call Now: Essentechs technician">
                         <i class="fas fa-phone me-2" aria-hidden="true"></i> Call Now
                     </a>
                 </div>
@@ -147,7 +147,7 @@
                     <div class="card-body p-4 bg-light">
                         <h2 class="h5 fw-bold mb-2">Need Rapid Washer Assistance?</h2>
                         <p class="small text-muted mb-3">Speak directly with a washing machine specialist to diagnose your machine's symptoms.</p>
-                        <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-2 fw-semibold" aria-label="Chat with our washing machine specialists on WhatsApp">
+                        <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 py-2 fw-semibold">
                             <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Us: +91 97467 00889
                         </a>
                     </div>
@@ -360,7 +360,7 @@
             <a href="tel:+919746700889" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary" aria-label="Call +91 97467 00889">
                 <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Call +91 97467 00889
             </a>
-            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold" aria-label="Chat on WhatsApp">
+            <a href="https://wa.me/919746700889" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-lg px-4 py-3 fw-bold">
                 <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Now
             </a>
         </div>
