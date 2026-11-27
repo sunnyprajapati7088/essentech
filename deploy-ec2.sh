@@ -78,8 +78,9 @@ main() {
     echo "💾 [2/9] Backing up live .env and database..."
     backup_state
 
-    php artisan down --retry=15 >/dev/null 2>&1 || true
-    trap 'php artisan up >/dev/null 2>&1 || true' EXIT
+    # Run as the web server user: storage/ is owned by www-data, so "up" must be able to delete the flag
+    sudo -u www-data php artisan down --retry=15 >/dev/null 2>&1 || true
+    trap 'sudo -u www-data php artisan up >/dev/null 2>&1 || sudo rm -f storage/framework/down' EXIT
 
     echo "📥 [3/9] Pulling latest code from git..."
     update_code
@@ -129,7 +130,11 @@ main() {
         sudo systemctl restart essentechs-mcp
     fi
 
-    php artisan up >/dev/null 2>&1 || true
+    sudo -u www-data php artisan up >/dev/null 2>&1 || sudo rm -f storage/framework/down
+    if [ -f storage/framework/down ]; then
+        echo "❌ Site is still in maintenance mode (storage/framework/down). Remove it manually." >&2
+        exit 1
+    fi
     prune_backups
 
     echo "✅ [DONE] EssenTechs deployed successfully on EC2!"
