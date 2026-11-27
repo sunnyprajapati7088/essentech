@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    // Blog automation API used by the EssenTechs MCP server (mcp/essentechs-blog)
+    'blog_api' => [
+        'token' => env('BLOG_API_TOKEN'),
+        'user_id' => env('BLOG_API_USER_ID'),
+    ],
+
 ];

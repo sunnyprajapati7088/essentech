@@ -1,0 +1,14 @@
+{
+  "name": "essentechs-blog-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for creating and managing essentechs.com blog posts with AI",
+  "private": true,
+  "type": "module",
+  "bin": { "essentechs-blog-mcp": "./server.js" },
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "3.25.76"
+  }
+}

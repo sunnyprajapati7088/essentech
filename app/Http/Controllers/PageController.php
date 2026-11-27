@@ -54,7 +54,8 @@ class PageController extends Controller
 
     public function blog()
     {
-        $blogs = Blog::orderBy('created_at', 'desc')
+        $blogs = Blog::where('status', 'published')
+            ->orderBy('created_at', 'desc')
             ->take(10)
             ->get();
         return view('blogs', compact('blogs'));
@@ -63,7 +64,7 @@ class PageController extends Controller
     public function blogDetails($slug)
     {
         // Find blog by slug
-        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $blog = Blog::where('slug', $slug)->where('status', 'published')->firstOrFail();
 
         // Increment views safely
         $blog->increment('views_count');
