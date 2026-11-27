@@ -123,8 +123,7 @@ main() {
     fi
 
     # EssenTechs MCP server (only on servers where it is installed as a service)
-    if systemctl list-unit-files essentechs-mcp.service >/dev/null 2>&1 \
-        && systemctl list-unit-files essentechs-mcp.service | grep -q essentechs-mcp; then
+    if systemctl cat essentechs-mcp.service >/dev/null 2>&1; then
         echo "🤖 Updating and restarting the MCP server..."
         (cd mcp/essentechs-blog && npm ci --omit=dev --no-audit --no-fund)
         sudo systemctl restart essentechs-mcp
