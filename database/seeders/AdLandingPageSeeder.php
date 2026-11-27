@@ -39,7 +39,8 @@ class AdLandingPageSeeder extends Seeder
 
         $brands = "LG, VOLTAS, SAMSUNG, HAIER, BLUE STAR, CARRIER, IFB, LLYOD, HITACHI, O GENERAL, MITSUBISHI ELECTRIC";
 
-        AdLandingPage::updateOrCreate(
+        // firstOrCreate: only seeds when missing, so admin edits survive every deploy
+        AdLandingPage::firstOrCreate(
             ['slug' => 'ads-washing-machine-repair'],
             [
                 'title' => 'Ads Washing Machine Repair',
