@@ -30,7 +30,25 @@ if [ "$(id -u)" -eq 0 ]; then
     exit 1
 fi
 
+add_swap_if_small() {
+    local mem_mb swap_mb
+    mem_mb="$(awk '/MemTotal/ {print int($2/1024)}' /proc/meminfo)"
+    swap_mb="$(awk '/SwapTotal/ {print int($2/1024)}' /proc/meminfo)"
+    if [ "$mem_mb" -lt 2048 ] && [ "$swap_mb" -lt 1024 ]; then
+        echo "💾 Small server (${mem_mb} MB RAM): adding a 2 GB swap file..."
+        sudo fallocate -l 2G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        grep -q '^/swapfile ' /etc/fstab || echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab >/dev/null
+        echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-essentechs-swap.conf >/dev/null
+        sudo sysctl -p /etc/sysctl.d/99-essentechs-swap.conf >/dev/null
+    fi
+}
+
 main() {
+    add_swap_if_small
+
     echo "📦 [1/7] Installing packages..."
     sudo apt-get update -y
     sudo apt-get install -y software-properties-common ca-certificates curl git unzip sqlite3 nginx \
