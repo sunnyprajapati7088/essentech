@@ -1,4 +1,4 @@
-# EssenTechs Blog MCP
+# EssenTechs MCP (Blogs + Ad Landing Pages)
 
 An MCP server that lets Claude research, write and manage blog posts on essentechs.com.
 Claude writes each article itself and saves it through this server as a **draft**. Nothing goes live until you approve it and `publish_blog` is called.
@@ -13,8 +13,21 @@ Claude writes each article itself and saves it through this server as a **draft*
 | `set_featured_image` | Upload a featured image |
 | `publish_blog` / `unpublish_blog` | Make a post live, or take it down (draft/archived) |
 
-Prompt: `write_blog_post(topic, keywords)` runs the full research → draft → review flow.
-There is no delete tool on purpose. Delete posts from the admin panel.
+### Ad Landing Pages (Google Ads pages at `essentechs.com/{slug}`)
+| Tool | What it does |
+|---|---|
+| `list_ad_pages` / `get_ad_page` | Browse landing pages and all their fields |
+| `create_ad_page_draft` | Create a page as a draft: hero, brands, trust badges, service card, booking options, SEO |
+| `update_ad_page` | Change any content/SEO field |
+| `set_ad_page_image` | Upload the hero, card or social (og) image |
+| `duplicate_ad_page` | Copy a page as a new draft (e.g. same service, another area) |
+| `publish_ad_page` / `unpublish_ad_page` | Go live (also shows in navbar/footer) / take offline |
+
+Tracking scripts (GTM, pixels), custom CSS and custom schema are **not** editable through the MCP. They render raw on the page, so set them in the admin panel.
+Slugs that clash with existing site URLs (e.g. `blog`, `contact`) are rejected.
+
+Prompts: `write_blog_post(topic, keywords)` and `create_ad_landing_page(service, area, keyword)` run the full draft → review flow.
+There is no delete tool on purpose. Delete posts and pages from the admin panel.
 
 ## Setup
 

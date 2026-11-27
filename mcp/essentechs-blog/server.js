@@ -77,6 +77,23 @@ const SITE_CONTEXT = {
     "Never invent prices, warranties, certifications, reviews or statistics. If you mention cost, keep it general.",
     "Check list_blogs first so you don't write a duplicate topic.",
   ],
+  ad_landing_pages: {
+    what: "Google Ads landing pages served at https://essentechs.com/{slug}. Published pages also appear automatically in the site navbar and footer.",
+    sections: "Hero (badge, title, subtitle, image, CTA button) -> brands marquee -> trust badges -> service card (badge, title, description, features, image) -> WhatsApp booking modal (service + problem dropdowns) -> floating WhatsApp/call button.",
+    guidelines: [
+      "One service per page (e.g. AC repair, washing machine repair) and optionally one area. Keep the message tightly matched to the ad keyword.",
+      "slug: short, lowercase, keyword-based, e.g. 'ac-repair-kakkanad'. It must not clash with existing site pages.",
+      "hero_title: under 60 chars, includes the service (+ area). hero_subtitle: 1-2 sentences of benefits.",
+      "primary_cta_text / modal_title: action-oriented, e.g. 'Book AC Service'.",
+      "brands_list: comma-separated brands relevant to THIS appliance.",
+      "trust_badges: 3-4 short items with Bootstrap icons, e.g. {text:'Experienced technicians', icon:'bi bi-gear-wide-connected'}. Only claim things the business actually offers; ask the user if unsure (e.g. arrival time, warranty).",
+      "card_features, service_options, problem_options: one item per line. service_options and problem_options MUST match the appliance; the defaults are for washing machines.",
+      "whatsapp_custom_message: e.g. 'Hello Essen Techs, I want to book AC Repair Service.'",
+      "Fill SEO: focus_keyword, meta_title (<=60 chars), meta_description (140-160 chars), meta_keywords.",
+      "Never invent prices, discounts, ratings or guarantees. Tracking scripts / custom CSS can only be added in the admin panel.",
+      "Create as draft, show the user the admin_preview_url, and publish only after approval.",
+    ],
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -143,7 +160,7 @@ const wrap = (fn) => async (args) => {
 // Server
 // ---------------------------------------------------------------------------
 function buildServer() {
-const server = new McpServer({ name: "essentechs-blog", version: "1.0.0" });
+const server = new McpServer({ name: "essentechs-blog", version: "1.1.0" });
 
 const seoArgs = {
   category: z.enum(["general", "ac", "microwave", "refrigerator", "washing-machine", "water-purifier"]).optional(),
@@ -330,6 +347,215 @@ server.registerPrompt(
     ],
   })
 );
+
+
+  // -------------------------------------------------------------------------
+  // Ad Landing Pages
+  // -------------------------------------------------------------------------
+  const hex = z.string().regex(/^#[0-9a-fA-F]{3,8}$/);
+  const adFields = {
+    title: z.string().max(255).optional().describe("Internal name, e.g. 'Google Ads - AC Repair Kakkanad'"),
+    slug: z.string().max(255).optional().describe("Public URL path: essentechs.com/{slug}. Generated from title if omitted on create."),
+    theme_color: hex.optional().describe("Accent colour, default #FF800F"),
+    hero_badge: z.string().max(255).optional(),
+    hero_title: z.string().max(255).optional(),
+    hero_subtitle: z.string().max(2000).optional(),
+    hero_image_alt: z.string().max(255).optional(),
+    primary_cta_text: z.string().max(100).optional(),
+    primary_phone: z.string().max(50).optional().describe("Default +91 97467 00889"),
+    whatsapp_number: z.string().regex(/^[0-9]+$/).max(20).optional().describe("Digits only with country code, default 919746700889"),
+    show_brands: z.boolean().optional(),
+    brands_heading: z.string().max(100).optional(),
+    brands_list: z.string().max(2000).optional().describe("Comma-separated brand names"),
+    brands_bg_color: hex.optional(),
+    brands_text_color: hex.optional(),
+    show_trust_badges: z.boolean().optional(),
+    trust_badges: z
+      .array(z.object({ text: z.string().max(120), icon: z.string().regex(/^bi bi-[a-z0-9-]+$/).optional() }))
+      .max(8)
+      .optional()
+      .describe("Replaces all badges. icon is a Bootstrap Icons class, e.g. 'bi bi-shield-check'"),
+    show_service_card: z.boolean().optional(),
+    card_badge: z.string().max(100).optional(),
+    card_title: z.string().max(255).optional(),
+    card_description: z.string().max(2000).optional(),
+    card_image_alt: z.string().max(255).optional(),
+    card_features: z.string().max(2000).optional().describe("One feature per line"),
+    card_learn_more_text: z.string().max(100).optional(),
+    card_learn_more_link: z.string().max(255).optional().describe("e.g. /ac-service-repair-kochi"),
+    card_book_now_text: z.string().max(100).optional(),
+    modal_title: z.string().max(255).optional(),
+    modal_subtitle: z.string().max(255).optional(),
+    service_options: z.string().max(2000).optional().describe("Booking form service dropdown, one per line"),
+    problem_options: z.string().max(2000).optional().describe("Booking form problem dropdown, one per line"),
+    whatsapp_custom_message: z.string().max(500).optional(),
+    show_floating_button: z.boolean().optional(),
+    floating_button_type: z.enum(["whatsapp", "call", "both"]).optional(),
+    focus_keyword: z.string().max(255).optional(),
+    meta_title: z.string().max(255).optional(),
+    meta_description: z.string().max(1000).optional(),
+    meta_keywords: z.string().max(1000).optional(),
+    canonical_url: z.string().url().max(255).optional(),
+    robots: z.string().max(255).optional(),
+    og_title: z.string().max(255).optional(),
+    og_description: z.string().max(1000).optional(),
+    twitter_title: z.string().max(255).optional(),
+    twitter_description: z.string().max(1000).optional(),
+    twitter_card: z.enum(["summary", "summary_large_image"]).optional(),
+    schema_type: z.enum(["Service", "LocalBusiness"]).optional(),
+  };
+
+  const withAdLinks = (res) => ({
+    ...res,
+    preview_note: "Open admin_preview_url while logged in to the admin panel to preview a draft.",
+  });
+
+  server.registerTool(
+    "list_ad_pages",
+    {
+      title: "List ad landing pages",
+      description: "List Google Ads landing pages (newest first) with their public and admin URLs.",
+      inputSchema: { q: z.string().optional(), status: z.enum(["published", "draft"]).optional() },
+    },
+    wrap(async ({ q, status }) => {
+      const p = new URLSearchParams();
+      if (q) p.set("q", q);
+      if (status) p.set("status", status);
+      return api("GET", `/ad-pages?${p}`);
+    })
+  );
+
+  server.registerTool(
+    "get_ad_page",
+    {
+      title: "Get ad landing page",
+      description: "Get all editable fields of one ad landing page.",
+      inputSchema: { id: z.number().int() },
+    },
+    wrap(async ({ id }) => api("GET", `/ad-pages/${id}`))
+  );
+
+  server.registerTool(
+    "create_ad_page_draft",
+    {
+      title: "Create ad landing page (draft)",
+      description:
+        "Create a new Google Ads landing page as a DRAFT. Read get_site_context.ad_landing_pages first. Fill hero, brands, trust badges, service card, booking options and SEO for the specific appliance. Unset fields use washing-machine defaults, so set them all for other appliances.",
+      inputSchema: {
+        ...adFields,
+        title: z.string().max(255),
+        hero_title: z.string().max(255),
+        hero_image_path: z.string().optional().describe("Absolute path to a local hero image (max 5MB)"),
+        hero_image_url: z.string().url().optional().describe("Public hero image URL you have the rights to use"),
+      },
+    },
+    wrap(async ({ hero_image_path, hero_image_url, ...fields }) => {
+      const img = await loadImage(hero_image_path, hero_image_url);
+      const body = { ...fields, status: "draft" };
+      if (img) {
+        body.hero_image_base64 = img.image_base64;
+        body.image_filename = img.image_filename;
+      }
+      return withAdLinks(await api("POST", "/ad-pages", body));
+    })
+  );
+
+  server.registerTool(
+    "update_ad_page",
+    {
+      title: "Update ad landing page",
+      description: "Change fields of an ad landing page. Only passed fields change. Status is changed with publish_ad_page / unpublish_ad_page.",
+      inputSchema: { id: z.number().int(), ...adFields },
+    },
+    wrap(async ({ id, ...fields }) => {
+      const body = Object.fromEntries(Object.entries(fields).filter(([, v]) => v !== undefined));
+      if (Object.keys(body).length === 0) throw new Error("Nothing to update.");
+      return withAdLinks(await api("PATCH", `/ad-pages/${id}`, body));
+    })
+  );
+
+  server.registerTool(
+    "set_ad_page_image",
+    {
+      title: "Set ad landing page image",
+      description: "Upload the hero image, service card image, or social share (og) image of an ad landing page.",
+      inputSchema: {
+        id: z.number().int(),
+        which: z.enum(["hero", "card", "og"]),
+        image_path: z.string().optional().describe("Absolute path to a local JPG/PNG/GIF/WebP (max 5MB)"),
+        image_url: z.string().url().optional().describe("Public http(s) image URL you have the rights to use"),
+      },
+    },
+    wrap(async ({ id, which, image_path, image_url }) => {
+      const img = await loadImage(image_path, image_url);
+      if (!img) throw new Error("Provide image_path or image_url.");
+      return api("PATCH", `/ad-pages/${id}`, { [`${which}_image_base64`]: img.image_base64, image_filename: img.image_filename });
+    })
+  );
+
+  server.registerTool(
+    "duplicate_ad_page",
+    {
+      title: "Duplicate ad landing page",
+      description: "Copy an existing ad landing page as a new draft (fastest way to make a similar page for another area or service), then edit it with update_ad_page.",
+      inputSchema: { id: z.number().int(), title: z.string().max(255).optional(), slug: z.string().max(255).optional() },
+    },
+    wrap(async ({ id, title, slug }) => withAdLinks(await api("POST", `/ad-pages/${id}/duplicate`, { title, slug })))
+  );
+
+  server.registerTool(
+    "publish_ad_page",
+    {
+      title: "Publish ad landing page",
+      description: "Make an ad landing page live at essentechs.com/{slug} (it also appears in the navbar/footer). Only after the user approved it.",
+      inputSchema: { id: z.number().int() },
+      annotations: { destructiveHint: false, openWorldHint: true },
+    },
+    wrap(async ({ id }) => {
+      const res = await api("PATCH", `/ad-pages/${id}`, { status: "published" });
+      return { ...res, live_url: res.data.public_url };
+    })
+  );
+
+  server.registerTool(
+    "unpublish_ad_page",
+    {
+      title: "Unpublish ad landing page",
+      description: "Take an ad landing page offline (set to draft). Warning: Google Ads still pointing to it will land on a 404.",
+      inputSchema: { id: z.number().int() },
+    },
+    wrap(async ({ id }) => api("PATCH", `/ad-pages/${id}`, { status: "draft" }))
+  );
+
+  server.registerPrompt(
+    "create_ad_landing_page",
+    {
+      title: "Create a Google Ads landing page",
+      description: "Draft a conversion-focused ad landing page for one service (and optional area)",
+      argsSchema: {
+        service: z.string().describe("e.g. 'AC repair', 'Refrigerator repair'"),
+        area: z.string().optional().describe("e.g. 'Kakkanad'"),
+        keyword: z.string().optional().describe("Main Google Ads keyword"),
+      },
+    },
+    ({ service, area, keyword }) => ({
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text:
+              `Create a Google Ads landing page for "${service}"${area ? ` in ${area}` : ""}.` +
+              (keyword ? ` Main keyword: ${keyword}.` : "") +
+              `\n\nSteps:\n1. Call get_site_context and follow ad_landing_pages.guidelines.\n` +
+              `2. Call list_ad_pages to check for an existing page for this service/area (duplicate_ad_page it if one is close).\n` +
+              `3. Create it with create_ad_page_draft, filling every section for this appliance.\n` +
+              `4. Show me the slug, hero text, trust badges, SEO fields and the admin_preview_url, and wait for my approval before publish_ad_page.`,
+          },
+        },
+      ],
+    })
+  );
 
 return server;
 }
