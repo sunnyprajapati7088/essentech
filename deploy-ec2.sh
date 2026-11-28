@@ -45,6 +45,13 @@ backup_state() {
 }
 
 update_code() {
+    # Step 9 of the previous deploy handed storage/, bootstrap/cache/ and database/
+    # to www-data and chmod'ed every file 775. Without the next two lines, git (run
+    # as the deploy user) sees mode changes it can't write back and "git reset"
+    # fails with "unable to unlink ... Permission denied". Step 9 hands the
+    # folders back to www-data at the end.
+    git config core.fileMode false
+    sudo chown -R "$(id -un)":www-data storage bootstrap/cache database
     git fetch origin main
     git reset --hard origin/main
 }
