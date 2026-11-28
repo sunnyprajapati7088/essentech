@@ -5,6 +5,11 @@ current AWS config (`nginx-essentechs.conf`) already has. Without them, Lighthou
 scores on the Oracle server will drop (Performance: no compression or caching.
 Best Practices: no HTTPS). Add these to the server block before switching DNS.
 
+**Quick way:** after certbot has set up HTTPS, run `bash deploy/oracle/nginx-tune.sh`
+on the server. It adds gzip, the static-file cache, the security headers and HTTP/2
+(sections 1–4 below), backs up every file it changes, and puts everything back if
+`nginx -t` fails.
+
 ## 1. HTTPS + HTTP/2 (Best Practices: "Uses HTTPS", "HTTP/2")
 
 The block only listens on port 80. Run certbot once DNS points to the server:
