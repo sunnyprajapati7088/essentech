@@ -26,12 +26,8 @@ trait StoresBase64Images
         $mime = (new \finfo(FILEINFO_MIME_TYPE))->buffer($binary);
         abort_unless(isset($mimes[$mime]), 422, 'Image must be JPEG, PNG, GIF or WebP.');
 
-        $filename = Str::slug(pathinfo($name, PATHINFO_FILENAME)) ?: 'image';
-        $path = trim($dir, '/') . '/' . $filename . '_' . (int) (microtime(true) * 10000) . '.' . $mimes[$mime];
-
-        Storage::disk('public')->put($path, $binary);
-
-        return $path;
+        // Scaled to web size and re-encoded (social-share images as JPEG).
+        return \App\Support\WebImage::storeBinary($binary, $dir, $name, str_contains($name, 'og_image') ? 'jpg' : 'webp');
     }
 
     protected function deletePublicFile(?string $path): void

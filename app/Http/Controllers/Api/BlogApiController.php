@@ -231,13 +231,8 @@ class BlogApiController extends Controller
         $mime = (new \finfo(FILEINFO_MIME_TYPE))->buffer($binary);
         abort_unless(isset(self::IMAGE_MIMES[$mime]), 422, 'Image must be JPEG, PNG, GIF or WebP.');
 
-        $filename = Str::slug(pathinfo($name, PATHINFO_FILENAME)) ?: 'blog';
-        $filename .= '_' . (int) (microtime(true) * 10000) . '.' . self::IMAGE_MIMES[$mime];
-        $path = self::IMAGE_DIR . '/' . $filename;
-
-        Storage::disk('public')->put($path, $binary);
-
-        return $path;
+        // Scaled to web size and re-encoded as WebP.
+        return \App\Support\WebImage::storeBinary($binary, self::IMAGE_DIR, $name ?: 'blog');
     }
 
     private function summary(Blog $b): array

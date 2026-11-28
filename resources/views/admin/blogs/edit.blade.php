@@ -275,7 +275,7 @@
     });
 
     // Image preview for og_image
-    document.getElementById('og_image').addEventListener('change', function(event) {
+    document.getElementById('og_image')?.addEventListener('change', function(event) {
         const file = event.target.files[0];
         const preview = document.getElementById('og_image_preview');
         const existing = document.getElementById('og_image_existing');

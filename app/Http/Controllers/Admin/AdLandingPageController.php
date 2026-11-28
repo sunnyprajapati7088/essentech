@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Support\WebImage;
 use App\Http\Controllers\Controller;
 use App\Models\AdLandingPage;
 use Illuminate\Http\Request;
@@ -107,7 +108,7 @@ class AdLandingPageController extends Controller
             'hero_badge' => 'nullable|string|max:255',
             'hero_title' => 'required|string|max:255',
             'hero_subtitle' => 'nullable|string',
-            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'hero_image_alt' => 'nullable|string|max:255',
             'primary_cta_text' => 'nullable|string|max:100',
             'primary_phone' => 'nullable|string|max:50',
@@ -130,7 +131,7 @@ class AdLandingPageController extends Controller
             'card_badge' => 'nullable|string|max:100',
             'card_title' => 'nullable|string|max:255',
             'card_description' => 'nullable|string',
-            'card_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'card_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'card_image_alt' => 'nullable|string|max:255',
             'card_features' => 'nullable|string',
             'card_learn_more_text' => 'nullable|string|max:100',
@@ -157,11 +158,11 @@ class AdLandingPageController extends Controller
             'robots' => 'nullable|string|max:255',
             'og_title' => 'nullable|string|max:255',
             'og_description' => 'nullable|string',
-            'og_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'og_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'og_type' => 'nullable|string|max:50',
             'twitter_title' => 'nullable|string|max:255',
             'twitter_description' => 'nullable|string',
-            'twitter_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'twitter_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'twitter_card' => 'nullable|string|max:50',
             'schema_type' => 'nullable|string|max:50',
             'custom_schema' => 'nullable|string',
@@ -201,16 +202,16 @@ class AdLandingPageController extends Controller
 
         // File uploads
         if ($request->hasFile('hero_image')) {
-            $data['hero_image'] = $request->file('hero_image')->store('landing_pages', 'public');
+            $data['hero_image'] = WebImage::storeUpload($request->file('hero_image'), 'landing_pages');
         }
         if ($request->hasFile('card_image')) {
-            $data['card_image'] = $request->file('card_image')->store('landing_pages', 'public');
+            $data['card_image'] = WebImage::storeUpload($request->file('card_image'), 'landing_pages');
         }
         if ($request->hasFile('og_image')) {
-            $data['og_image'] = $request->file('og_image')->store('landing_pages', 'public');
+            $data['og_image'] = WebImage::storeUpload($request->file('og_image'), 'landing_pages', null, 'jpg');
         }
         if ($request->hasFile('twitter_image')) {
-            $data['twitter_image'] = $request->file('twitter_image')->store('landing_pages', 'public');
+            $data['twitter_image'] = WebImage::storeUpload($request->file('twitter_image'), 'landing_pages', null, 'jpg');
         }
 
         $page = AdLandingPage::create($data);
@@ -242,7 +243,7 @@ class AdLandingPageController extends Controller
             'hero_badge' => 'nullable|string|max:255',
             'hero_title' => 'required|string|max:255',
             'hero_subtitle' => 'nullable|string',
-            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'hero_image_alt' => 'nullable|string|max:255',
             'primary_cta_text' => 'nullable|string|max:100',
             'primary_phone' => 'nullable|string|max:50',
@@ -265,7 +266,7 @@ class AdLandingPageController extends Controller
             'card_badge' => 'nullable|string|max:100',
             'card_title' => 'nullable|string|max:255',
             'card_description' => 'nullable|string',
-            'card_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'card_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'card_image_alt' => 'nullable|string|max:255',
             'card_features' => 'nullable|string',
             'card_learn_more_text' => 'nullable|string|max:100',
@@ -292,11 +293,11 @@ class AdLandingPageController extends Controller
             'robots' => 'nullable|string|max:255',
             'og_title' => 'nullable|string|max:255',
             'og_description' => 'nullable|string',
-            'og_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'og_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'og_type' => 'nullable|string|max:50',
             'twitter_title' => 'nullable|string|max:255',
             'twitter_description' => 'nullable|string',
-            'twitter_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:5120',
+            'twitter_image' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:15360',
             'twitter_card' => 'nullable|string|max:50',
             'schema_type' => 'nullable|string|max:50',
             'custom_schema' => 'nullable|string',
@@ -337,28 +338,28 @@ class AdLandingPageController extends Controller
             if ($landing_page->hero_image && !str_starts_with($landing_page->hero_image, 'http') && Storage::disk('public')->exists($landing_page->hero_image)) {
                 Storage::disk('public')->delete($landing_page->hero_image);
             }
-            $data['hero_image'] = $request->file('hero_image')->store('landing_pages', 'public');
+            $data['hero_image'] = WebImage::storeUpload($request->file('hero_image'), 'landing_pages');
         }
 
         if ($request->hasFile('card_image')) {
             if ($landing_page->card_image && !str_starts_with($landing_page->card_image, 'http') && Storage::disk('public')->exists($landing_page->card_image)) {
                 Storage::disk('public')->delete($landing_page->card_image);
             }
-            $data['card_image'] = $request->file('card_image')->store('landing_pages', 'public');
+            $data['card_image'] = WebImage::storeUpload($request->file('card_image'), 'landing_pages');
         }
 
         if ($request->hasFile('og_image')) {
             if ($landing_page->og_image && !str_starts_with($landing_page->og_image, 'http') && Storage::disk('public')->exists($landing_page->og_image)) {
                 Storage::disk('public')->delete($landing_page->og_image);
             }
-            $data['og_image'] = $request->file('og_image')->store('landing_pages', 'public');
+            $data['og_image'] = WebImage::storeUpload($request->file('og_image'), 'landing_pages', null, 'jpg');
         }
 
         if ($request->hasFile('twitter_image')) {
             if ($landing_page->twitter_image && !str_starts_with($landing_page->twitter_image, 'http') && Storage::disk('public')->exists($landing_page->twitter_image)) {
                 Storage::disk('public')->delete($landing_page->twitter_image);
             }
-            $data['twitter_image'] = $request->file('twitter_image')->store('landing_pages', 'public');
+            $data['twitter_image'] = WebImage::storeUpload($request->file('twitter_image'), 'landing_pages', null, 'jpg');
         }
 
         $landing_page->update($data);

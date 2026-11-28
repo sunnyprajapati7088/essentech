@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Support\WebImage;
 use App\Http\Controllers\Controller;
 use App\Models\Offer;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ class OfferController extends Controller
             'seo_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'focus_keyword' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:15360',
             'image_alt' => 'nullable|string|max:255',
         ]);
 
@@ -77,9 +78,7 @@ class OfferController extends Controller
         $validated['created_by'] = Auth::id();
 
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $filename = 'offer_' . time() . '.' . $file->extension();
-            $validated['image'] = $file->storeAs('offers', $filename, 'public');
+            $validated['image'] = WebImage::storeUpload($request->file('image'), 'offers', 'offer');
         }
 
         Offer::create($validated);
@@ -111,7 +110,7 @@ class OfferController extends Controller
             'seo_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'focus_keyword' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:15360',
             'image_alt' => 'nullable|string|max:255',
         ]);
 
@@ -119,9 +118,7 @@ class OfferController extends Controller
         $validated['canonical_url'] = url('/offers/' . $validated['slug']);
 
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $filename = 'offer_' . time() . '.' . $file->extension();
-            $validated['image'] = $file->storeAs('offers', $filename, 'public');
+            $validated['image'] = WebImage::storeUpload($request->file('image'), 'offers', 'offer');
         }
 
         $offer->update($validated);

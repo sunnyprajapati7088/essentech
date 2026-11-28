@@ -65,6 +65,20 @@ restore_state() {
     fi
 }
 
+# PHP upload limits: admin image uploads are up to 15 MB (nginx allows 20 MB per request).
+# PHP-FPM defaults (2 MB per file, 8 MB per form) made the admin panel show "413 Content Too Large".
+ensure_php_upload_limits() {
+    local conf ini
+    for conf in /etc/php/*/fpm/conf.d; do
+        [ -d "$conf" ] || continue
+        ini="$conf/99-essentechs-uploads.ini"
+        if ! grep -qs "^post_max_size = 20M" "$ini"; then
+            printf 'upload_max_filesize = 16M\npost_max_size = 20M\n' | sudo tee "$ini" >/dev/null
+            echo "   PHP upload limit set to 16 MB per file ($ini)"
+        fi
+    done
+}
+
 prune_backups() {
     for prefix in env- database-; do
         ls -1t "$BACKUP_DIR"/"$prefix"* 2>/dev/null | tail -n +$((KEEP_BACKUPS + 1)) | xargs -r rm -f
@@ -109,6 +123,8 @@ main() {
     if [ -f "$DB_FILE" ]; then
         sudo chmod 664 "$DB_FILE"
     fi
+
+    ensure_php_upload_limits
 
     # Reload web server & PHP-FPM
     for fpm in php8.5-fpm php8.4-fpm php8.3-fpm php8.2-fpm; do

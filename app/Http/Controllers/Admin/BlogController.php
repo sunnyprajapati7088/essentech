@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Support\WebImage;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
@@ -58,7 +59,7 @@ class BlogController extends Controller
             'slug' => 'nullable|string|max:255|unique:blogs,slug',
             'short_description' => 'nullable|string',
             'content' => 'required|string',
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:15360',
             'image_alt' => 'nullable|string|max:255',
             'category' => 'nullable|string|max:100',
             'tags' => 'nullable|string|max:255',
@@ -118,10 +119,8 @@ class BlogController extends Controller
             DB::beginTransaction();
 
             if ($request->hasFile('featured_image')) {
-                $file = $request->file('featured_image');
-                $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-                $newName = Str::slug($originalName) . '_' . time() . '.' . $file->extension();
-                $validated['featured_image'] = $file->storeAs('admin/blog/image', $newName, 'public');
+                // Scaled to web size and saved as WebP (big AI/phone images would slow the page).
+                $validated['featured_image'] = WebImage::storeUpload($request->file('featured_image'), 'admin/blog/image');
             }
 
             $blog = Blog::create($validated);
@@ -166,7 +165,7 @@ class BlogController extends Controller
             'slug' => 'required|string|max:255|unique:blogs,slug,' . $blog->id,
             'short_description' => 'nullable|string',
             'content' => 'required|string',
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:15360',
             'image_alt' => 'nullable|string|max:255',
             'category' => 'nullable|string|max:100',
             'tags' => 'nullable|string|max:255',
@@ -203,10 +202,8 @@ class BlogController extends Controller
             DB::beginTransaction();
 
             if ($request->hasFile('featured_image')) {
-                $file = $request->file('featured_image');
-                $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-                $newName = Str::slug($originalName) . '_' . time() . '.' . $file->extension();
-                $validated['featured_image'] = $file->storeAs('admin/blog/image', $newName, 'public');
+                // Scaled to web size and saved as WebP (big AI/phone images would slow the page).
+                $validated['featured_image'] = WebImage::storeUpload($request->file('featured_image'), 'admin/blog/image');
             }
 
             $blog->update($validated);
